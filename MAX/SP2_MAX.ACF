@@ -19,8 +19,9 @@
 --  their respective licensors.  No other licenses, including any licenses
 --  needed under any third party's intellectual property, are provided herein.
 --
-CHIP sp2_7064
+CHIP SP2_MAX
 BEGIN
+	DEVICE = EPM7064STC100-10;
 	|XCT0 :	LOCATION = LC20;
 	|LR_T1 :	LOCATION = LC8;
 	|LR_T0 :	LOCATION = LC3;
@@ -89,7 +90,6 @@ BEGIN
 	|FDD_C0 :	INPUT_PIN = 44;
 	|EPM_RES :	INPUT_PIN = 89;
 	|D0 :	INPUT_PIN = 60;
-	DEVICE = EPM7064STC100-10;
 END;
 
 DEFAULT_DEVICES

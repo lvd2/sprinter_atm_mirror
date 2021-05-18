@@ -272,8 +272,8 @@ BEGIN
 --	CLK_Z80	= DFF((!CLK21 & TURBO) or (TFF((CT2 & CT1),CLK42,,) & !TURBO),!CLK42,,);
 --	CLK_Z80	= DFF((CLK21 & TURBO) or (TFF((CT2 & CT1),CLK42,,) & !TURBO),!CLK42,,);
 
---	CLK_Z80	= DFF((CLK21 & TURBO) or (TFF((!CT2 & CT1),CLK42,,) & !TURBO),!CLK42,,);
 	CLK_Z80	= DFF((CLK21 & TURBO) or (TFF((!CT2 & CT1),CLK42,,) & !TURBO),!CLK42,,);
+--	CLK_Z80	= DFF((!CLK21 & TURBO) or (TFF((!CT2 & CT1),CLK42,,) & !TURBO),!CLK42,,);
 
 --	==============================================================
 	CLK21	= DFF((!CT0 xor CT2),CLK42,,);
@@ -434,7 +434,7 @@ CAS		\__/  | \__/|\__/
 
 --	MC_RQ		= DFF(((MEM_RW & IO_RW) or (/RD & /WR)),CLK42,,);
 
-	MC_RQ		= DFF(((MEM_RW & IO_RW) or (/RD & /WR)),!CLK42,,);
+	MC_RQ		= DFF(((MEM_RW & DFF(DFF(IO_RW,CLK42,,!/IO),CLK42,,!/IO)) or (/RD & /WR)),!CLK42,,);
 
 	MC_BEGIN.clk= CLK42;
 	MC_BEGIN.ena= CT1 & CT2;
@@ -479,7 +479,9 @@ CAS		\__/  | \__/|\__/
 --	CAS.prn		= !BLK_C;
 
 --	/MR_WAIT	= (MEM_RW or /CASH or DFF(MC_END,CLK42,!/MR,)) or (!TURBO & !ACC_ON);
-	/MR_WAIT	= MC_END or LCELL(MEM_RW or /CASH or (!TURBO & !ACC_ON));
+--	/MR_WAIT	= MC_END or LCELL(MEM_RW or /CASH or (!TURBO & !ACC_ON));
+
+	/MR_WAIT	= LCELL(MC_END or MEM_RW or /CASH or (!TURBO & !ACC_ON));
 
 --	MEM_RW		= LCELL(/MR or !/RF);
 
@@ -535,6 +537,7 @@ CAS		\__/  | \__/|\__/
 	/IO_WAIT	= LCELL(IO_RWM or DFF(DFFE((WT_CT[] == 0),CLK42,,,CLK21),CLK42,,NO_IO_WAIT));
 
 	NO_IO_WAIT	= !DFF(((A[7..0] == B"111XX1XX") & !TURBO & DOS),CLK42,,);
+--	NO_IO_WAIT	= TURBO;
 
 	WT_CT[].clk	= CLK42;
 --	WT_CT[].ena	= (CT2 xor CT0);
@@ -555,7 +558,8 @@ CAS		\__/  | \__/|\__/
 		WHEN 3 => W_TAB[] = 1;  WHEN 11 => W_TAB[] = 4;
 		WHEN 4 => W_TAB[] = 1;  WHEN 12 => W_TAB[] = 7;
 		WHEN 5 => W_TAB[] = 2;  WHEN 13 => W_TAB[] = 7;
-		WHEN 6 => W_TAB[] = 10; WHEN 14 => W_TAB[] = 10;
+--		WHEN 6 => W_TAB[] = 10; WHEN 14 => W_TAB[] = 10;
+		WHEN 6 => W_TAB[] = 7;  WHEN 14 => W_TAB[] = 7;
 --		WHEN 6 => W_TAB[] = 13; WHEN 14 => W_TAB[] = 13;
 		WHEN 7 => W_TAB[] = 10; WHEN 15 => W_TAB[] = 10;
 	END CASE;
@@ -570,9 +574,11 @@ CAS		\__/  | \__/|\__/
 
 --	=== Other Devicese CASHE, ISA, ROM... ===
 
+	V_RAM			= PN2;	-- for ORIGINAL Waits
+
 IF UPDATE == 1 GENERATE
 	-- all ROM/RAM switches in main .tdf
-	BLK_R	= GND;
+	BLK_R	= SC4;
 	-- all cashes in main .tdf
 	/CASH 	= GND;
 	-- cashe dir in main .tdf
@@ -737,7 +743,6 @@ END GENERATE;
 	TYPE[]			= MEM.q[15..12];
 
 
-	V_RAM			= !(MEM.q[15..12] == 13) or /MR;
 	PORT			= !(MEM.q[15..12] == 0) or /IO or (/RD & /WR);
 
 END;

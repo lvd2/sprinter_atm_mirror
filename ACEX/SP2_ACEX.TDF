@@ -11,17 +11,17 @@ PARAMETERS
 
 INCLUDE "lpm_ram_dp";
 INCLUDE "kbd";
-INCLUDE "video";
+--INCLUDE "video";
 INCLUDE "video2";
 
 INCLUDE	"dcp";
-INCLUDE	"dcp2";
+--INCLUDE	"dcp2";
 
 INCLUDE "acceler";
 INCLUDE "ay";
 INCLUDE "mouse";
 
-SUBDESIGN SP2_1K30
+SUBDESIGN SP2_ACEX
 	(
 	TG42		: INPUT;
 	CLKZ1		: OUTPUT;
@@ -211,6 +211,9 @@ VARIABLE
 
 	BLK_MEM     : NODE;
 
+	SYS_ENA		: NODE;
+	SYS_ENA2	: NODE;
+
 	/SYS		: NODE;
 	SYS_PG		: NODE;
 
@@ -223,7 +226,9 @@ VARIABLE
 	PRE_ROM		: NODE;
 	PRE_CASH	: NODE;
 
-	WAIT_ROM	: NODE;
+	WAIT_ORIG	: NODE;
+	WAIT_ROM 	: NODE;
+	WAIT_ROMX	: NODE;
 	WT_R[2..0]	: DFF;
 
 --	BLK_WAIT	: NODE;
@@ -273,9 +278,14 @@ VARIABLE
 
 	/WE_OUT		: NODE;
 
-	SINC_HOLD[7..0]	: DFF;
+	SINC_HOLD[8..0]	: DFF;
 
 	HOLD[7..0]	: DFFE;
+
+	CS_ROMT		: NODE;
+	CS_CASHT    : NODE;
+
+	ISA_PORT[7..0]	: DFFE;
 
 BEGIN
 
@@ -286,7 +296,6 @@ BEGIN
 	/RESET	= TRI(GND,!DFF((KEYS.kb_reset & SOFT_RESET),CLK42,,));
 
 --	SOFT_RES[].prn	= DFF((!DECODE.BLK_R or /WR or !(DECODE.PAGE[7..0] == H"A0")),CLK42,,);
-	SOFT_RES[].prn	= DFF((!DFF(DECODE.BLK_R,CLK42,,) or /WR or !(DECODE.PAGE[7..4] == H"A")),CLK42,,!/MR);
 
 	SOFT_RES[].clk	= !CT4;
 	CASE SOFT_RES[] IS
@@ -533,16 +542,31 @@ END GENERATE;
 --	=====================================================
 --	=====================================================
 
---	CS_ROM = DECODE.CS_ROM;
+	SYS_ENA = (!/SYS or ROM_RG4) or
+				(A[15..4] == B"001111111111") or
+				(A[15..4] == B"00000000000X");
 
+--	SYS_ENA2	= DFFE(SYS_ENA,/MR,,,/RF) & DFF((A[7..0] == B"0X111100"),CLK42,,);
+	SYS_ENA2	= DFF((A[7..0] == B"0X111100"),CLK42,,);
+
+	ISA_PORT[].clk	= /IOWR;
+	ISA_PORT[].d	= D[];
+	ISA_PORT[].ena	= DECODE.BLK_R & DFF((DCPP[] == B"1111XXXX"),CLK42,,);
 
 IF (UPDATE == 1) GENERATE
 
+	WAIT_ORIG		= LCELL(/MR or CT5 or ALL_MODE2 or
+						LCELL((!(DECODE.V_RAM & (A14 & A15)) & !(A14 & !A15)) or TURBO));
+
+
+	SOFT_RES[].prn	= !DFF(DFF((LCELL(DECODE.BLK_R & A14 & A15) &
+								LCELL(DECODE.PAGE[7..4] == H"A")),CLK42,,),(/WR or /MR),/RESET,);
+
 	-- /SYS=0 - system ROM on
-	/SYS	= DFFE(!A6,/IOWR,/RESET,,DFF((A[7..0] == B"0X111100"),CLK42,,));
+	/SYS	= DFFE(!A6,/IOWR,/RESET,,SYS_ENA2);
 
 	-- SYS_PG - system ROM0/ROM1 switch
-	SYS_PG	= DFFE(D0,/IOWR,/RESET,,DFF(((A[7..0] == B"0X111100") & !D1),CLK42,,));
+	SYS_PG	= DFFE(D0,/IOWR,/RESET,!ROM_RG4,(SYS_ENA2 & !D1));
 
 	-- 0 - write A20 for ISA
 	ISA_A20	= (/IOWR or !DFF((DCPP[] == B"00011011"),CLK42,,)); 	-- 1B
@@ -553,40 +577,52 @@ IF (UPDATE == 1) GENERATE
 	CASH_ON	= DFFE(A7,/IORD,/RESET,,DFF((A[7..0] == B"X1111011"),CLK42,,));
 
 	-- 0 - CS_ISA
-	CS_ISA	= VCC; -- now NO-ISA!
 
-	PRE_ISA		= VCC;
+	PRE_ISA		= LCELL(!LCELL(ISA_PORT[] == B"1101XXXX") or !DECODE.BLK_R or !A14 or !A15);
 	PRE_ROM		= LCELL(/SYS or A14 or A15 or CASH_ON);
 	PRE_CASH	= LCELL(A14 or A15 or !CASH_ON);
 
 --	BLK_WAIT	= LCELL(LCELL(PRE_CASH or !PRE_ROM) or (/RD & /WR) or /MR);
 
-	WAIT_ROM	= (CS_ROM or DFF((WT_R[] == 0),CLK42,!CS_ROM,));
+	WAIT_ROMX	= LCELL(CS_ROM & CS_ISA);
+	WAIT_ROM	= (WAIT_ROMX or DFF((WT_R[] == 0),CLK42,!WAIT_ROMX,));
 	WT_R[].clk	= CLK42;
-	CASE (CS_ROM,WT_R[]) IS
+	CASE (WAIT_ROMX,WT_R[]) IS
 		WHEN 0 		 => WT_R[] = 0;
 		WHEN B"0001" => WT_R[] = WT_R[] - 1;
 		WHEN B"001X" => WT_R[] = WT_R[] - 1;
 		WHEN B"01XX" => WT_R[] = WT_R[] - 1;
-		WHEN B"1XXX" => WT_R[] = 3;
+		WHEN B"1XXX" => WT_R[] = 4;
 	END CASE;
 
-	CS_ROM	= LCELL(LCELL(PRE_ROM or !PRE_CASH) or (/RD & /WR) or /MR);
+	CS_ISA	 = DFF((!/RF or PRE_ISA),!/MR,,LCELL(CS_ISA or !/MR));
+	CS_ROMT	 = DFF((!/RF or PRE_ROM or !PRE_CASH),!/MR,,LCELL(CS_ROMT or !/MR));
+	CS_CASHT = DFF((!/RF or !PRE_ROM or PRE_CASH),!/MR,,LCELL(CS_CASHT or !/MR));
 
-	CS_CASH	= LCELL(LCELL(PRE_CASH or !PRE_ROM) or (/RD & /WR) or /MR) &
-				   CS_ISA & ISA_A20;
+	CS_ROM	= CS_ROMT;
+
+	CS_CASH	= CS_CASHT & CS_ISA & ISA_A20;
+
+--	CS_ROM	= LCELL(LCELL(PRE_ROM or !PRE_CASH) or (/RD & /WR) or /MR);
+
+--	CS_CASH	= LCELL(LCELL(PRE_CASH or !PRE_ROM) or (/RD & /WR) or /MR) &
+--				   CS_ISA & ISA_A20;
 
 	CASE (PRE_ROM,PRE_CASH) IS
 		WHEN B"00" => ISA_A[] = B"1000";			-- error -> ISA
-		WHEN B"01" => ISA_A[] = (ROM_RG[3..1],(ROM_RG0 xor !SYS_PG)); -- ROM_ADRESS
+		WHEN B"01" => ISA_A[] = ((ROM_RG3 xor !SYS_PG),ROM_RG[2..0]); -- ROM_ADRESS
 		WHEN B"10" => ISA_A[] = (B"01",ROM_RG[1..0]); -- CASHE_ADRESS
-		WHEN B"11" => ISA_A[] = B"0000"; 		 	-- for ISA_A20
+		WHEN B"11" => ISA_A[] = (!PRE_ISA,GND,ISA_PORT[2..1]); 	-- for ISA_A20
 	END CASE;
 	RA[] 		= ISA_A[3..0];
 
-	XACS.clk	= CLK42;
-	XACS		= (PRE_ROM or /MR or /WR);
-	XACS.prn	= !/MR & ROM_PG4;
+	XACS.clk	= !(/MR or /WR);
+	XACS.d		= (!ROM_RG4 or A14 or A15);
+	XACS.prn	= (XACS or (!/MR & ROM_RG4));
+
+--	XACS.clk	= CLK42;
+--	XACS		= (WAIT_ROM or /WR or A14 or A15);
+--	XACS.prn	= !/MR & ROM_RG4;
 
 	BLK_MEM		= LCELL(!PRE_ROM or !PRE_CASH or !PRE_ISA);
 
@@ -596,7 +632,15 @@ IF (UPDATE == 1) GENERATE
 
 	DECODE.BLK_MEM	= BLK_MEM;
 
+	ROM_RG[].clk	= /IOWR;
+	ROM_RG[].d		= D[];
+	ROM_RG[].ena	= DFF((DCPP[] == H"8F"),CLK42,,) or
+						(!/SYS & DFF((A[7..0] == B"01011100"),CLK42,,)); -- 5C
+	ROM_RG[].clrn	= /RESET;
+
 ELSE GENERATE
+
+	SOFT_RES[].prn	= DFF((!DFF(DECODE.BLK_R,CLK42,,) or /WR or !(DECODE.PAGE[7..4] == H"A")),CLK42,,!/MR);
 
 	WT_R[].clk	= GND;
 	WT_R[] = 0;
@@ -660,12 +704,13 @@ ELSE GENERATE
 	END CASE;
 	ROM_WRITE_MODE	= DFF((ROM_RG[4] & !(A14 or A14)),CLK42,,);
 
-END GENERATE;
-
 	ROM_RG[].clk	= /IOWR;
 	ROM_RG[].d		= D[];
 	ROM_RG[].ena	= DFF((DCPP[] == H"8F"),CLK42,,);
 	ROM_RG[].clrn	= /RESET;
+
+END GENERATE;
+
 
 --	=====================================================
 --	=====================================================
@@ -748,7 +793,7 @@ END GENERATE;
 	SINC_2      = DFFE(XA3,T_RDXA,DECODE./RES,,SXA);
 
 	SINC_HOLD[3..0].clk	= CT4;
-	SINC_HOLD[7..4].clk = CTV0;
+	SINC_HOLD[8..4].clk = CTH5;
 
 	SINC_1M = DFF(!(SINC_HOLD[3..0] == 15),CLK42,,);
 
@@ -757,13 +802,13 @@ END GENERATE;
 		WHEN 1 => SINC_HOLD[3..0] = (SINC_HOLD[3..0] + 1) or !SINC_1M;
 	END CASE;
 
-	SINC_2M = DFF(!(SINC_HOLD[7..4] == 15),CLK42,,);
+	SINC_2M = DFF(!(SINC_HOLD[8..4] == B"1111X"),CLK42,,);
 
 --	CASE DFF((SINC_2 & DFF(SINC_2,CTV0,,)),CLK42,,) IS
 
 	CASE SINC_2 IS
-		WHEN 1 => SINC_HOLD[7..4] = HOLD[7..4];
-		WHEN 0 => SINC_HOLD[7..4] = (SINC_HOLD[7..4] + 1) or !SINC_2M;
+		WHEN 1 => SINC_HOLD[8..4] = (HOLD[7..4],GND);
+		WHEN 0 => SINC_HOLD[8..4] = (SINC_HOLD[8..4] + 1) or !SINC_2M;
 	END CASE;
 
 	COPY_SINC_H	= DFF((!SINC_1M & DFF(SINC_1M,CLK42,,)),CLK42,,);
@@ -830,7 +875,6 @@ END GENERATE;
 --	/WE		= LCELL(DFFE((/WE_OUT or DECODE.RAS),CLK42,,/RESET,));
 --	/WE		= LCELL(/WE_OUT or CAS_A);
 
---	/WE_OUT	= LCELL(DECODE.MC_WRITE or BLK_MR or DECODE.BLK_R);
 	/WE_OUT	= LCELL(DECODE.MC_WRITE or BLK_MR or BLK_MWR2);
 
 	DECODE.DOUBLE_CAS	= DOUBLE_CAS;
@@ -852,7 +896,7 @@ END GENERATE;
 	DECODE./RF		= /RF;
 	DECODE./M1		= /M1;
 
-	/WAIT_ALL		= (DECODE./WAIT & WAIT_ROM);
+	/WAIT_ALL		= (DECODE./WAIT & WAIT_ROM & WAIT_ORIG);
 
 --	/WAIT			= TRI(DECODE./WAIT,LCELL(!(DECODE./WAIT & DFF(DECODE./WAIT,CLK42,,))));
 
@@ -1079,12 +1123,15 @@ END GENERATE;
 	  		!DFF((DECODE.MC_WRITE or DECODE.CAS),CLK42,,/RESET));
 
 
-	CBL_WAE			= CBL_MODE16 & DFF(!CBL_WAE,!CBL_WR,,);
+	CBL_WAE			= CBL_MODE16 & DFF(!CBL_WAE,!CBL_WR,,CBL_INT);
 
 	CBL_WA[].clk	= !CBL_WR;
 	CBL_WA[].ena	= !CBL_WAE;
 
-	CBL_WA[].clrn	= CBL_MODE & CBL_INT_ENA;
+	CBL_WA[7].clrn	= CBL_MODE & CBL_INT_ENA & (CBL_INT or !CBL_CNT7);
+	CBL_WA[7].prn	= (CBL_INT or CBL_CNT7);
+
+	CBL_WA[6..0].clrn	= CBL_MODE & CBL_INT_ENA & CBL_INT;
 
 	CBL_WA[].d		= CBL_WA[] + 1;
 
@@ -1110,7 +1157,9 @@ END GENERATE;
 
 	CBL_R[].ena = DFF((CBL_MODE or (CBL_WR)),CLK42,,);
 
-	CBL_R[].CLK	= CLK42;
+	CBL_R[].CLK			= CLK42;
+	CBL_R[15].prn		= /RESET;
+	CBL_R[14..0].clrn	= /RESET;
 	CASE CBL_MODE IS
 		WHEN 0 => CBL_R[] = (D[7..0],B"00000000");
 		WHEN 1 => CBL_R[] = CBL.q[];
