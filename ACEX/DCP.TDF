@@ -1,6 +1,11 @@
 
 	TITLE "DCP";
 
+PARAMETERS
+	(
+	UPDATE = 1
+	);
+
 INCLUDE "lpm_ram_dp";
 -- INCLUDE "DC_PORT2";
 
@@ -86,6 +91,8 @@ SUBDESIGN dcp
 	DCPP[7..0]	: OUTPUT;
 
 	DOUBLE_CAS	: INPUT;
+
+	BLK_MEM		: INPUT;
 
 	)
 VARIABLE
@@ -477,7 +484,7 @@ CAS		\__/  | \__/|\__/
 --	MEM_RW		= LCELL(/MR or !/RF);
 
 	-- anti gluk!
-	MEM_RW		= DFF(!/RF,!/MR,,LCELL(MEM_RW or !/MR));
+	MEM_RW		= DFF((!/RF or BLK_MEM),!/MR,,LCELL(MEM_RW or !/MR));
 	IO_RWM		= DFF(!/M1,!/IO,,LCELL(IO_RW or !/IO));
 
 	IO_RW		= DFF(/IO,CLK42,,/M1);
@@ -560,18 +567,32 @@ CAS		\__/  | \__/|\__/
 
 	/WAIT		= (/IO_WAIT & /MR_WAIT);
 
+
 --	=== Other Devicese CASHE, ISA, ROM... ===
 
+IF UPDATE == 1 GENERATE
+	-- all ROM/RAM switches in main .tdf
+	BLK_R	= GND;
+	-- all cashes in main .tdf
+	/CASH 	= GND;
+	-- cashe dir in main .tdf
+	CASH_ON = GND;
+ELSE GENERATE
+	-- for blk wait
+	/CASH = DFF((MEM.q[7..4] == 15),!CLK42,BLK_R,);
 --	when BLK_R = 1 => Other Devices stay Active!
-
 	BLK_R = DFF(  (LCELL((MEM.q7 & MEM.q6 & RAM) or
 				   (MEM.q7 & LCELL(A14 & A15 & SC4))) &
 				   !DFF(DFF(MC_RQ,CLK42,,!/MR),CLK42,,!/MR)),!CLK42,!/MR,);
-
-	/CASH = DFF((MEM.q[7..4] == 15),!CLK42,BLK_R,);
---	/CASH = VCC;
+	CASH_ON		= DFFE(A7,(/IO or /RD),/RESET,,DFF((DCPP[] == H"88"),CLK42,,));
+END GENERATE;
 
 	RAM	= !LCELL(A14 or A15 or (SC0 & SYS));
+
+	CS_ROM	= LCELL(/MR or !RAM or !/RF);
+	CS_RAM	= LCELL(/MR or  RAM or !/RF);
+
+-- ==============================================
 
 --	graf screen enable for pages
 
@@ -662,7 +683,6 @@ CAS		\__/  | \__/|\__/
 --	SC_LCELL	= LCELL(!(SC0 & SYS) & !CASH_ON);
 	SC_LCELL	= (!(SC0 & SYS) & !CASH_ON);
 
-	CASH_ON		= DFFE(A7,(/IO or /RD),/RESET,,DFF((DCPP[] == H"88"),CLK42,,));
 	NMI_ENA		= VCC;
 
 	SPR_[]	= !SC1 & (DOS,(PN4 or !DOS));	-- expansion/dos/basic128/basic48
@@ -716,10 +736,6 @@ CAS		\__/  | \__/|\__/
 	PAGE[]			= MEM.q[11..0];
 	TYPE[]			= MEM.q[15..12];
 
-	CS_ROM			= LCELL(/MR or !RAM or !/RF);
-	CS_RAM			= LCELL(/MR or  RAM or !/RF);
-
---	RA[]			= (VCC,MEM.q[3..1]);
 
 	V_RAM			= !(MEM.q[15..12] == 13) or /MR;
 	PORT			= !(MEM.q[15..12] == 0) or /IO or (/RD & /WR);

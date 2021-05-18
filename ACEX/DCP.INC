@@ -20,7 +20,8 @@
 
 -- MAX+plus II Include File
 -- Version 10.0 9/14/2000
--- Created: Mon May 14 09:29:40 2001
+-- Created: Thu Feb 07 21:14:23 2002
 
-FUNCTION dcp (clk42, /reset, ct[2..0], continue, a[15..0], di[7..0], turbo_hand, /io, /rd, /wr, /mr, /rf, /m1, md[7..0], dos, refresh, g_line[9..0], test_r, acc_on, double_cas)
+FUNCTION dcp (clk42, /reset, ct[2..0], continue, a[15..0], di[7..0], turbo_hand, /io, /rd, /wr, /mr, /rf, /m1, md[7..0], dos, refresh, g_line[9..0], test_r, acc_on, double_cas, blk_mem)
+    WITH (UPDATE)
     RETURNS (/res, ras, cas, mc_end, mc_begin, mc_type, mc_write, do[7..0], ma[11..0], mca[1..0], clk_z80, turbo, /wait, /iom, /iomm, ra[17..14], page[11..0], type[3..0], cs_rom, cs_ram, v_ram, port, wr_dwg, wr_tm9, wr_awg, rd_kp11, kp11_mix, ga[9..0], graf, sp_scr, sp_sa, scr128, hdd_data, hdd_flip, ram, blk_r, pn4q, dcpp[7..0]);

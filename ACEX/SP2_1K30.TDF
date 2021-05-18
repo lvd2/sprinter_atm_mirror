@@ -3,6 +3,7 @@
 
 PARAMETERS
 	(
+	UPDATE	= 1,			-- 1 for UPDATE sheet
 	MODE 	= "SPRINTER",	--	or MODE = "SPECTRUM"
 	NMI_ON	= "OFF",		-- "ON" - for use NMI
 	SCREEN_OFF = "NOT_USE"	-- "USE" - for use screen on/off
@@ -79,7 +80,7 @@ VARIABLE
 	KEYS		: KBD;
 	SVIDEO		: VIDEO2 WITH (MODE=MODE);
 
-	DECODE		: DCP;
+	DECODE		: DCP WITH (UPDATE=UPDATE);
 --	DECODE		: DCP2;
 
 	ACC			: ACCELER;
@@ -203,13 +204,35 @@ VARIABLE
 	CBL_R[15..0]	: DFFE;
 	CBD[7..0]		: DFFE;
 
-
 	AUDIO_R[15..0]	: DFFE;
+
+
+	/WAIT_ALL	: NODE;
+
+	BLK_MEM     : NODE;
+
+	/SYS		: NODE;
+	SYS_PG		: NODE;
+
+	CS_ISA		: NODE;
 
 	ISA_CASH	: NODE;
 	ISA_A[3..0]	: NODE;
 
-	ROM_WR[4..0]: DFFE;
+	PRE_ISA		: NODE;
+	PRE_ROM		: NODE;
+	PRE_CASH	: NODE;
+
+	WAIT_ROM	: NODE;
+	WT_R[2..0]	: DFF;
+
+--	BLK_WAIT	: NODE;
+
+	ISA_A20		: NODE;
+	CASH_ON		: NODE;
+	BLK_MWR2	: NODE;
+
+	ROM_RG[7..0]: DFFE;
 	ROM_WRITE_MODE	: NODE;
 
 	AY_CHS[15..0]	: DFFE;
@@ -237,6 +260,7 @@ VARIABLE
 	KEY_IO		: NODE;
 
 	/IOWR		: NODE;
+	/IORD		: NODE;
 
 	RASX_[1..0]	: NODE;
 	CASX_[3..0]	: NODE;
@@ -275,6 +299,7 @@ BEGIN
 --	===== Spectrum-Ports ===================
 
 	/IOWR			= DFF((/WR or /IO),CLK42,,!/IO);
+	/IORD			= DFF((/RD or /IO),CLK42,,!/IO);
 
 	BORDER[].clk	= /IOWR;
 	BORDER[].ena	= DFF((DCPP[] == B"1100X010"),CLK42,,); -- C2/C8
@@ -370,7 +395,8 @@ BEGIN
 		WHEN 0 => DD[] = PDD[];
 	END CASE;
 
-	D_OUT = !(/IO or /RD or LCELL((DCPP[7..4] == 0) or (DCPP[7..4] == 3))) or RD_RAM;
+--	D_OUT = !(/IO or /RD or LCELL((DCPP[7..4] == 0) or (DCPP[7..4] == 3))) or RD_RAM;
+	D_OUT = !(/IORD or LCELL((DCPP[7..4] == 0) or (DCPP[7..4] == 3))) or RD_RAM;
 
 	V_WRXX[] = !SVIDEO.V_WEN[];
 
@@ -509,10 +535,82 @@ END GENERATE;
 
 --	CS_ROM = DECODE.CS_ROM;
 
+
+IF (UPDATE == 1) GENERATE
+
+	-- /SYS=0 - system ROM on
+	/SYS	= DFFE(!A6,/IOWR,/RESET,,DFF((A[7..0] == B"0X111100"),CLK42,,));
+
+	-- SYS_PG - system ROM0/ROM1 switch
+	SYS_PG	= DFFE(D0,/IOWR,/RESET,,DFF(((A[7..0] == B"0X111100") & !D1),CLK42,,));
+
+	-- 0 - write A20 for ISA
+	ISA_A20	= (/IOWR or !DFF((DCPP[] == B"00011011"),CLK42,,)); 	-- 1B
+--	ISA_A20	= VCC;
+
+	-- 1 - CASHE on  IN A,(0FBh/07Bh)
+--	CASH_ON	= DFFE(A7,/IORD,/RESET,,DFF((DCPP[] == H"88"),CLK42,,));-- 88
+	CASH_ON	= DFFE(A7,/IORD,/RESET,,DFF((A[7..0] == B"X1111011"),CLK42,,));
+
+	-- 0 - CS_ISA
+	CS_ISA	= VCC; -- now NO-ISA!
+
+	PRE_ISA		= VCC;
+	PRE_ROM		= LCELL(/SYS or A14 or A15 or CASH_ON);
+	PRE_CASH	= LCELL(A14 or A15 or !CASH_ON);
+
+--	BLK_WAIT	= LCELL(LCELL(PRE_CASH or !PRE_ROM) or (/RD & /WR) or /MR);
+
+	WAIT_ROM	= (CS_ROM or DFF((WT_R[] == 0),CLK42,!CS_ROM,));
+	WT_R[].clk	= CLK42;
+	CASE (CS_ROM,WT_R[]) IS
+		WHEN 0 		 => WT_R[] = 0;
+		WHEN B"0001" => WT_R[] = WT_R[] - 1;
+		WHEN B"001X" => WT_R[] = WT_R[] - 1;
+		WHEN B"01XX" => WT_R[] = WT_R[] - 1;
+		WHEN B"1XXX" => WT_R[] = 3;
+	END CASE;
+
+	CS_ROM	= LCELL(LCELL(PRE_ROM or !PRE_CASH) or (/RD & /WR) or /MR);
+
+	CS_CASH	= LCELL(LCELL(PRE_CASH or !PRE_ROM) or (/RD & /WR) or /MR) &
+				   CS_ISA & ISA_A20;
+
+	CASE (PRE_ROM,PRE_CASH) IS
+		WHEN B"00" => ISA_A[] = B"1000";			-- error -> ISA
+		WHEN B"01" => ISA_A[] = (ROM_RG[3..1],(ROM_RG0 xor !SYS_PG)); -- ROM_ADRESS
+		WHEN B"10" => ISA_A[] = (B"01",ROM_RG[1..0]); -- CASHE_ADRESS
+		WHEN B"11" => ISA_A[] = B"0000"; 		 	-- for ISA_A20
+	END CASE;
+	RA[] 		= ISA_A[3..0];
+
+	XACS.clk	= CLK42;
+	XACS		= (PRE_ROM or /MR or /WR);
+	XACS.prn	= !/MR & ROM_PG4;
+
+	BLK_MEM		= LCELL(!PRE_ROM or !PRE_CASH or !PRE_ISA);
+
+	RD_RAM		= !(/MR or /RD or BLK_MEM);
+
+	BLK_MWR2	= DECODE.RAM or BLK_MEM;
+
+	DECODE.BLK_MEM	= BLK_MEM;
+
+ELSE GENERATE
+
+	WT_R[].clk	= GND;
+	WT_R[] = 0;
+
+	WAIT_ROM		= VCC;
+
+	DECODE.BLK_MEM	= GND;
+
+	BLK_MWR2	= DECODE.BLK_R;
+
 	XACS.clk	= CLK42;
 	CASE ROM_WRITE_MODE IS
 		WHEN 0 =>
-				CS_ROM  = ROM_WR[4] or !/RF or LCELL(DECODE.CS_ROM or /RD or (DECODE.BLK_R & !LCELL(DECODE.PAGE[7..4] == 14)));
+				CS_ROM  = ROM_RG[4] or !/RF or LCELL(DECODE.CS_ROM or /RD or (DECODE.BLK_R & !LCELL(DECODE.PAGE[7..4] == 14)));
 				XACS 	= VCC;
 		WHEN 1 =>
 				CS_ROM  = /MR or !/RF or DFF((/RD & /WR),CLK42,,);
@@ -558,14 +656,19 @@ END GENERATE;
 			WHEN 2,3 => RA[] = ISA_A[3..0];		-- CASHE & ISA
 		END CASE;
 	  WHEN 1 =>
-		RA[] = ROM_WR[3..0];
+		RA[] = ROM_RG[3..0];
 	END CASE;
+	ROM_WRITE_MODE	= DFF((ROM_RG[4] & !(A14 or A14)),CLK42,,);
 
-	ROM_WR[].clk	= /IOWR;
-	ROM_WR[].d		= D[4..0];
-	ROM_WR[].ena	= DFF((DCPP[] == H"8F"),CLK42,,);
-	ROM_WR[].clrn	= /RESET;
-	ROM_WRITE_MODE	= DFF((ROM_WR[4] & !(A14 or A14)),CLK42,,);
+END GENERATE;
+
+	ROM_RG[].clk	= /IOWR;
+	ROM_RG[].d		= D[];
+	ROM_RG[].ena	= DFF((DCPP[] == H"8F"),CLK42,,);
+	ROM_RG[].clrn	= /RESET;
+
+--	=====================================================
+--	=====================================================
 
 	RD_KMPS		= DECODE./IOM or /RD or !(DECODE.TYPE[] == 7);
 
@@ -727,7 +830,8 @@ END GENERATE;
 --	/WE		= LCELL(DFFE((/WE_OUT or DECODE.RAS),CLK42,,/RESET,));
 --	/WE		= LCELL(/WE_OUT or CAS_A);
 
-	/WE_OUT	= LCELL(DECODE.MC_WRITE or BLK_MR or DECODE.BLK_R);
+--	/WE_OUT	= LCELL(DECODE.MC_WRITE or BLK_MR or DECODE.BLK_R);
+	/WE_OUT	= LCELL(DECODE.MC_WRITE or BLK_MR or BLK_MWR2);
 
 	DECODE.DOUBLE_CAS	= DOUBLE_CAS;
 --	DECODE.A[15..0]	= A[];
@@ -748,10 +852,11 @@ END GENERATE;
 	DECODE./RF		= /RF;
 	DECODE./M1		= /M1;
 
---	/WAIT			= OPNDRN(DECODE./WAIT);
+	/WAIT_ALL		= (DECODE./WAIT & WAIT_ROM);
 
 --	/WAIT			= TRI(DECODE./WAIT,LCELL(!(DECODE./WAIT & DFF(DECODE./WAIT,CLK42,,))));
-	/WAIT			= TRI(DECODE./WAIT,LCELL(!(DECODE./WAIT)));
+
+	/WAIT			= TRI(/WAIT_ALL,LCELL(!/WAIT_ALL));
 
 	DECODE.TEST_R	= TFF(KEYS.kb_ctrl,KEYS.kb_f12,,);
 
