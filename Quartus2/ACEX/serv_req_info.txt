@@ -1,0 +1,24 @@
+<internal_error>
+	<executable>quartus.exe</executable>
+	<sub_system>unknown</sub_system>
+	<file>unknown</file>
+	<line>0</line>
+	<callstack>
+	0x77ebfe7c: ntdll + 0x5fe7c (RtlSizeHeap + 0xec)
+	0x7519a474: AcLayers + 0x2a474
+	0x74ce3c1a: MSVCR90 + 0x63c1a (free + 0xcc)
+	0x4c11c154: AOT803AS + 0x11c154 (SECPersistentTreeNode::`scalar deleting destructor&apos; + 0x14)
+	0x4c11b5e7: AOT803AS + 0x11b5e7 (SECPTNFactory::~SECPTNFactory + 0x57)
+	0x1004bfe2: GCL_AFC + 0x4bfe2 (?save_toolbar_state@AFC_CHILD_FRAME@@QAIXXZ + 0x462)
+	0x09c9c107:
+	0x09c9c107:
+	0xffffffffffffffff:
+	</callstack>
+	<error>Current editor: RPW</error>
+	<date>Tue Jul 06 07:39:08 2021</date>
+	<version>Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition</version>
+	<full_error>Access Violation at 0X77EBFE7C
+Current editor: RPW
+Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition </full_error>
+</internal_error>
+

@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="SP2_ACEX">
+		<CBX_INST_ENTRY INSTANCE_NAME="|SP2_ACEX|lpm_add_sub:op_10" CBX_FILE_NAME="add_sub_l8h.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SP2_ACEX|lpm_add_sub:op_5" CBX_FILE_NAME="add_sub_rah.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SP2_ACEX|lpm_add_sub:op_9" CBX_FILE_NAME="add_sub_uah.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SP2_ACEX|mouse:MS|lpm_add_sub:op_2" CBX_FILE_NAME="add_sub_j8h.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SP2_ACEX|video2:SVIDEO|lpm_add_sub:op_4" CBX_FILE_NAME="add_sub_sah.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SP2_ACEX|ay:AY3|lpm_add_sub:$00043" CBX_FILE_NAME="add_sub_esc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SP2_ACEX|ay:AY3|lpm_add_sub:op_1" CBX_FILE_NAME="add_sub_djh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SP2_ACEX|mouse:MS|lpm_add_sub:op_3" CBX_FILE_NAME="add_sub_j8h.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SP2_ACEX|video2:SVIDEO|lpm_add_sub:op_5" CBX_FILE_NAME="add_sub_vah.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SP2_ACEX|acceler:ACC|lpm_add_sub:op_3" CBX_FILE_NAME="add_sub_p8h.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SP2_ACEX|lpm_add_sub:op_7" CBX_FILE_NAME="add_sub_uah.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SP2_ACEX|ay:AY3|lpm_add_sub:$00045" CBX_FILE_NAME="add_sub_esc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SP2_ACEX|lpm_add_sub:op_8" CBX_FILE_NAME="add_sub_uah.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

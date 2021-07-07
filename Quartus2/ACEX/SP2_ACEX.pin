@@ -1,0 +1,252 @@
+ -- Copyright (C) 1991-2009 Altera Corporation
+ -- Your use of Altera Corporation's design tools, logic functions 
+ -- and other software and tools, and its AMPP partner logic 
+ -- functions, and any output files from any of the foregoing 
+ -- (including device programming or simulation files), and any 
+ -- associated documentation or information are expressly subject 
+ -- to the terms and conditions of the Altera Program License 
+ -- Subscription Agreement, Altera MegaCore Function License 
+ -- Agreement, or other applicable license agreement, including, 
+ -- without limitation, that your use is for the sole purpose of 
+ -- programming logic devices manufactured by Altera and sold by 
+ -- Altera or its authorized distributors.  Please refer to the 
+ -- applicable agreement for further details.
+ -- 
+ -- This is a Quartus II output file. It is for reporting purposes only, and is
+ -- not intended for use as a Quartus II input file. This file cannot be used
+ -- to make Quartus II pin assignments - for instructions on how to make pin
+ -- assignments, please see Quartus II help.
+ ------------------------------------------------------------------------------
+
+
+
+ ------------------------------------------------------------------------------
+ -- NC         : No Connect. This pin has no internal connection to the device.
+ -- VCC_INT    : Dedicated power pin, which MUST be connected to VCC  (2.5V).
+ -- VCC_IO     : Dedicated power pin, which MUST be connected to VCC  (Refer to
+ --              the table below for voltage).
+ -- GND        : Dedicated ground pin, which MUST be connected to GND.
+ -- GND+       : Unused input. This pin should be connected to GND. It may also
+ --              be connected  to a  valid signal  on the board  (low, high, or
+ --              toggling)  if that signal is required for a different revision
+ --              of the design.
+ -- GND*       : Unused  I/O  pin.   This pin can either be left unconnected or
+ --              connected to GND.  Connecting this pin to GND will improve the
+ --              device's immunity to noise.
+ ------------------------------------------------------------------------------
+
+
+File Generation Date & Time: Wed Jul 07 17:30:38 2021
+Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
+CHIP  "SP2_ACEX"  ASSIGNED TO AN: EP1K30QC208-3
+
+Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
+-------------------------------------------------------------------------------------------------------------
+TCK                          : 1         : input  :                   :         :           :                
+CONF_DONE                    : 2         : bidir  :                   :         :           :                
+nCEO                         : 3         : output :                   :         :           :                
+TDO                          : 4         : output :                   :         :           :                
+VCC_IO                       : 5         : power  :                   : 3.3V    :           :                
+GND_INT                      : 6         : gnd    :                   :         :           :                
+SXA                          : 7         : output : LVTTL/LVCMOS      :         :           : Y              
+md[8]                        : 8         : bidir  : LVTTL/LVCMOS      :         :           : Y              
+XA[1]                        : 9         : bidir  : LVTTL/LVCMOS      :         :           : Y              
+RD_KMPS                      : 10        : output : LVTTL/LVCMOS      :         :           : Y              
+wr_dwg                       : 11        : output : LVTTL/LVCMOS      :         :           : Y              
+CAS_[0]                      : 12        : output : LVTTL/LVCMOS      :         :           : Y              
+CAS_[2]                      : 13        : output : LVTTL/LVCMOS      :         :           : Y              
+CAS_[1]                      : 14        : output : LVTTL/LVCMOS      :         :           : Y              
+CAS_[3]                      : 15        : output : LVTTL/LVCMOS      :         :           : Y              
+/WE                          : 16        : output : LVTTL/LVCMOS      :         :           : Y              
+XA[3]                        : 17        : bidir  : LVTTL/LVCMOS      :         :           : Y              
+/wait                        : 18        : bidir  : LVTTL/LVCMOS      :         :           : Y              
+/reset                       : 19        : bidir  : LVTTL/LVCMOS      :         :           : Y              
+GND_INT                      : 20        : gnd    :                   :         :           :                
+VCC_INT                      : 21        : power  :                   : 2.5V    :           :                
+VCC_IO                       : 22        : power  :                   : 3.3V    :           :                
+GND_INT                      : 23        : gnd    :                   :         :           :                
+/m1                          : 24        : input  : LVTTL/LVCMOS      :         :           : Y              
+/rf                          : 25        : input  : LVTTL/LVCMOS      :         :           : Y              
+a[0]                         : 26        : input  : LVTTL/LVCMOS      :         :           : Y              
+a[1]                         : 27        : input  : LVTTL/LVCMOS      :         :           : Y              
+a[2]                         : 28        : input  : LVTTL/LVCMOS      :         :           : Y              
+a[3]                         : 29        : input  : LVTTL/LVCMOS      :         :           : Y              
+a[4]                         : 30        : input  : LVTTL/LVCMOS      :         :           : Y              
+a[5]                         : 31        : input  : LVTTL/LVCMOS      :         :           : Y              
+GND_INT                      : 32        : gnd    :                   :         :           :                
+VCC_INT                      : 33        : power  :                   : 2.5V    :           :                
+VCC_IO                       : 34        : power  :                   : 3.3V    :           :                
+GND_INT                      : 35        : gnd    :                   :         :           :                
+a[6]                         : 36        : input  : LVTTL/LVCMOS      :         :           : Y              
+a[7]                         : 37        : input  : LVTTL/LVCMOS      :         :           : Y              
+a[8]                         : 38        : input  : LVTTL/LVCMOS      :         :           : Y              
+a[9]                         : 39        : input  : LVTTL/LVCMOS      :         :           : Y              
+a[10]                        : 40        : input  : LVTTL/LVCMOS      :         :           : Y              
+a[11]                        : 41        : input  : LVTTL/LVCMOS      :         :           : Y              
+VCC_IO                       : 42        : power  :                   : 3.3V    :           :                
+GND_INT                      : 43        : gnd    :                   :         :           :                
+a[12]                        : 44        : input  : LVTTL/LVCMOS      :         :           : Y              
+a[13]                        : 45        : input  : LVTTL/LVCMOS      :         :           : Y              
+a[14]                        : 46        : input  : LVTTL/LVCMOS      :         :           : Y              
+a[15]                        : 47        : input  : LVTTL/LVCMOS      :         :           : Y              
+VCC_INT                      : 48        : power  :                   : 2.5V    :           :                
+GND_INT                      : 49        : gnd    :                   :         :           :                
+TMS                          : 50        : input  :                   :         :           :                
+TRST                         : 51        : input  :                   :         :           :                
+nSTATUS                      : 52        : bidir  :                   :         :           :                
+d[0]                         : 53        : bidir  : LVTTL/LVCMOS      :         :           : Y              
+d[1]                         : 54        : bidir  : LVTTL/LVCMOS      :         :           : Y              
+d[2]                         : 55        : bidir  : LVTTL/LVCMOS      :         :           : Y              
+d[3]                         : 56        : bidir  : LVTTL/LVCMOS      :         :           : Y              
+d[4]                         : 57        : bidir  : LVTTL/LVCMOS      :         :           : Y              
+d[5]                         : 58        : bidir  : LVTTL/LVCMOS      :         :           : Y              
+GND_INT                      : 59        : gnd    :                   :         :           :                
+d[6]                         : 60        : bidir  : LVTTL/LVCMOS      :         :           : Y              
+d[7]                         : 61        : bidir  : LVTTL/LVCMOS      :         :           : Y              
+CLKZ1                        : 62        : output : LVTTL/LVCMOS      :         :           : Y              
+cs_rom                       : 63        : output : LVTTL/LVCMOS      :         :           : Y              
+CS_CASH                      : 64        : output : LVTTL/LVCMOS      :         :           : Y              
+ra[14]                       : 65        : output : LVTTL/LVCMOS      :         :           : Y              
+VCC_IO                       : 66        : power  :                   : 3.3V    :           :                
+ra[17]                       : 67        : output : LVTTL/LVCMOS      :         :           : Y              
+ra[16]                       : 68        : output : LVTTL/LVCMOS      :         :           : Y              
+ra[15]                       : 69        : output : LVTTL/LVCMOS      :         :           : Y              
+v_cs[1]                      : 70        : output : LVTTL/LVCMOS      :         :           : Y              
+VA[15]                       : 71        : output : LVTTL/LVCMOS      :         :           : Y              
+VCC_INT                      : 72        : power  :                   : 2.5V    :           :                
+VA[14]                       : 73        : output : LVTTL/LVCMOS      :         :           : Y              
+VA[12]                       : 74        : output : LVTTL/LVCMOS      :         :           : Y              
+v_wr[2]                      : 75        : output : LVTTL/LVCMOS      :         :           : Y              
+GND_INT                      : 76        : gnd    :                   :         :           :                
+VCC_CKLK                     : 77        : power  :                   : 2.5V    :           :                
+/io                          : 78        : input  : LVTTL/LVCMOS      :         :           : Y              
+/wr                          : 79        : input  : LVTTL/LVCMOS      :         :           : Y              
+/rd                          : 80        : input  : LVTTL/LVCMOS      :         :           : Y              
+GND_CKLK                     : 81        : gnd    :                   :         :           :                
+GND_INT                      : 82        : gnd    :                   :         :           :                
+v_wr[0]                      : 83        : output : LVTTL/LVCMOS      :         :           : Y              
+VCC_IO                       : 84        : power  :                   : 3.3V    :           :                
+v_wr[1]                      : 85        : output : LVTTL/LVCMOS      :         :           : Y              
+VA[7]                        : 86        : output : LVTTL/LVCMOS      :         :           : Y              
+VA[13]                       : 87        : output : LVTTL/LVCMOS      :         :           : Y              
+v_wr[3]                      : 88        : output : LVTTL/LVCMOS      :         :           : Y              
+VA[6]                        : 89        : output : LVTTL/LVCMOS      :         :           : Y              
+VA[8]                        : 90        : output : LVTTL/LVCMOS      :         :           : Y              
+VCC_INT                      : 91        : power  :                   : 2.5V    :           :                
+VA[5]                        : 92        : output : LVTTL/LVCMOS      :         :           : Y              
+VA[9]                        : 93        : output : LVTTL/LVCMOS      :         :           : Y              
+VA[4]                        : 94        : output : LVTTL/LVCMOS      :         :           : Y              
+VA[11]                       : 95        : output : LVTTL/LVCMOS      :         :           : Y              
+VA[3]                        : 96        : output : LVTTL/LVCMOS      :         :           : Y              
+VA[2]                        : 97        : output : LVTTL/LVCMOS      :         :           : Y              
+VCC_IO                       : 98        : power  :                   : 3.3V    :           :                
+VA[10]                       : 99        : output : LVTTL/LVCMOS      :         :           : Y              
+VA[1]                        : 100       : output : LVTTL/LVCMOS      :         :           : Y              
+v_cs[0]                      : 101       : output : LVTTL/LVCMOS      :         :           : Y              
+VA[0]                        : 102       : output : LVTTL/LVCMOS      :         :           : Y              
+VD0[0]                       : 103       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+VD1[0]                       : 104       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+nCONFIG                      : 105       : input  :                   :         :           :                
+VCC_INT                      : 106       : power  :                   : 2.5V    :           :                
+MSEL1                        : 107       : input  :                   :         :           :                
+MSEL0                        : 108       : input  :                   :         :           :                
+GND_INT                      : 109       : gnd    :                   :         :           :                
+VCC_IO                       : 110       : power  :                   : 3.3V    :           :                
+VD1[1]                       : 111       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+VD0[7]                       : 112       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+VD0[1]                       : 113       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+VD3[0]                       : 114       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+VD2[1]                       : 115       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+VD0[2]                       : 116       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+GND_INT                      : 117       : gnd    :                   :         :           :                
+VCC_IO                       : 118       : power  :                   : 3.3V    :           :                
+VD0[6]                       : 119       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+VD1[2]                       : 120       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+VD0[3]                       : 121       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+VD1[7]                       : 122       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+GND_INT                      : 123       : gnd    :                   :         :           :                
+VCC_INT                      : 124       : power  :                   : 2.5V    :           :                
+VD0[5]                       : 125       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+VD0[4]                       : 126       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+VD1[3]                       : 127       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+VD3[7]                       : 128       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+GND_INT                      : 129       : gnd    :                   :         :           :                
+VCC_INT                      : 130       : power  :                   : 2.5V    :           :                
+VD2[7]                       : 131       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+VD1[4]                       : 132       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+VD1[6]                       : 133       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+VD1[5]                       : 134       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+VD2[2]                       : 135       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+VD3[1]                       : 136       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+GND_INT                      : 137       : gnd    :                   :         :           :                
+VCC_IO                       : 138       : power  :                   : 3.3V    :           :                
+VD3[6]                       : 139       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+VD2[3]                       : 140       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+VD2[4]                       : 141       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+VD2[6]                       : 142       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+VD3[5]                       : 143       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+VD3[2]                       : 144       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+GND_INT                      : 145       : gnd    :                   :         :           :                
+VCC_IO                       : 146       : power  :                   : 3.3V    :           :                
+VD2[5]                       : 147       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+VD3[3]                       : 148       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+VD3[4]                       : 149       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+VD2[0]                       : 150       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+GND_INT                      : 151       : gnd    :                   :         :           :                
+VCC_INT                      : 152       : power  :                   : 2.5V    :           :                
+TDI                          : 153       : input  :                   :         :           :                
+nCE                          : 154       : input  :                   :         :           :                
+DCLK                         : 155       : bidir  :                   :         :           :                
+DATA0                        : 156       : input  :                   :         :           :                
+WR_COL                       : 157       : output : LVTTL/LVCMOS      :         :           : Y              
+DAC_DATA                     : 158       : output : LVTTL/LVCMOS      :         :           : Y              
+DAC_WS                       : 159       : output : LVTTL/LVCMOS      :         :           : Y              
+DAC_BCK                      : 160       : output : LVTTL/LVCMOS      :         :           : Y              
+md[7]                        : 161       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+md[6]                        : 162       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+md[5]                        : 163       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+md[4]                        : 164       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+VCC_IO                       : 165       : power  :                   : 3.3V    :           :                
+ma[0]                        : 166       : output : LVTTL/LVCMOS      :         :           : Y              
+ma[1]                        : 167       : output : LVTTL/LVCMOS      :         :           : Y              
+ma[2]                        : 168       : output : LVTTL/LVCMOS      :         :           : Y              
+XACS                         : 169       : output : LVTTL/LVCMOS      :         :           : Y              
+ma[3]                        : 170       : output : LVTTL/LVCMOS      :         :           : Y              
+GND_INT                      : 171       : gnd    :                   :         :           :                
+ma[4]                        : 172       : output : LVTTL/LVCMOS      :         :           : Y              
+RDXA                         : 173       : output : LVTTL/LVCMOS      :         :           : Y              
+ma[5]                        : 174       : output : LVTTL/LVCMOS      :         :           : Y              
+ma[6]                        : 175       : output : LVTTL/LVCMOS      :         :           : Y              
+wr_awg                       : 176       : output : LVTTL/LVCMOS      :         :           : Y              
+ma[10]                       : 177       : output : LVTTL/LVCMOS      :         :           : Y              
+VCC_IO                       : 178       : power  :                   : 3.3V    :           :                
+md[15]                       : 179       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+XA[0]                        : 180       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+GND_INT                      : 181       : gnd    :                   :         :           :                
+/HALT                        : 182       : input  : LVTTL/LVCMOS      :         :           : Y              
+TG42                         : 183       : input  : LVTTL/LVCMOS      :         :           : Y              
+/mr                          : 184       : input  : LVTTL/LVCMOS      :         :           : Y              
+VCC_INT                      : 185       : power  :                   : 2.5V    :           :                
+md[3]                        : 186       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+md[14]                       : 187       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+GND_INT                      : 188       : gnd    :                   :         :           :                
+md[13]                       : 189       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+md[2]                        : 190       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+ma[14]                       : 191       : output : LVTTL/LVCMOS      :         :           : Y              
+md[12]                       : 192       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+md[1]                        : 193       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+VCC_IO                       : 194       : power  :                   : 3.3V    :           :                
+ma[13]                       : 195       : output : LVTTL/LVCMOS      :         :           : Y              
+md[0]                        : 196       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+ma[7]                        : 197       : output : LVTTL/LVCMOS      :         :           : Y              
+md[11]                       : 198       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+ma[11]                       : 199       : output : LVTTL/LVCMOS      :         :           : Y              
+XA[2]                        : 200       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+VCC_INT                      : 201       : power  :                   : 2.5V    :           :                
+ma[8]                        : 202       : output : LVTTL/LVCMOS      :         :           : Y              
+ma[9]                        : 203       : output : LVTTL/LVCMOS      :         :           : Y              
+md[10]                       : 204       : bidir  : LVTTL/LVCMOS      :         :           : Y              
+RAS_[1]                      : 205       : output : LVTTL/LVCMOS      :         :           : Y              
+ma[12]                       : 206       : output : LVTTL/LVCMOS      :         :           : Y              
+RAS_[0]                      : 207       : output : LVTTL/LVCMOS      :         :           : Y              
+md[9]                        : 208       : bidir  : LVTTL/LVCMOS      :         :           : Y              

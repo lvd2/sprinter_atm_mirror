@@ -1,0 +1,1749 @@
+Analysis & Synthesis report for SP2_ACEX
+Wed Jul 07 17:29:51 2021
+Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Resource Usage Summary
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. Analysis & Synthesis RAM Summary
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Inverted Register Statistics
+ 11. Source assignments for ay:AY3|lpm_add_sub:$00043|addcore:adder
+ 12. Source assignments for ay:AY3|lpm_add_sub:$00045|addcore:adder
+ 13. Source assignments for acceler:ACC|lpm_counter:AA_rtl_0
+ 14. Source assignments for video2:SVIDEO|lpm_counter:CTF_rtl_1
+ 15. Source assignments for acceler:ACC|lpm_counter:AGR_rtl_2
+ 16. Source assignments for lpm_counter:CBL_CTX_rtl_3
+ 17. Source assignments for acceler:ACC|lpm_counter:ACC_CNT_rtl_4
+ 18. Source assignments for mouse:MS|lpm_counter:CT_rtl_5
+ 19. Source assignments for ay:AY3|lpm_counter:AY_VAR_rtl_6
+ 20. Source assignments for video2:SVIDEO|lpm_add_sub:op_5|addcore:adder
+ 21. Source assignments for video2:SVIDEO|lpm_add_sub:op_4|addcore:adder
+ 22. Source assignments for lpm_add_sub:op_7|addcore:adder
+ 23. Source assignments for lpm_add_sub:op_8|addcore:adder
+ 24. Source assignments for ay:AY3|lpm_add_sub:op_1|addcore:adder
+ 25. Source assignments for lpm_add_sub:op_10|addcore:adder
+ 26. Source assignments for lpm_add_sub:op_5|addcore:adder
+ 27. Source assignments for acceler:ACC|lpm_add_sub:op_3|addcore:adder
+ 28. Source assignments for mouse:MS|lpm_add_sub:op_2|addcore:adder
+ 29. Source assignments for mouse:MS|lpm_add_sub:op_3|addcore:adder
+ 30. Source assignments for lpm_add_sub:op_9|addcore:adder
+ 31. Parameter Settings for User Entity Instance: Top-level Entity: |SP2_ACEX
+ 32. Parameter Settings for User Entity Instance: kbd:KEYS|lpm_ram_dq:$00021
+ 33. Parameter Settings for User Entity Instance: video2:SVIDEO
+ 34. Parameter Settings for User Entity Instance: video2:SVIDEO|lpm_ram_dp:MS_DAT
+ 35. Parameter Settings for User Entity Instance: dcp:DECODE
+ 36. Parameter Settings for User Entity Instance: dcp:DECODE|lpm_ram_dp:MEM
+ 37. Parameter Settings for User Entity Instance: acceler:ACC|lpm_ram_dp:RAM
+ 38. Parameter Settings for User Entity Instance: ay:AY3|lpm_ram_dq:$00004
+ 39. Parameter Settings for User Entity Instance: ay:AY3|lpm_add_sub:$00043
+ 40. Parameter Settings for User Entity Instance: ay:AY3|lpm_add_sub:$00045
+ 41. Parameter Settings for User Entity Instance: lpm_ram_dp:CBL
+ 42. Parameter Settings for Inferred Entity Instance: acceler:ACC|lpm_counter:AA_rtl_0
+ 43. Parameter Settings for Inferred Entity Instance: video2:SVIDEO|lpm_counter:CTF_rtl_1
+ 44. Parameter Settings for Inferred Entity Instance: acceler:ACC|lpm_counter:AGR_rtl_2
+ 45. Parameter Settings for Inferred Entity Instance: lpm_counter:CBL_CTX_rtl_3
+ 46. Parameter Settings for Inferred Entity Instance: acceler:ACC|lpm_counter:ACC_CNT_rtl_4
+ 47. Parameter Settings for Inferred Entity Instance: mouse:MS|lpm_counter:CT_rtl_5
+ 48. Parameter Settings for Inferred Entity Instance: ay:AY3|lpm_counter:AY_VAR_rtl_6
+ 49. Parameter Settings for Inferred Entity Instance: video2:SVIDEO|lpm_add_sub:op_5
+ 50. Parameter Settings for Inferred Entity Instance: video2:SVIDEO|lpm_add_sub:op_4
+ 51. Parameter Settings for Inferred Entity Instance: lpm_add_sub:op_7
+ 52. Parameter Settings for Inferred Entity Instance: lpm_add_sub:op_8
+ 53. Parameter Settings for Inferred Entity Instance: ay:AY3|lpm_add_sub:op_1
+ 54. Parameter Settings for Inferred Entity Instance: lpm_add_sub:op_10
+ 55. Parameter Settings for Inferred Entity Instance: lpm_add_sub:op_5
+ 56. Parameter Settings for Inferred Entity Instance: acceler:ACC|lpm_add_sub:op_3
+ 57. Parameter Settings for Inferred Entity Instance: mouse:MS|lpm_add_sub:op_2
+ 58. Parameter Settings for Inferred Entity Instance: mouse:MS|lpm_add_sub:op_3
+ 59. Parameter Settings for Inferred Entity Instance: lpm_add_sub:op_9
+ 60. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                               ;
++-----------------------------+----------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Wed Jul 07 17:29:51 2021        ;
+; Quartus II Version          ; 9.0 Build 235 06/17/2009 SP 2 SJ Web Edition ;
+; Revision Name               ; SP2_ACEX                                     ;
+; Top-level Entity Name       ; SP2_ACEX                                     ;
+; Family                      ; ACEX1K                                       ;
+; Total logic elements        ; 1,562                                        ;
+; Total pins                  ; 147                                          ;
+; Total memory bits           ; 14,080                                       ;
+; Total PLLs                  ; 0                                            ;
++-----------------------------+----------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                ;
++--------------------------------------------------------------+---------------+---------------+
+; Option                                                       ; Setting       ; Default Value ;
++--------------------------------------------------------------+---------------+---------------+
+; Device                                                       ; EP1K30QC208-3 ;               ;
+; Top-level entity name                                        ; SP2_ACEX      ; SP2_ACEX      ;
+; Family name                                                  ; ACEX1K        ; Stratix II    ;
+; Use smart compilation                                        ; On            ; Off           ;
+; Optimization Technique                                       ; Speed         ; Area          ;
+; Block Design Naming                                          ; QuartusII     ; Auto          ;
+; Create Debugging Nodes for IP Cores                          ; Off           ; Off           ;
+; Preserve fewer node names                                    ; On            ; On            ;
+; Disable OpenCore Plus hardware evaluation                    ; Off           ; Off           ;
+; Verilog Version                                              ; Verilog_2001  ; Verilog_2001  ;
+; VHDL Version                                                 ; VHDL93        ; VHDL93        ;
+; State Machine Processing                                     ; Auto          ; Auto          ;
+; Safe State Machine                                           ; Off           ; Off           ;
+; Extract Verilog State Machines                               ; On            ; On            ;
+; Extract VHDL State Machines                                  ; On            ; On            ;
+; Ignore Verilog initial constructs                            ; Off           ; Off           ;
+; Iteration limit for constant Verilog loops                   ; 5000          ; 5000          ;
+; Iteration limit for non-constant Verilog loops               ; 250           ; 250           ;
+; Add Pass-Through Logic to Inferred RAMs                      ; On            ; On            ;
+; Parallel Synthesis                                           ; Off           ; Off           ;
+; NOT Gate Push-Back                                           ; On            ; On            ;
+; Power-Up Don't Care                                          ; On            ; On            ;
+; Remove Redundant Logic Cells                                 ; Off           ; Off           ;
+; Remove Duplicate Registers                                   ; On            ; On            ;
+; Ignore CARRY Buffers                                         ; Off           ; Off           ;
+; Ignore CASCADE Buffers                                       ; Off           ; Off           ;
+; Ignore GLOBAL Buffers                                        ; Off           ; Off           ;
+; Ignore ROW GLOBAL Buffers                                    ; Off           ; Off           ;
+; Ignore LCELL Buffers                                         ; Off           ; Off           ;
+; Ignore SOFT Buffers                                          ; On            ; On            ;
+; Limit AHDL Integers to 32 Bits                               ; Off           ; Off           ;
+; Auto Implement in ROM                                        ; Off           ; Off           ;
+; Carry Chain Length                                           ; 32            ; 32            ;
+; Cascade Chain Length                                         ; 2             ; 2             ;
+; Auto Carry Chains                                            ; On            ; On            ;
+; Auto Open-Drain Pins                                         ; On            ; On            ;
+; Auto ROM Replacement                                         ; On            ; On            ;
+; Auto RAM Replacement                                         ; On            ; On            ;
+; Auto Clock Enable Replacement                                ; On            ; On            ;
+; Strict RAM Replacement                                       ; Off           ; Off           ;
+; Auto Resource Sharing                                        ; Off           ; Off           ;
+; Allow Any RAM Size For Recognition                           ; Off           ; Off           ;
+; Allow Any ROM Size For Recognition                           ; Off           ; Off           ;
+; Use LogicLock Constraints during Resource Balancing          ; On            ; On            ;
+; Ignore translate_off and synthesis_off directives            ; Off           ; Off           ;
+; Show Parameter Settings Tables in Synthesis Report           ; On            ; On            ;
+; HDL message level                                            ; Level2        ; Level2        ;
+; Suppress Register Optimization Related Messages              ; Off           ; Off           ;
+; Number of Removed Registers Reported in Synthesis Report     ; 100           ; 100           ;
+; Number of Inverted Registers Reported in Synthesis Report    ; 100           ; 100           ;
+; Synthesis Effort                                             ; Auto          ; Auto          ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal ; On            ; On            ;
+; Analysis & Synthesis Message Level                           ; Medium        ; Medium        ;
++--------------------------------------------------------------+---------------+---------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                            ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------+
+; ACCELER.INC                      ; yes             ; User Unspecified File  ; C:/Users/Administrator/Desktop/Sputnik2k/newhard/hard/ACEX/ACCELER.INC  ;
+; AY.INC                           ; yes             ; User Unspecified File  ; C:/Users/Administrator/Desktop/Sputnik2k/newhard/hard/ACEX/AY.INC       ;
+; DCP.INC                          ; yes             ; User Unspecified File  ; C:/Users/Administrator/Desktop/Sputnik2k/newhard/hard/ACEX/DCP.INC      ;
+; KBD.INC                          ; yes             ; User Unspecified File  ; C:/Users/Administrator/Desktop/Sputnik2k/newhard/hard/ACEX/KBD.INC      ;
+; MOUSE.INC                        ; yes             ; User Unspecified File  ; C:/Users/Administrator/Desktop/Sputnik2k/newhard/hard/ACEX/MOUSE.INC    ;
+; VIDEO2.INC                       ; yes             ; User Unspecified File  ; C:/Users/Administrator/Desktop/Sputnik2k/newhard/hard/ACEX/VIDEO2.INC   ;
+; SP2_ACEX.TDF                     ; yes             ; User AHDL File         ; C:/Users/Administrator/Desktop/Sputnik2k/newhard/hard/ACEX/SP2_ACEX.TDF ;
+; ACCELER.TDF                      ; yes             ; User AHDL File         ; C:/Users/Administrator/Desktop/Sputnik2k/newhard/hard/ACEX/ACCELER.TDF  ;
+; AY.TDF                           ; yes             ; User AHDL File         ; C:/Users/Administrator/Desktop/Sputnik2k/newhard/hard/ACEX/AY.TDF       ;
+; DCP.TDF                          ; yes             ; User AHDL File         ; C:/Users/Administrator/Desktop/Sputnik2k/newhard/hard/ACEX/DCP.TDF      ;
+; KBD.TDF                          ; yes             ; User AHDL File         ; C:/Users/Administrator/Desktop/Sputnik2k/newhard/hard/ACEX/KBD.TDF      ;
+; MOUSE.TDF                        ; yes             ; User AHDL File         ; C:/Users/Administrator/Desktop/Sputnik2k/newhard/hard/ACEX/MOUSE.TDF    ;
+; VIDEO2.TDF                       ; yes             ; User AHDL File         ; C:/Users/Administrator/Desktop/Sputnik2k/newhard/hard/ACEX/VIDEO2.TDF   ;
+; lpm_ram_dp.inc                   ; yes             ; Auto-Found AHDL File   ; c:/altera/90sp2/quartus/libraries/megafunctions/lpm_ram_dp.inc          ;
+; lpm_ram_dq.inc                   ; yes             ; Auto-Found AHDL File   ; c:/altera/90sp2/quartus/libraries/megafunctions/lpm_ram_dq.inc          ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/lpm_add_sub.inc         ;
+; lpm_ram_dq.tdf                   ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/lpm_ram_dq.tdf          ;
+; altram.inc                       ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/altram.inc              ;
+; lpm_mux.inc                      ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/lpm_mux.inc             ;
+; lpm_decode.inc                   ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/lpm_decode.inc          ;
+; aglobal90.inc                    ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/aglobal90.inc           ;
+; altram.tdf                       ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/altram.tdf              ;
+; memmodes.inc                     ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/others/maxplus2/memmodes.inc          ;
+; altsyncram.inc                   ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/altsyncram.inc          ;
+; altqpram.inc                     ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/altqpram.inc            ;
+; lpm_ram_dp.tdf                   ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/lpm_ram_dp.tdf          ;
+; altdpram.inc                     ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/altdpram.inc            ;
+; altdpram.tdf                     ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/altdpram.tdf            ;
+; a_hdffe.inc                      ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/a_hdffe.inc             ;
+; a_rdenreg.inc                    ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/a_rdenreg.inc           ;
+; alt_le_rden_reg.inc              ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/alt_le_rden_reg.inc     ;
+; lpm_add_sub.tdf                  ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/lpm_add_sub.tdf         ;
+; addcore.inc                      ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/addcore.inc             ;
+; look_add.inc                     ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/look_add.inc            ;
+; bypassff.inc                     ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/bypassff.inc            ;
+; altshift.inc                     ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/altshift.inc            ;
+; alt_stratix_add_sub.inc          ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/alt_stratix_add_sub.inc ;
+; alt_mercury_add_sub.inc          ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/alt_mercury_add_sub.inc ;
+; addcore.tdf                      ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/addcore.tdf             ;
+; a_csnbuffer.inc                  ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/a_csnbuffer.inc         ;
+; a_csnbuffer.tdf                  ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/a_csnbuffer.tdf         ;
+; altshift.tdf                     ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/altshift.tdf            ;
+; lpm_counter.tdf                  ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/lpm_counter.tdf         ;
+; lpm_constant.inc                 ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/lpm_constant.inc        ;
+; cmpconst.inc                     ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/cmpconst.inc            ;
+; lpm_compare.inc                  ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/lpm_compare.inc         ;
+; lpm_counter.inc                  ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/lpm_counter.inc         ;
+; dffeea.inc                       ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/dffeea.inc              ;
+; alt_synch_counter.inc            ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/alt_synch_counter.inc   ;
+; alt_synch_counter_f.inc          ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/alt_synch_counter_f.inc ;
+; alt_counter_f10ke.inc            ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/alt_counter_f10ke.inc   ;
+; alt_counter_stratix.inc          ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/alt_counter_stratix.inc ;
+; alt_counter_f10ke.tdf            ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/alt_counter_f10ke.tdf   ;
+; flex10ke_lcell.inc               ; yes             ; Megafunction           ; c:/altera/90sp2/quartus/libraries/megafunctions/flex10ke_lcell.inc      ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------+
+
+
++---------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary ;
++-----------------------------------+---------+
+; Resource                          ; Usage   ;
++-----------------------------------+---------+
+; Total logic elements              ; 1562    ;
+; Total combinational functions     ; 1198    ;
+;     -- Total 4-input functions    ; 384     ;
+;     -- Total 3-input functions    ; 364     ;
+;     -- Total 2-input functions    ; 257     ;
+;     -- Total 1-input functions    ; 160     ;
+;     -- Total 0-input functions    ; 33      ;
+; Total registers                   ; 958     ;
+; Total logic cells in carry chains ; 167     ;
+; I/O pins                          ; 147     ;
+; Total memory bits                 ; 14080   ;
+; Maximum fan-out node              ; TG42    ;
+; Maximum fan-out                   ; 698     ;
+; Total fan-out                     ; 6469    ;
+; Average fan-out                   ; 3.67    ;
++-----------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                              ;
++-------------------------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+--------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                                                            ; Library Name ;
++-------------------------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+--------------------------------------------------------------------------------+--------------+
+; |SP2_ACEX                                 ; 1562 (396)  ; 958          ; 14080       ; 147  ; 604 (185)    ; 364 (79)          ; 594 (132)        ; 167 (5)         ; 0 (0)      ; |SP2_ACEX                                                                      ; work         ;
+;    |acceler:ACC|                          ; 219 (168)   ; 144          ; 2048        ; 0    ; 75 (56)      ; 23 (23)           ; 121 (89)         ; 48 (0)          ; 0 (0)      ; |SP2_ACEX|acceler:ACC                                                          ; work         ;
+;       |lpm_add_sub:op_3|                  ; 16 (0)      ; 0            ; 0           ; 0    ; 16 (0)       ; 0 (0)             ; 0 (0)            ; 16 (0)          ; 0 (0)      ; |SP2_ACEX|acceler:ACC|lpm_add_sub:op_3                                         ; work         ;
+;          |addcore:adder|                  ; 16 (1)      ; 0            ; 0           ; 0    ; 16 (1)       ; 0 (0)             ; 0 (0)            ; 16 (1)          ; 0 (0)      ; |SP2_ACEX|acceler:ACC|lpm_add_sub:op_3|addcore:adder                           ; work         ;
+;             |a_csnbuffer:result_node|     ; 15 (15)     ; 0            ; 0           ; 0    ; 15 (15)      ; 0 (0)             ; 0 (0)            ; 15 (15)         ; 0 (0)      ; |SP2_ACEX|acceler:ACC|lpm_add_sub:op_3|addcore:adder|a_csnbuffer:result_node   ; work         ;
+;       |lpm_counter:AA_rtl_0|              ; 17 (0)      ; 16           ; 0           ; 0    ; 1 (0)        ; 0 (0)             ; 16 (0)           ; 16 (0)          ; 0 (0)      ; |SP2_ACEX|acceler:ACC|lpm_counter:AA_rtl_0                                     ; work         ;
+;          |alt_counter_f10ke:wysi_counter| ; 17 (17)     ; 16           ; 0           ; 0    ; 1 (1)        ; 0 (0)             ; 16 (16)          ; 16 (16)         ; 0 (0)      ; |SP2_ACEX|acceler:ACC|lpm_counter:AA_rtl_0|alt_counter_f10ke:wysi_counter      ; work         ;
+;       |lpm_counter:ACC_CNT_rtl_4|         ; 9 (0)       ; 8            ; 0           ; 0    ; 1 (0)        ; 0 (0)             ; 8 (0)            ; 8 (0)           ; 0 (0)      ; |SP2_ACEX|acceler:ACC|lpm_counter:ACC_CNT_rtl_4                                ; work         ;
+;          |alt_counter_f10ke:wysi_counter| ; 9 (9)       ; 8            ; 0           ; 0    ; 1 (1)        ; 0 (0)             ; 8 (8)            ; 8 (8)           ; 0 (0)      ; |SP2_ACEX|acceler:ACC|lpm_counter:ACC_CNT_rtl_4|alt_counter_f10ke:wysi_counter ; work         ;
+;       |lpm_counter:AGR_rtl_2|             ; 9 (0)       ; 8            ; 0           ; 0    ; 1 (0)        ; 0 (0)             ; 8 (0)            ; 8 (0)           ; 0 (0)      ; |SP2_ACEX|acceler:ACC|lpm_counter:AGR_rtl_2                                    ; work         ;
+;          |alt_counter_f10ke:wysi_counter| ; 9 (9)       ; 8            ; 0           ; 0    ; 1 (1)        ; 0 (0)             ; 8 (8)            ; 8 (8)           ; 0 (0)      ; |SP2_ACEX|acceler:ACC|lpm_counter:AGR_rtl_2|alt_counter_f10ke:wysi_counter     ; work         ;
+;       |lpm_ram_dp:RAM|                    ; 0 (0)       ; 0            ; 2048        ; 0    ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |SP2_ACEX|acceler:ACC|lpm_ram_dp:RAM                                           ; work         ;
+;          |altdpram:sram|                  ; 0 (0)       ; 0            ; 2048        ; 0    ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |SP2_ACEX|acceler:ACC|lpm_ram_dp:RAM|altdpram:sram                             ; work         ;
+;    |ay:AY3|                               ; 225 (189)   ; 156          ; 2048        ; 0    ; 69 (39)      ; 85 (85)           ; 71 (65)          ; 37 (1)          ; 0 (0)      ; |SP2_ACEX|ay:AY3                                                               ; work         ;
+;       |lpm_add_sub:$00043|                ; 11 (0)      ; 0            ; 0           ; 0    ; 11 (0)       ; 0 (0)             ; 0 (0)            ; 11 (0)          ; 0 (0)      ; |SP2_ACEX|ay:AY3|lpm_add_sub:$00043                                            ; work         ;
+;          |addcore:adder|                  ; 11 (1)      ; 0            ; 0           ; 0    ; 11 (1)       ; 0 (0)             ; 0 (0)            ; 11 (1)          ; 0 (0)      ; |SP2_ACEX|ay:AY3|lpm_add_sub:$00043|addcore:adder                              ; work         ;
+;             |a_csnbuffer:result_node|     ; 10 (10)     ; 0            ; 0           ; 0    ; 10 (10)      ; 0 (0)             ; 0 (0)            ; 10 (10)         ; 0 (0)      ; |SP2_ACEX|ay:AY3|lpm_add_sub:$00043|addcore:adder|a_csnbuffer:result_node      ; work         ;
+;       |lpm_add_sub:$00045|                ; 11 (0)      ; 0            ; 0           ; 0    ; 11 (0)       ; 0 (0)             ; 0 (0)            ; 11 (0)          ; 0 (0)      ; |SP2_ACEX|ay:AY3|lpm_add_sub:$00045                                            ; work         ;
+;          |addcore:adder|                  ; 11 (1)      ; 0            ; 0           ; 0    ; 11 (1)       ; 0 (0)             ; 0 (0)            ; 11 (1)          ; 0 (0)      ; |SP2_ACEX|ay:AY3|lpm_add_sub:$00045|addcore:adder                              ; work         ;
+;             |a_csnbuffer:result_node|     ; 10 (10)     ; 0            ; 0           ; 0    ; 10 (10)      ; 0 (0)             ; 0 (0)            ; 10 (10)         ; 0 (0)      ; |SP2_ACEX|ay:AY3|lpm_add_sub:$00045|addcore:adder|a_csnbuffer:result_node      ; work         ;
+;       |lpm_add_sub:op_1|                  ; 8 (0)       ; 0            ; 0           ; 0    ; 8 (0)        ; 0 (0)             ; 0 (0)            ; 8 (0)           ; 0 (0)      ; |SP2_ACEX|ay:AY3|lpm_add_sub:op_1                                              ; work         ;
+;          |addcore:adder|                  ; 8 (0)       ; 0            ; 0           ; 0    ; 8 (0)        ; 0 (0)             ; 0 (0)            ; 8 (0)           ; 0 (0)      ; |SP2_ACEX|ay:AY3|lpm_add_sub:op_1|addcore:adder                                ; work         ;
+;             |a_csnbuffer:result_node|     ; 8 (8)       ; 0            ; 0           ; 0    ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 8 (8)           ; 0 (0)      ; |SP2_ACEX|ay:AY3|lpm_add_sub:op_1|addcore:adder|a_csnbuffer:result_node        ; work         ;
+;       |lpm_counter:AY_VAR_rtl_6|          ; 6 (0)       ; 6            ; 0           ; 0    ; 0 (0)        ; 0 (0)             ; 6 (0)            ; 6 (0)           ; 0 (0)      ; |SP2_ACEX|ay:AY3|lpm_counter:AY_VAR_rtl_6                                      ; work         ;
+;          |alt_counter_f10ke:wysi_counter| ; 6 (6)       ; 6            ; 0           ; 0    ; 0 (0)        ; 0 (0)             ; 6 (6)            ; 6 (6)           ; 0 (0)      ; |SP2_ACEX|ay:AY3|lpm_counter:AY_VAR_rtl_6|alt_counter_f10ke:wysi_counter       ; work         ;
+;       |lpm_ram_dq:$00004|                 ; 0 (0)       ; 0            ; 2048        ; 0    ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |SP2_ACEX|ay:AY3|lpm_ram_dq:$00004                                             ; work         ;
+;          |altram:sram|                    ; 0 (0)       ; 0            ; 2048        ; 0    ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |SP2_ACEX|ay:AY3|lpm_ram_dq:$00004|altram:sram                                 ; work         ;
+;    |dcp:DECODE|                           ; 208 (208)   ; 113          ; 4096        ; 0    ; 95 (95)      ; 29 (29)           ; 84 (84)          ; 0 (0)           ; 0 (0)      ; |SP2_ACEX|dcp:DECODE                                                           ; work         ;
+;       |lpm_ram_dp:MEM|                    ; 0 (0)       ; 0            ; 4096        ; 0    ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |SP2_ACEX|dcp:DECODE|lpm_ram_dp:MEM                                            ; work         ;
+;          |altdpram:sram|                  ; 0 (0)       ; 0            ; 4096        ; 0    ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |SP2_ACEX|dcp:DECODE|lpm_ram_dp:MEM|altdpram:sram                              ; work         ;
+;    |kbd:KEYS|                             ; 88 (88)     ; 59           ; 2048        ; 0    ; 29 (29)      ; 16 (16)           ; 43 (43)          ; 0 (0)           ; 0 (0)      ; |SP2_ACEX|kbd:KEYS                                                             ; work         ;
+;       |lpm_ram_dq:$00021|                 ; 0 (0)       ; 0            ; 2048        ; 0    ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |SP2_ACEX|kbd:KEYS|lpm_ram_dq:$00021                                           ; work         ;
+;          |altram:sram|                    ; 0 (0)       ; 0            ; 2048        ; 0    ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |SP2_ACEX|kbd:KEYS|lpm_ram_dq:$00021|altram:sram                               ; work         ;
+;    |lpm_add_sub:op_10|                    ; 10 (0)      ; 0            ; 0           ; 0    ; 10 (0)       ; 0 (0)             ; 0 (0)            ; 10 (0)          ; 0 (0)      ; |SP2_ACEX|lpm_add_sub:op_10                                                    ; work         ;
+;       |addcore:adder|                     ; 10 (0)      ; 0            ; 0           ; 0    ; 10 (0)       ; 0 (0)             ; 0 (0)            ; 10 (0)          ; 0 (0)      ; |SP2_ACEX|lpm_add_sub:op_10|addcore:adder                                      ; work         ;
+;          |a_csnbuffer:result_node|        ; 10 (10)     ; 0            ; 0           ; 0    ; 10 (10)      ; 0 (0)             ; 0 (0)            ; 10 (10)         ; 0 (0)      ; |SP2_ACEX|lpm_add_sub:op_10|addcore:adder|a_csnbuffer:result_node              ; work         ;
+;    |lpm_add_sub:op_5|                     ; 4 (0)       ; 0            ; 0           ; 0    ; 4 (0)        ; 0 (0)             ; 0 (0)            ; 4 (0)           ; 0 (0)      ; |SP2_ACEX|lpm_add_sub:op_5                                                     ; work         ;
+;       |addcore:adder|                     ; 4 (1)       ; 0            ; 0           ; 0    ; 4 (1)        ; 0 (0)             ; 0 (0)            ; 4 (1)           ; 0 (0)      ; |SP2_ACEX|lpm_add_sub:op_5|addcore:adder                                       ; work         ;
+;          |a_csnbuffer:result_node|        ; 3 (3)       ; 0            ; 0           ; 0    ; 3 (3)        ; 0 (0)             ; 0 (0)            ; 3 (3)           ; 0 (0)      ; |SP2_ACEX|lpm_add_sub:op_5|addcore:adder|a_csnbuffer:result_node               ; work         ;
+;    |lpm_add_sub:op_7|                     ; 7 (0)       ; 0            ; 0           ; 0    ; 7 (0)        ; 0 (0)             ; 0 (0)            ; 7 (0)           ; 0 (0)      ; |SP2_ACEX|lpm_add_sub:op_7                                                     ; work         ;
+;       |addcore:adder|                     ; 7 (1)       ; 0            ; 0           ; 0    ; 7 (1)        ; 0 (0)             ; 0 (0)            ; 7 (1)           ; 0 (0)      ; |SP2_ACEX|lpm_add_sub:op_7|addcore:adder                                       ; work         ;
+;          |a_csnbuffer:result_node|        ; 6 (6)       ; 0            ; 0           ; 0    ; 6 (6)        ; 0 (0)             ; 0 (0)            ; 6 (6)           ; 0 (0)      ; |SP2_ACEX|lpm_add_sub:op_7|addcore:adder|a_csnbuffer:result_node               ; work         ;
+;    |lpm_add_sub:op_8|                     ; 6 (0)       ; 0            ; 0           ; 0    ; 6 (0)        ; 0 (0)             ; 0 (0)            ; 6 (0)           ; 0 (0)      ; |SP2_ACEX|lpm_add_sub:op_8                                                     ; work         ;
+;       |addcore:adder|                     ; 6 (1)       ; 0            ; 0           ; 0    ; 6 (1)        ; 0 (0)             ; 0 (0)            ; 6 (1)           ; 0 (0)      ; |SP2_ACEX|lpm_add_sub:op_8|addcore:adder                                       ; work         ;
+;          |a_csnbuffer:result_node|        ; 5 (5)       ; 0            ; 0           ; 0    ; 5 (5)        ; 0 (0)             ; 0 (0)            ; 5 (5)           ; 0 (0)      ; |SP2_ACEX|lpm_add_sub:op_8|addcore:adder|a_csnbuffer:result_node               ; work         ;
+;    |lpm_add_sub:op_9|                     ; 7 (0)       ; 0            ; 0           ; 0    ; 7 (0)        ; 0 (0)             ; 0 (0)            ; 7 (0)           ; 0 (0)      ; |SP2_ACEX|lpm_add_sub:op_9                                                     ; work         ;
+;       |addcore:adder|                     ; 7 (1)       ; 0            ; 0           ; 0    ; 7 (1)        ; 0 (0)             ; 0 (0)            ; 7 (1)           ; 0 (0)      ; |SP2_ACEX|lpm_add_sub:op_9|addcore:adder                                       ; work         ;
+;          |a_csnbuffer:result_node|        ; 6 (6)       ; 0            ; 0           ; 0    ; 6 (6)        ; 0 (0)             ; 0 (0)            ; 6 (6)           ; 0 (0)      ; |SP2_ACEX|lpm_add_sub:op_9|addcore:adder|a_csnbuffer:result_node               ; work         ;
+;    |lpm_counter:CBL_CTX_rtl_3|            ; 5 (0)       ; 5            ; 0           ; 0    ; 0 (0)        ; 0 (0)             ; 5 (0)            ; 5 (0)           ; 0 (0)      ; |SP2_ACEX|lpm_counter:CBL_CTX_rtl_3                                            ; work         ;
+;       |alt_counter_f10ke:wysi_counter|    ; 5 (5)       ; 5            ; 0           ; 0    ; 0 (0)        ; 0 (0)             ; 5 (5)            ; 5 (5)           ; 0 (0)      ; |SP2_ACEX|lpm_counter:CBL_CTX_rtl_3|alt_counter_f10ke:wysi_counter             ; work         ;
+;    |lpm_ram_dp:CBL|                       ; 0 (0)       ; 0            ; 3840        ; 0    ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |SP2_ACEX|lpm_ram_dp:CBL                                                       ; work         ;
+;       |altdpram:sram|                     ; 0 (0)       ; 0            ; 3840        ; 0    ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |SP2_ACEX|lpm_ram_dp:CBL|altdpram:sram                                         ; work         ;
+;    |mouse:MS|                             ; 63 (43)     ; 39           ; 0           ; 0    ; 24 (8)       ; 25 (25)           ; 14 (10)          ; 20 (0)          ; 0 (0)      ; |SP2_ACEX|mouse:MS                                                             ; work         ;
+;       |lpm_add_sub:op_2|                  ; 8 (0)       ; 0            ; 0           ; 0    ; 8 (0)        ; 0 (0)             ; 0 (0)            ; 8 (0)           ; 0 (0)      ; |SP2_ACEX|mouse:MS|lpm_add_sub:op_2                                            ; work         ;
+;          |addcore:adder|                  ; 8 (1)       ; 0            ; 0           ; 0    ; 8 (1)        ; 0 (0)             ; 0 (0)            ; 8 (1)           ; 0 (0)      ; |SP2_ACEX|mouse:MS|lpm_add_sub:op_2|addcore:adder                              ; work         ;
+;             |a_csnbuffer:result_node|     ; 7 (7)       ; 0            ; 0           ; 0    ; 7 (7)        ; 0 (0)             ; 0 (0)            ; 7 (7)           ; 0 (0)      ; |SP2_ACEX|mouse:MS|lpm_add_sub:op_2|addcore:adder|a_csnbuffer:result_node      ; work         ;
+;       |lpm_add_sub:op_3|                  ; 8 (0)       ; 0            ; 0           ; 0    ; 8 (0)        ; 0 (0)             ; 0 (0)            ; 8 (0)           ; 0 (0)      ; |SP2_ACEX|mouse:MS|lpm_add_sub:op_3                                            ; work         ;
+;          |addcore:adder|                  ; 8 (1)       ; 0            ; 0           ; 0    ; 8 (1)        ; 0 (0)             ; 0 (0)            ; 8 (1)           ; 0 (0)      ; |SP2_ACEX|mouse:MS|lpm_add_sub:op_3|addcore:adder                              ; work         ;
+;             |a_csnbuffer:result_node|     ; 7 (7)       ; 0            ; 0           ; 0    ; 7 (7)        ; 0 (0)             ; 0 (0)            ; 7 (7)           ; 0 (0)      ; |SP2_ACEX|mouse:MS|lpm_add_sub:op_3|addcore:adder|a_csnbuffer:result_node      ; work         ;
+;       |lpm_counter:CT_rtl_5|              ; 4 (0)       ; 4            ; 0           ; 0    ; 0 (0)        ; 0 (0)             ; 4 (0)            ; 4 (0)           ; 0 (0)      ; |SP2_ACEX|mouse:MS|lpm_counter:CT_rtl_5                                        ; work         ;
+;          |alt_counter_f10ke:wysi_counter| ; 4 (4)       ; 4            ; 0           ; 0    ; 0 (0)        ; 0 (0)             ; 4 (4)            ; 4 (4)           ; 0 (0)      ; |SP2_ACEX|mouse:MS|lpm_counter:CT_rtl_5|alt_counter_f10ke:wysi_counter         ; work         ;
+;    |video2:SVIDEO|                        ; 324 (306)   ; 231          ; 0           ; 0    ; 93 (80)      ; 107 (107)         ; 124 (119)        ; 18 (0)          ; 0 (0)      ; |SP2_ACEX|video2:SVIDEO                                                        ; work         ;
+;       |lpm_add_sub:op_4|                  ; 5 (0)       ; 0            ; 0           ; 0    ; 5 (0)        ; 0 (0)             ; 0 (0)            ; 5 (0)           ; 0 (0)      ; |SP2_ACEX|video2:SVIDEO|lpm_add_sub:op_4                                       ; work         ;
+;          |addcore:adder|                  ; 5 (1)       ; 0            ; 0           ; 0    ; 5 (1)        ; 0 (0)             ; 0 (0)            ; 5 (1)           ; 0 (0)      ; |SP2_ACEX|video2:SVIDEO|lpm_add_sub:op_4|addcore:adder                         ; work         ;
+;             |a_csnbuffer:result_node|     ; 4 (4)       ; 0            ; 0           ; 0    ; 4 (4)        ; 0 (0)             ; 0 (0)            ; 4 (4)           ; 0 (0)      ; |SP2_ACEX|video2:SVIDEO|lpm_add_sub:op_4|addcore:adder|a_csnbuffer:result_node ; work         ;
+;       |lpm_add_sub:op_5|                  ; 8 (0)       ; 0            ; 0           ; 0    ; 8 (0)        ; 0 (0)             ; 0 (0)            ; 8 (0)           ; 0 (0)      ; |SP2_ACEX|video2:SVIDEO|lpm_add_sub:op_5                                       ; work         ;
+;          |addcore:adder|                  ; 8 (1)       ; 0            ; 0           ; 0    ; 8 (1)        ; 0 (0)             ; 0 (0)            ; 8 (1)           ; 0 (0)      ; |SP2_ACEX|video2:SVIDEO|lpm_add_sub:op_5|addcore:adder                         ; work         ;
+;             |a_csnbuffer:result_node|     ; 7 (7)       ; 0            ; 0           ; 0    ; 7 (7)        ; 0 (0)             ; 0 (0)            ; 7 (7)           ; 0 (0)      ; |SP2_ACEX|video2:SVIDEO|lpm_add_sub:op_5|addcore:adder|a_csnbuffer:result_node ; work         ;
+;       |lpm_counter:CTF_rtl_1|             ; 5 (0)       ; 5            ; 0           ; 0    ; 0 (0)        ; 0 (0)             ; 5 (0)            ; 5 (0)           ; 0 (0)      ; |SP2_ACEX|video2:SVIDEO|lpm_counter:CTF_rtl_1                                  ; work         ;
+;          |alt_counter_f10ke:wysi_counter| ; 5 (5)       ; 5            ; 0           ; 0    ; 0 (0)        ; 0 (0)             ; 5 (5)            ; 5 (5)           ; 0 (0)      ; |SP2_ACEX|video2:SVIDEO|lpm_counter:CTF_rtl_1|alt_counter_f10ke:wysi_counter   ; work         ;
++-------------------------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+--------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                 ;
++--------------------------------------------------+-------------+--------------+--------------+--------------+--------------+------+--------------+
+; Name                                             ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF          ;
++--------------------------------------------------+-------------+--------------+--------------+--------------+--------------+------+--------------+
+; acceler:ACC|lpm_ram_dp:RAM|altdpram:sram|content ; Dual Port   ; 256          ; 16           ; 256          ; 16           ; 4096 ; none         ;
+; ay:AY3|lpm_ram_dq:$00004|altram:sram|content     ; Single Port ; 256          ; 8            ; --           ; --           ; 2048 ; AY.MIF       ;
+; dcp:DECODE|lpm_ram_dp:MEM|altdpram:sram|content  ; Dual Port   ; 256          ; 16           ; 256          ; 16           ; 4096 ; DCP.MIF      ;
+; kbd:KEYS|lpm_ram_dq:$00021|altram:sram|content   ; Single Port ; 256          ; 8            ; --           ; --           ; 2048 ; KBD_INI2.MIF ;
+; lpm_ram_dp:CBL|altdpram:sram|content             ; Dual Port   ; 256          ; 16           ; 256          ; 16           ; 4096 ; none         ;
++--------------------------------------------------+-------------+--------------+--------------+--------------+--------------+------+--------------+
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; CBD[0]                                 ; Lost fanout                            ;
+; AY_FULL[0]                             ; Stuck at GND due to stuck port data_in ;
+; dcp:DECODE|/RES                        ; Stuck at VCC due to stuck port data_in ;
+; video2:SVIDEO|F_WR                     ; Stuck at VCC due to stuck port data_in ;
+; video2:SVIDEO|MS_X[0..9]               ; Lost fanout                            ;
+; video2:SVIDEO|MS_Y[0..9]               ; Lost fanout                            ;
+; acceler:ACC|$00009                     ; Merged with acceler:ACC|$00038         ;
+; acceler:ACC|$00012                     ; Merged with acceler:ACC|$00038         ;
+; acceler:ACC|$00018                     ; Merged with acceler:ACC|$00038         ;
+; $00012                                 ; Merged with $00183                     ;
+; dcp:DECODE|$00044                      ; Merged with dcp:DECODE|$00043          ;
+; dcp:DECODE|$00026                      ; Merged with dcp:DECODE|$00024          ;
+; acceler:ACC|$00026                     ; Merged with dcp:DECODE|MCA[0]          ;
+; ay:AY3|$00013                          ; Merged with ay:AY3|$00014              ;
+; ay:AY3|$00007                          ; Merged with ay:AY3|$00006              ;
+; $00166                                 ; Merged with ay:AY3|AY_CCC[2]           ;
+; $00182                                 ; Merged with ay:AY3|AY_CCC[6]           ;
+; kbd:KEYS|$00002                        ; Merged with kbd:KEYS|$00001            ;
+; dcp:DECODE|$00035                      ; Merged with dcp:DECODE|$00023          ;
+; kbd:KEYS|$00004                        ; Merged with kbd:KEYS|$00012            ;
+; kbd:KEYS|$00019                        ; Merged with kbd:KEYS|$00017            ;
+; Total Number of Removed Registers = 39 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 958   ;
+; Number of registers using Synchronous Clear  ; 5     ;
+; Number of registers using Synchronous Load   ; 37    ;
+; Number of registers using Asynchronous Clear ; 253   ;
+; Number of registers using Asynchronous Load  ; 6     ;
+; Number of registers using Clock Enable       ; 477   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; CS_ROMT                                 ; 3       ;
+; /IOWR                                   ; 39      ;
+; CS_CASHT                                ; 2       ;
+; CS_ISA                                  ; 3       ;
+; CBL_INT                                 ; 5       ;
+; $00110                                  ; 2       ;
+; $00150                                  ; 1       ;
+; XACS~reg                                ; 2       ;
+; dcp:DECODE|WR_AWGX                      ; 2       ;
+; dcp:DECODE|/IOM                         ; 15      ;
+; dcp:DECODE|MC_BEGIN                     ; 2       ;
+; video2:SVIDEO|RBRVA[10]                 ; 1       ;
+; video2:SVIDEO|CTV[5]                    ; 3       ;
+; video2:SVIDEO|CTV[8]                    ; 15      ;
+; video2:SVIDEO|CTH[1]                    ; 20      ;
+; video2:SVIDEO|CTH[4]                    ; 4       ;
+; video2:SVIDEO|CTH[5]                    ; 10      ;
+; kbd:KEYS|INT                            ; 1       ;
+; dcp:DECODE|$00003                       ; 1       ;
+; /IORD                                   ; 2       ;
+; dcp:DECODE|IO_RW                        ; 25      ;
+; dcp:DECODE|/IOMY                        ; 1       ;
+; dcp:DECODE|/IOMZ                        ; 1       ;
+; video2:SVIDEO|CTV[1]                    ; 7       ;
+; kbd:KEYS|KB_CT[0]                       ; 8       ;
+; kbd:KEYS|KB_CT[2]                       ; 16      ;
+; kbd:KEYS|KB_CT[1]                       ; 9       ;
+; ALL_MODE[0]                             ; 3       ;
+; dcp:DECODE|TB_SW                        ; 2       ;
+; TEST_SWITCH                             ; 2       ;
+; dcp:DECODE|MEM_RW                       ; 3       ;
+; dcp:DECODE|$00015                       ; 1       ;
+; acceler:ACC|ACC_END                     ; 1       ;
+; video2:SVIDEO|V_WE                      ; 3       ;
+; acceler:ACC|ACC_GO                      ; 6       ;
+; dos                                     ; 5       ;
+; kbd:KEYS|KB_F12                         ; 1       ;
+; dcp:DECODE|RFT                          ; 1       ;
+; dcp:DECODE|$00016                       ; 1       ;
+; dcp:DECODE|$00032                       ; 1       ;
+; dcp:DECODE|IO_RWM                       ; 1       ;
+; ALL_MODE[2]                             ; 1       ;
+; SOFT_RES[0]                             ; 3       ;
+; SOFT_RES[1]                             ; 3       ;
+; kbd:KEYS|KB_RESET                       ; 1       ;
+; $00159                                  ; 2       ;
+; video2:SVIDEO|V_WE_R                    ; 1       ;
+; dcp:DECODE|WT_CT[1]                     ; 5       ;
+; dcp:DECODE|WT_CT[2]                     ; 4       ;
+; dcp:DECODE|WT_CT[3]                     ; 3       ;
+; dcp:DECODE|WT_CT[0]                     ; 5       ;
+; kbd:KEYS|kbd[0]                         ; 2       ;
+; kbd:KEYS|kbd[1]                         ; 2       ;
+; kbd:KEYS|kbd[2]                         ; 2       ;
+; kbd:KEYS|kbd[3]                         ; 2       ;
+; kbd:KEYS|kbd[4]                         ; 2       ;
+; acceler:ACC|ACC_BLK                     ; 2       ;
+; dcp:DECODE|$00030                       ; 1       ;
+; kbd:KEYS|kbd[5]                         ; 2       ;
+; kbd:KEYS|KDD[6]                         ; 2       ;
+; kbd:KEYS|KDD[7]                         ; 2       ;
+; $00173                                  ; 1       ;
+; $00174                                  ; 3       ;
+; CBL_R[15]                               ; 1       ;
+; ay:AY3|AY_CXX                           ; 3       ;
+; ay:AY3|AY_SH[0]                         ; 4       ;
+; ay:AY3|AY_CX                            ; 5       ;
+; ay:AY3|AY_SH[1]                         ; 1       ;
+; ay:AY3|AY_SH[2]                         ; 1       ;
+; ay:AY3|AY_SH[3]                         ; 2       ;
+; ay:AY3|AY_SH[4]                         ; 1       ;
+; ay:AY3|AY_SH[5]                         ; 1       ;
+; ay:AY3|AY_SH[6]                         ; 1       ;
+; ay:AY3|AY_SH[7]                         ; 1       ;
+; ay:AY3|AY_SH[8]                         ; 1       ;
+; ay:AY3|AY_SH[9]                         ; 1       ;
+; ay:AY3|AY_SH[10]                        ; 1       ;
+; ay:AY3|AY_SH[11]                        ; 1       ;
+; ay:AY3|AY_SH[12]                        ; 1       ;
+; ay:AY3|AY_SH[13]                        ; 1       ;
+; ay:AY3|AY_SH[14]                        ; 1       ;
+; ay:AY3|AY_SH[15]                        ; 1       ;
+; ay:AY3|AY_SH[16]                        ; 1       ;
+; Total number of inverted registers = 83 ;         ;
++-----------------------------------------+---------+
+
+
++----------------------------------------------------------------+
+; Source assignments for ay:AY3|lpm_add_sub:$00043|addcore:adder ;
++---------------------------+-------+------+---------------------+
+; Assignment                ; Value ; From ; To                  ;
++---------------------------+-------+------+---------------------+
+; SUPPRESS_DA_RULE_INTERNAL ; A103  ; -    ; -                   ;
++---------------------------+-------+------+---------------------+
+
+
++----------------------------------------------------------------+
+; Source assignments for ay:AY3|lpm_add_sub:$00045|addcore:adder ;
++---------------------------+-------+------+---------------------+
+; Assignment                ; Value ; From ; To                  ;
++---------------------------+-------+------+---------------------+
+; SUPPRESS_DA_RULE_INTERNAL ; A103  ; -    ; -                   ;
++---------------------------+-------+------+---------------------+
+
+
++---------------------------------------------------------+
+; Source assignments for acceler:ACC|lpm_counter:AA_rtl_0 ;
++---------------------------+-------+------+--------------+
+; Assignment                ; Value ; From ; To           ;
++---------------------------+-------+------+--------------+
+; SUPPRESS_DA_RULE_INTERNAL ; a101  ; -    ; -            ;
+; SUPPRESS_DA_RULE_INTERNAL ; s102  ; -    ; -            ;
+; SUPPRESS_DA_RULE_INTERNAL ; s103  ; -    ; -            ;
++---------------------------+-------+------+--------------+
+
+
++------------------------------------------------------------+
+; Source assignments for video2:SVIDEO|lpm_counter:CTF_rtl_1 ;
++---------------------------+-------+------+-----------------+
+; Assignment                ; Value ; From ; To              ;
++---------------------------+-------+------+-----------------+
+; SUPPRESS_DA_RULE_INTERNAL ; a101  ; -    ; -               ;
+; SUPPRESS_DA_RULE_INTERNAL ; s102  ; -    ; -               ;
+; SUPPRESS_DA_RULE_INTERNAL ; s103  ; -    ; -               ;
++---------------------------+-------+------+-----------------+
+
+
++----------------------------------------------------------+
+; Source assignments for acceler:ACC|lpm_counter:AGR_rtl_2 ;
++---------------------------+-------+------+---------------+
+; Assignment                ; Value ; From ; To            ;
++---------------------------+-------+------+---------------+
+; SUPPRESS_DA_RULE_INTERNAL ; a101  ; -    ; -             ;
+; SUPPRESS_DA_RULE_INTERNAL ; s102  ; -    ; -             ;
+; SUPPRESS_DA_RULE_INTERNAL ; s103  ; -    ; -             ;
++---------------------------+-------+------+---------------+
+
+
++--------------------------------------------------+
+; Source assignments for lpm_counter:CBL_CTX_rtl_3 ;
++---------------------------+-------+------+-------+
+; Assignment                ; Value ; From ; To    ;
++---------------------------+-------+------+-------+
+; SUPPRESS_DA_RULE_INTERNAL ; a101  ; -    ; -     ;
+; SUPPRESS_DA_RULE_INTERNAL ; s102  ; -    ; -     ;
+; SUPPRESS_DA_RULE_INTERNAL ; s103  ; -    ; -     ;
++---------------------------+-------+------+-------+
+
+
++--------------------------------------------------------------+
+; Source assignments for acceler:ACC|lpm_counter:ACC_CNT_rtl_4 ;
++---------------------------+-------+------+-------------------+
+; Assignment                ; Value ; From ; To                ;
++---------------------------+-------+------+-------------------+
+; SUPPRESS_DA_RULE_INTERNAL ; a101  ; -    ; -                 ;
+; SUPPRESS_DA_RULE_INTERNAL ; s102  ; -    ; -                 ;
+; SUPPRESS_DA_RULE_INTERNAL ; s103  ; -    ; -                 ;
++---------------------------+-------+------+-------------------+
+
+
++------------------------------------------------------+
+; Source assignments for mouse:MS|lpm_counter:CT_rtl_5 ;
++---------------------------+-------+------+-----------+
+; Assignment                ; Value ; From ; To        ;
++---------------------------+-------+------+-----------+
+; SUPPRESS_DA_RULE_INTERNAL ; a101  ; -    ; -         ;
+; SUPPRESS_DA_RULE_INTERNAL ; s102  ; -    ; -         ;
+; SUPPRESS_DA_RULE_INTERNAL ; s103  ; -    ; -         ;
++---------------------------+-------+------+-----------+
+
+
++--------------------------------------------------------+
+; Source assignments for ay:AY3|lpm_counter:AY_VAR_rtl_6 ;
++---------------------------+-------+------+-------------+
+; Assignment                ; Value ; From ; To          ;
++---------------------------+-------+------+-------------+
+; SUPPRESS_DA_RULE_INTERNAL ; a101  ; -    ; -           ;
+; SUPPRESS_DA_RULE_INTERNAL ; s102  ; -    ; -           ;
+; SUPPRESS_DA_RULE_INTERNAL ; s103  ; -    ; -           ;
++---------------------------+-------+------+-------------+
+
+
++---------------------------------------------------------------------+
+; Source assignments for video2:SVIDEO|lpm_add_sub:op_5|addcore:adder ;
++---------------------------+-------+------+--------------------------+
+; Assignment                ; Value ; From ; To                       ;
++---------------------------+-------+------+--------------------------+
+; SUPPRESS_DA_RULE_INTERNAL ; A103  ; -    ; -                        ;
++---------------------------+-------+------+--------------------------+
+
+
++---------------------------------------------------------------------+
+; Source assignments for video2:SVIDEO|lpm_add_sub:op_4|addcore:adder ;
++---------------------------+-------+------+--------------------------+
+; Assignment                ; Value ; From ; To                       ;
++---------------------------+-------+------+--------------------------+
+; SUPPRESS_DA_RULE_INTERNAL ; A103  ; -    ; -                        ;
++---------------------------+-------+------+--------------------------+
+
+
++-------------------------------------------------------+
+; Source assignments for lpm_add_sub:op_7|addcore:adder ;
++---------------------------+-------+------+------------+
+; Assignment                ; Value ; From ; To         ;
++---------------------------+-------+------+------------+
+; SUPPRESS_DA_RULE_INTERNAL ; A103  ; -    ; -          ;
++---------------------------+-------+------+------------+
+
+
++-------------------------------------------------------+
+; Source assignments for lpm_add_sub:op_8|addcore:adder ;
++---------------------------+-------+------+------------+
+; Assignment                ; Value ; From ; To         ;
++---------------------------+-------+------+------------+
+; SUPPRESS_DA_RULE_INTERNAL ; A103  ; -    ; -          ;
++---------------------------+-------+------+------------+
+
+
++--------------------------------------------------------------+
+; Source assignments for ay:AY3|lpm_add_sub:op_1|addcore:adder ;
++---------------------------+-------+------+-------------------+
+; Assignment                ; Value ; From ; To                ;
++---------------------------+-------+------+-------------------+
+; SUPPRESS_DA_RULE_INTERNAL ; A103  ; -    ; -                 ;
++---------------------------+-------+------+-------------------+
+
+
++--------------------------------------------------------+
+; Source assignments for lpm_add_sub:op_10|addcore:adder ;
++---------------------------+-------+------+-------------+
+; Assignment                ; Value ; From ; To          ;
++---------------------------+-------+------+-------------+
+; SUPPRESS_DA_RULE_INTERNAL ; A103  ; -    ; -           ;
++---------------------------+-------+------+-------------+
+
+
++-------------------------------------------------------+
+; Source assignments for lpm_add_sub:op_5|addcore:adder ;
++---------------------------+-------+------+------------+
+; Assignment                ; Value ; From ; To         ;
++---------------------------+-------+------+------------+
+; SUPPRESS_DA_RULE_INTERNAL ; A103  ; -    ; -          ;
++---------------------------+-------+------+------------+
+
+
++-------------------------------------------------------------------+
+; Source assignments for acceler:ACC|lpm_add_sub:op_3|addcore:adder ;
++---------------------------+-------+------+------------------------+
+; Assignment                ; Value ; From ; To                     ;
++---------------------------+-------+------+------------------------+
+; SUPPRESS_DA_RULE_INTERNAL ; A103  ; -    ; -                      ;
++---------------------------+-------+------+------------------------+
+
+
++----------------------------------------------------------------+
+; Source assignments for mouse:MS|lpm_add_sub:op_2|addcore:adder ;
++---------------------------+-------+------+---------------------+
+; Assignment                ; Value ; From ; To                  ;
++---------------------------+-------+------+---------------------+
+; SUPPRESS_DA_RULE_INTERNAL ; A103  ; -    ; -                   ;
++---------------------------+-------+------+---------------------+
+
+
++----------------------------------------------------------------+
+; Source assignments for mouse:MS|lpm_add_sub:op_3|addcore:adder ;
++---------------------------+-------+------+---------------------+
+; Assignment                ; Value ; From ; To                  ;
++---------------------------+-------+------+---------------------+
+; SUPPRESS_DA_RULE_INTERNAL ; A103  ; -    ; -                   ;
++---------------------------+-------+------+---------------------+
+
+
++-------------------------------------------------------+
+; Source assignments for lpm_add_sub:op_9|addcore:adder ;
++---------------------------+-------+------+------------+
+; Assignment                ; Value ; From ; To         ;
++---------------------------+-------+------+------------+
+; SUPPRESS_DA_RULE_INTERNAL ; A103  ; -    ; -          ;
++---------------------------+-------+------+------------+
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |SP2_ACEX ;
++----------------+----------+----------------------------------------------+
+; Parameter Name ; Value    ; Type                                         ;
++----------------+----------+----------------------------------------------+
+; UPDATE         ; 1        ; Untyped                                      ;
+; MODE           ; SPRINTER ; Untyped                                      ;
+; NMI_ON         ; OFF      ; Untyped                                      ;
+; SCREEN_OFF     ; NOT_USE  ; Untyped                                      ;
++----------------+----------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: kbd:KEYS|lpm_ram_dq:$00021 ;
++------------------------+--------------+---------------------------------+
+; Parameter Name         ; Value        ; Type                            ;
++------------------------+--------------+---------------------------------+
+; LPM_WIDTH              ; 8            ; Untyped                         ;
+; LPM_WIDTHAD            ; 8            ; Untyped                         ;
+; LPM_NUMWORDS           ; 256          ; Untyped                         ;
+; LPM_INDATA             ; REGISTERED   ; Untyped                         ;
+; LPM_ADDRESS_CONTROL    ; REGISTERED   ; Untyped                         ;
+; LPM_OUTDATA            ; UNREGISTERED ; Untyped                         ;
+; LPM_FILE               ; KBD_INI2.MIF ; Untyped                         ;
+; USE_EAB                ; ON           ; Untyped                         ;
+; DEVICE_FAMILY          ; ACEX1K       ; Untyped                         ;
+; CBXI_PARAMETER         ; NOTHING      ; Untyped                         ;
+; AUTO_CARRY_CHAINS      ; ON           ; AUTO_CARRY                      ;
+; IGNORE_CARRY_BUFFERS   ; OFF          ; IGNORE_CARRY                    ;
+; AUTO_CASCADE_CHAINS    ; ON           ; AUTO_CASCADE                    ;
+; IGNORE_CASCADE_BUFFERS ; OFF          ; IGNORE_CASCADE                  ;
++------------------------+--------------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: video2:SVIDEO ;
++----------------+----------+--------------------------------+
+; Parameter Name ; Value    ; Type                           ;
++----------------+----------+--------------------------------+
+; MODE           ; SPRINTER ; Untyped                        ;
+; MOUSE          ; NO       ; Untyped                        ;
+; HOR_PLACE      ; 50       ; Unsigned Hexadecimal           ;
+; VER_PLACE      ; 91       ; Unsigned Hexadecimal           ;
++----------------+----------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: video2:SVIDEO|lpm_ram_dp:MS_DAT ;
++------------------------+------------+----------------------------------------+
+; Parameter Name         ; Value      ; Type                                   ;
++------------------------+------------+----------------------------------------+
+; WIDTH_BYTEENA          ; 1          ; Untyped                                ;
+; LPM_WIDTH              ; 16         ; Untyped                                ;
+; LPM_WIDTHAD            ; 8          ; Untyped                                ;
+; LPM_NUMWORDS           ; 256        ; Untyped                                ;
+; LPM_INDATA             ; REGISTERED ; Untyped                                ;
+; LPM_RDADDRESS_CONTROL  ; REGISTERED ; Untyped                                ;
+; LPM_WRADDRESS_CONTROL  ; REGISTERED ; Untyped                                ;
+; LPM_OUTDATA            ; REGISTERED ; Untyped                                ;
+; LPM_FILE               ; MOUSE.MIF  ; Untyped                                ;
+; USE_EAB                ; ON         ; Untyped                                ;
+; DEVICE_FAMILY          ; ACEX1K     ; Untyped                                ;
+; AUTO_CARRY_CHAINS      ; ON         ; AUTO_CARRY                             ;
+; IGNORE_CARRY_BUFFERS   ; OFF        ; IGNORE_CARRY                           ;
+; AUTO_CASCADE_CHAINS    ; ON         ; AUTO_CASCADE                           ;
+; IGNORE_CASCADE_BUFFERS ; OFF        ; IGNORE_CASCADE                         ;
++------------------------+------------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: dcp:DECODE ;
++----------------+-------+--------------------------------+
+; Parameter Name ; Value ; Type                           ;
++----------------+-------+--------------------------------+
+; UPDATE         ; 1     ; Untyped                        ;
++----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: dcp:DECODE|lpm_ram_dp:MEM ;
++------------------------+------------+----------------------------------+
+; Parameter Name         ; Value      ; Type                             ;
++------------------------+------------+----------------------------------+
+; WIDTH_BYTEENA          ; 1          ; Untyped                          ;
+; LPM_WIDTH              ; 16         ; Untyped                          ;
+; LPM_WIDTHAD            ; 8          ; Untyped                          ;
+; LPM_NUMWORDS           ; 256        ; Untyped                          ;
+; LPM_INDATA             ; REGISTERED ; Untyped                          ;
+; LPM_RDADDRESS_CONTROL  ; REGISTERED ; Untyped                          ;
+; LPM_WRADDRESS_CONTROL  ; REGISTERED ; Untyped                          ;
+; LPM_OUTDATA            ; REGISTERED ; Untyped                          ;
+; LPM_FILE               ; DCP.MIF    ; Untyped                          ;
+; USE_EAB                ; ON         ; Untyped                          ;
+; DEVICE_FAMILY          ; ACEX1K     ; Untyped                          ;
+; AUTO_CARRY_CHAINS      ; ON         ; AUTO_CARRY                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF        ; IGNORE_CARRY                     ;
+; AUTO_CASCADE_CHAINS    ; ON         ; AUTO_CASCADE                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF        ; IGNORE_CASCADE                   ;
++------------------------+------------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: acceler:ACC|lpm_ram_dp:RAM ;
++------------------------+------------+-----------------------------------+
+; Parameter Name         ; Value      ; Type                              ;
++------------------------+------------+-----------------------------------+
+; WIDTH_BYTEENA          ; 1          ; Untyped                           ;
+; LPM_WIDTH              ; 16         ; Untyped                           ;
+; LPM_WIDTHAD            ; 8          ; Untyped                           ;
+; LPM_NUMWORDS           ; 256        ; Untyped                           ;
+; LPM_INDATA             ; REGISTERED ; Untyped                           ;
+; LPM_RDADDRESS_CONTROL  ; REGISTERED ; Untyped                           ;
+; LPM_WRADDRESS_CONTROL  ; REGISTERED ; Untyped                           ;
+; LPM_OUTDATA            ; REGISTERED ; Untyped                           ;
+; LPM_FILE               ; UNUSED     ; Untyped                           ;
+; USE_EAB                ; ON         ; Untyped                           ;
+; DEVICE_FAMILY          ; ACEX1K     ; Untyped                           ;
+; AUTO_CARRY_CHAINS      ; ON         ; AUTO_CARRY                        ;
+; IGNORE_CARRY_BUFFERS   ; OFF        ; IGNORE_CARRY                      ;
+; AUTO_CASCADE_CHAINS    ; ON         ; AUTO_CASCADE                      ;
+; IGNORE_CASCADE_BUFFERS ; OFF        ; IGNORE_CASCADE                    ;
++------------------------+------------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ay:AY3|lpm_ram_dq:$00004 ;
++------------------------+------------+---------------------------------+
+; Parameter Name         ; Value      ; Type                            ;
++------------------------+------------+---------------------------------+
+; LPM_WIDTH              ; 8          ; Untyped                         ;
+; LPM_WIDTHAD            ; 8          ; Untyped                         ;
+; LPM_NUMWORDS           ; 256        ; Untyped                         ;
+; LPM_INDATA             ; REGISTERED ; Untyped                         ;
+; LPM_ADDRESS_CONTROL    ; REGISTERED ; Untyped                         ;
+; LPM_OUTDATA            ; REGISTERED ; Untyped                         ;
+; LPM_FILE               ; AY.MIF     ; Untyped                         ;
+; USE_EAB                ; ON         ; Untyped                         ;
+; DEVICE_FAMILY          ; ACEX1K     ; Untyped                         ;
+; CBXI_PARAMETER         ; NOTHING    ; Untyped                         ;
+; AUTO_CARRY_CHAINS      ; ON         ; AUTO_CARRY                      ;
+; IGNORE_CARRY_BUFFERS   ; OFF        ; IGNORE_CARRY                    ;
+; AUTO_CASCADE_CHAINS    ; ON         ; AUTO_CASCADE                    ;
+; IGNORE_CASCADE_BUFFERS ; OFF        ; IGNORE_CASCADE                  ;
++------------------------+------------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ay:AY3|lpm_add_sub:$00043 ;
++------------------------+-------------+---------------------------------+
+; Parameter Name         ; Value       ; Type                            ;
++------------------------+-------------+---------------------------------+
+; LPM_WIDTH              ; 11          ; Untyped                         ;
+; LPM_REPRESENTATION     ; UNSIGNED    ; Untyped                         ;
+; LPM_DIRECTION          ; DEFAULT     ; Untyped                         ;
+; ONE_INPUT_IS_CONSTANT  ; NO          ; Untyped                         ;
+; LPM_PIPELINE           ; 0           ; Untyped                         ;
+; MAXIMIZE_SPEED         ; 5           ; Untyped                         ;
+; REGISTERED_AT_END      ; 0           ; Untyped                         ;
+; OPTIMIZE_FOR_SPEED     ; 9           ; Untyped                         ;
+; USE_CS_BUFFERS         ; 1           ; Untyped                         ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                         ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH              ;
+; DEVICE_FAMILY          ; ACEX1K      ; Untyped                         ;
+; USE_WYS                ; OFF         ; Untyped                         ;
+; STYLE                  ; FAST        ; Untyped                         ;
+; CBXI_PARAMETER         ; add_sub_esc ; Untyped                         ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                      ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                    ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                    ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE                  ;
++------------------------+-------------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ay:AY3|lpm_add_sub:$00045 ;
++------------------------+-------------+---------------------------------+
+; Parameter Name         ; Value       ; Type                            ;
++------------------------+-------------+---------------------------------+
+; LPM_WIDTH              ; 11          ; Untyped                         ;
+; LPM_REPRESENTATION     ; UNSIGNED    ; Untyped                         ;
+; LPM_DIRECTION          ; DEFAULT     ; Untyped                         ;
+; ONE_INPUT_IS_CONSTANT  ; NO          ; Untyped                         ;
+; LPM_PIPELINE           ; 0           ; Untyped                         ;
+; MAXIMIZE_SPEED         ; 5           ; Untyped                         ;
+; REGISTERED_AT_END      ; 0           ; Untyped                         ;
+; OPTIMIZE_FOR_SPEED     ; 9           ; Untyped                         ;
+; USE_CS_BUFFERS         ; 1           ; Untyped                         ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                         ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH              ;
+; DEVICE_FAMILY          ; ACEX1K      ; Untyped                         ;
+; USE_WYS                ; OFF         ; Untyped                         ;
+; STYLE                  ; FAST        ; Untyped                         ;
+; CBXI_PARAMETER         ; add_sub_esc ; Untyped                         ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                      ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                    ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                    ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE                  ;
++------------------------+-------------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: lpm_ram_dp:CBL ;
++------------------------+------------+-----------------------+
+; Parameter Name         ; Value      ; Type                  ;
++------------------------+------------+-----------------------+
+; WIDTH_BYTEENA          ; 1          ; Untyped               ;
+; LPM_WIDTH              ; 16         ; Untyped               ;
+; LPM_WIDTHAD            ; 8          ; Untyped               ;
+; LPM_NUMWORDS           ; 256        ; Untyped               ;
+; LPM_INDATA             ; REGISTERED ; Untyped               ;
+; LPM_RDADDRESS_CONTROL  ; REGISTERED ; Untyped               ;
+; LPM_WRADDRESS_CONTROL  ; REGISTERED ; Untyped               ;
+; LPM_OUTDATA            ; REGISTERED ; Untyped               ;
+; LPM_FILE               ; UNUSED     ; Untyped               ;
+; USE_EAB                ; ON         ; Untyped               ;
+; DEVICE_FAMILY          ; ACEX1K     ; Untyped               ;
+; AUTO_CARRY_CHAINS      ; ON         ; AUTO_CARRY            ;
+; IGNORE_CARRY_BUFFERS   ; OFF        ; IGNORE_CARRY          ;
+; AUTO_CASCADE_CHAINS    ; ON         ; AUTO_CASCADE          ;
+; IGNORE_CASCADE_BUFFERS ; OFF        ; IGNORE_CASCADE        ;
++------------------------+------------+-----------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: acceler:ACC|lpm_counter:AA_rtl_0 ;
++------------------------+-------------------+--------------------------------------+
+; Parameter Name         ; Value             ; Type                                 ;
++------------------------+-------------------+--------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON                ; AUTO_CARRY                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF               ; IGNORE_CARRY                         ;
+; AUTO_CASCADE_CHAINS    ; ON                ; AUTO_CASCADE                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF               ; IGNORE_CASCADE                       ;
+; LPM_WIDTH              ; 16                ; Untyped                              ;
+; LPM_DIRECTION          ; UP                ; Untyped                              ;
+; LPM_MODULUS            ; 0                 ; Untyped                              ;
+; LPM_AVALUE             ; UNUSED            ; Untyped                              ;
+; LPM_SVALUE             ; UNUSED            ; Untyped                              ;
+; LPM_PORT_UPDOWN        ; PORT_CONNECTIVITY ; Untyped                              ;
+; DEVICE_FAMILY          ; ACEX1K            ; Untyped                              ;
+; CARRY_CHAIN            ; MANUAL            ; Untyped                              ;
+; CARRY_CHAIN_LENGTH     ; 48                ; CARRY_CHAIN_LENGTH                   ;
+; NOT_GATE_PUSH_BACK     ; ON                ; NOT_GATE_PUSH_BACK                   ;
+; CARRY_CNT_EN           ; SMART             ; Untyped                              ;
+; LABWIDE_SCLR           ; ON                ; Untyped                              ;
+; USE_NEW_VERSION        ; TRUE              ; Untyped                              ;
+; CBXI_PARAMETER         ; NOTHING           ; Untyped                              ;
++------------------------+-------------------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: video2:SVIDEO|lpm_counter:CTF_rtl_1 ;
++------------------------+-------------------+-----------------------------------------+
+; Parameter Name         ; Value             ; Type                                    ;
++------------------------+-------------------+-----------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON                ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF               ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS    ; ON                ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF               ; IGNORE_CASCADE                          ;
+; LPM_WIDTH              ; 7                 ; Untyped                                 ;
+; LPM_DIRECTION          ; UP                ; Untyped                                 ;
+; LPM_MODULUS            ; 0                 ; Untyped                                 ;
+; LPM_AVALUE             ; UNUSED            ; Untyped                                 ;
+; LPM_SVALUE             ; UNUSED            ; Untyped                                 ;
+; LPM_PORT_UPDOWN        ; PORT_CONNECTIVITY ; Untyped                                 ;
+; DEVICE_FAMILY          ; ACEX1K            ; Untyped                                 ;
+; CARRY_CHAIN            ; MANUAL            ; Untyped                                 ;
+; CARRY_CHAIN_LENGTH     ; 48                ; CARRY_CHAIN_LENGTH                      ;
+; NOT_GATE_PUSH_BACK     ; ON                ; NOT_GATE_PUSH_BACK                      ;
+; CARRY_CNT_EN           ; SMART             ; Untyped                                 ;
+; LABWIDE_SCLR           ; ON                ; Untyped                                 ;
+; USE_NEW_VERSION        ; TRUE              ; Untyped                                 ;
+; CBXI_PARAMETER         ; NOTHING           ; Untyped                                 ;
++------------------------+-------------------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: acceler:ACC|lpm_counter:AGR_rtl_2 ;
++------------------------+-------------------+---------------------------------------+
+; Parameter Name         ; Value             ; Type                                  ;
++------------------------+-------------------+---------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON                ; AUTO_CARRY                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF               ; IGNORE_CARRY                          ;
+; AUTO_CASCADE_CHAINS    ; ON                ; AUTO_CASCADE                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF               ; IGNORE_CASCADE                        ;
+; LPM_WIDTH              ; 8                 ; Untyped                               ;
+; LPM_DIRECTION          ; UP                ; Untyped                               ;
+; LPM_MODULUS            ; 0                 ; Untyped                               ;
+; LPM_AVALUE             ; UNUSED            ; Untyped                               ;
+; LPM_SVALUE             ; UNUSED            ; Untyped                               ;
+; LPM_PORT_UPDOWN        ; PORT_CONNECTIVITY ; Untyped                               ;
+; DEVICE_FAMILY          ; ACEX1K            ; Untyped                               ;
+; CARRY_CHAIN            ; MANUAL            ; Untyped                               ;
+; CARRY_CHAIN_LENGTH     ; 48                ; CARRY_CHAIN_LENGTH                    ;
+; NOT_GATE_PUSH_BACK     ; ON                ; NOT_GATE_PUSH_BACK                    ;
+; CARRY_CNT_EN           ; SMART             ; Untyped                               ;
+; LABWIDE_SCLR           ; ON                ; Untyped                               ;
+; USE_NEW_VERSION        ; TRUE              ; Untyped                               ;
+; CBXI_PARAMETER         ; NOTHING           ; Untyped                               ;
++------------------------+-------------------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_counter:CBL_CTX_rtl_3 ;
++------------------------+-------------------+-------------------------------+
+; Parameter Name         ; Value             ; Type                          ;
++------------------------+-------------------+-------------------------------+
+; AUTO_CARRY_CHAINS      ; ON                ; AUTO_CARRY                    ;
+; IGNORE_CARRY_BUFFERS   ; OFF               ; IGNORE_CARRY                  ;
+; AUTO_CASCADE_CHAINS    ; ON                ; AUTO_CASCADE                  ;
+; IGNORE_CASCADE_BUFFERS ; OFF               ; IGNORE_CASCADE                ;
+; LPM_WIDTH              ; 5                 ; Untyped                       ;
+; LPM_DIRECTION          ; DOWN              ; Untyped                       ;
+; LPM_MODULUS            ; 0                 ; Untyped                       ;
+; LPM_AVALUE             ; UNUSED            ; Untyped                       ;
+; LPM_SVALUE             ; UNUSED            ; Untyped                       ;
+; LPM_PORT_UPDOWN        ; PORT_CONNECTIVITY ; Untyped                       ;
+; DEVICE_FAMILY          ; ACEX1K            ; Untyped                       ;
+; CARRY_CHAIN            ; MANUAL            ; Untyped                       ;
+; CARRY_CHAIN_LENGTH     ; 48                ; CARRY_CHAIN_LENGTH            ;
+; NOT_GATE_PUSH_BACK     ; ON                ; NOT_GATE_PUSH_BACK            ;
+; CARRY_CNT_EN           ; SMART             ; Untyped                       ;
+; LABWIDE_SCLR           ; ON                ; Untyped                       ;
+; USE_NEW_VERSION        ; TRUE              ; Untyped                       ;
+; CBXI_PARAMETER         ; NOTHING           ; Untyped                       ;
++------------------------+-------------------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: acceler:ACC|lpm_counter:ACC_CNT_rtl_4 ;
++------------------------+-------------------+-------------------------------------------+
+; Parameter Name         ; Value             ; Type                                      ;
++------------------------+-------------------+-------------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON                ; AUTO_CARRY                                ;
+; IGNORE_CARRY_BUFFERS   ; OFF               ; IGNORE_CARRY                              ;
+; AUTO_CASCADE_CHAINS    ; ON                ; AUTO_CASCADE                              ;
+; IGNORE_CASCADE_BUFFERS ; OFF               ; IGNORE_CASCADE                            ;
+; LPM_WIDTH              ; 8                 ; Untyped                                   ;
+; LPM_DIRECTION          ; DOWN              ; Untyped                                   ;
+; LPM_MODULUS            ; 0                 ; Untyped                                   ;
+; LPM_AVALUE             ; UNUSED            ; Untyped                                   ;
+; LPM_SVALUE             ; UNUSED            ; Untyped                                   ;
+; LPM_PORT_UPDOWN        ; PORT_CONNECTIVITY ; Untyped                                   ;
+; DEVICE_FAMILY          ; ACEX1K            ; Untyped                                   ;
+; CARRY_CHAIN            ; MANUAL            ; Untyped                                   ;
+; CARRY_CHAIN_LENGTH     ; 48                ; CARRY_CHAIN_LENGTH                        ;
+; NOT_GATE_PUSH_BACK     ; ON                ; NOT_GATE_PUSH_BACK                        ;
+; CARRY_CNT_EN           ; SMART             ; Untyped                                   ;
+; LABWIDE_SCLR           ; ON                ; Untyped                                   ;
+; USE_NEW_VERSION        ; TRUE              ; Untyped                                   ;
+; CBXI_PARAMETER         ; NOTHING           ; Untyped                                   ;
++------------------------+-------------------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: mouse:MS|lpm_counter:CT_rtl_5 ;
++------------------------+-------------------+-----------------------------------+
+; Parameter Name         ; Value             ; Type                              ;
++------------------------+-------------------+-----------------------------------+
+; AUTO_CARRY_CHAINS      ; ON                ; AUTO_CARRY                        ;
+; IGNORE_CARRY_BUFFERS   ; OFF               ; IGNORE_CARRY                      ;
+; AUTO_CASCADE_CHAINS    ; ON                ; AUTO_CASCADE                      ;
+; IGNORE_CASCADE_BUFFERS ; OFF               ; IGNORE_CASCADE                    ;
+; LPM_WIDTH              ; 4                 ; Untyped                           ;
+; LPM_DIRECTION          ; UP                ; Untyped                           ;
+; LPM_MODULUS            ; 0                 ; Untyped                           ;
+; LPM_AVALUE             ; UNUSED            ; Untyped                           ;
+; LPM_SVALUE             ; UNUSED            ; Untyped                           ;
+; LPM_PORT_UPDOWN        ; PORT_CONNECTIVITY ; Untyped                           ;
+; DEVICE_FAMILY          ; ACEX1K            ; Untyped                           ;
+; CARRY_CHAIN            ; MANUAL            ; Untyped                           ;
+; CARRY_CHAIN_LENGTH     ; 48                ; CARRY_CHAIN_LENGTH                ;
+; NOT_GATE_PUSH_BACK     ; ON                ; NOT_GATE_PUSH_BACK                ;
+; CARRY_CNT_EN           ; SMART             ; Untyped                           ;
+; LABWIDE_SCLR           ; ON                ; Untyped                           ;
+; USE_NEW_VERSION        ; TRUE              ; Untyped                           ;
+; CBXI_PARAMETER         ; NOTHING           ; Untyped                           ;
++------------------------+-------------------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: ay:AY3|lpm_counter:AY_VAR_rtl_6 ;
++------------------------+-------------------+-------------------------------------+
+; Parameter Name         ; Value             ; Type                                ;
++------------------------+-------------------+-------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON                ; AUTO_CARRY                          ;
+; IGNORE_CARRY_BUFFERS   ; OFF               ; IGNORE_CARRY                        ;
+; AUTO_CASCADE_CHAINS    ; ON                ; AUTO_CASCADE                        ;
+; IGNORE_CASCADE_BUFFERS ; OFF               ; IGNORE_CASCADE                      ;
+; LPM_WIDTH              ; 6                 ; Untyped                             ;
+; LPM_DIRECTION          ; UP                ; Untyped                             ;
+; LPM_MODULUS            ; 0                 ; Untyped                             ;
+; LPM_AVALUE             ; UNUSED            ; Untyped                             ;
+; LPM_SVALUE             ; UNUSED            ; Untyped                             ;
+; LPM_PORT_UPDOWN        ; PORT_CONNECTIVITY ; Untyped                             ;
+; DEVICE_FAMILY          ; ACEX1K            ; Untyped                             ;
+; CARRY_CHAIN            ; MANUAL            ; Untyped                             ;
+; CARRY_CHAIN_LENGTH     ; 48                ; CARRY_CHAIN_LENGTH                  ;
+; NOT_GATE_PUSH_BACK     ; ON                ; NOT_GATE_PUSH_BACK                  ;
+; CARRY_CNT_EN           ; SMART             ; Untyped                             ;
+; LABWIDE_SCLR           ; ON                ; Untyped                             ;
+; USE_NEW_VERSION        ; TRUE              ; Untyped                             ;
+; CBXI_PARAMETER         ; NOTHING           ; Untyped                             ;
++------------------------+-------------------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: video2:SVIDEO|lpm_add_sub:op_5 ;
++------------------------+-------------+------------------------------------------+
+; Parameter Name         ; Value       ; Type                                     ;
++------------------------+-------------+------------------------------------------+
+; LPM_WIDTH              ; 9           ; Untyped                                  ;
+; LPM_REPRESENTATION     ; UNSIGNED    ; Untyped                                  ;
+; LPM_DIRECTION          ; ADD         ; Untyped                                  ;
+; ONE_INPUT_IS_CONSTANT  ; YES         ; Untyped                                  ;
+; LPM_PIPELINE           ; 0           ; Untyped                                  ;
+; MAXIMIZE_SPEED         ; 5           ; Untyped                                  ;
+; REGISTERED_AT_END      ; 0           ; Untyped                                  ;
+; OPTIMIZE_FOR_SPEED     ; 9           ; Untyped                                  ;
+; USE_CS_BUFFERS         ; 1           ; Untyped                                  ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                                  ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH                       ;
+; DEVICE_FAMILY          ; ACEX1K      ; Untyped                                  ;
+; USE_WYS                ; OFF         ; Untyped                                  ;
+; STYLE                  ; FAST        ; Untyped                                  ;
+; CBXI_PARAMETER         ; add_sub_vah ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE                           ;
++------------------------+-------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: video2:SVIDEO|lpm_add_sub:op_4 ;
++------------------------+-------------+------------------------------------------+
+; Parameter Name         ; Value       ; Type                                     ;
++------------------------+-------------+------------------------------------------+
+; LPM_WIDTH              ; 6           ; Untyped                                  ;
+; LPM_REPRESENTATION     ; UNSIGNED    ; Untyped                                  ;
+; LPM_DIRECTION          ; ADD         ; Untyped                                  ;
+; ONE_INPUT_IS_CONSTANT  ; YES         ; Untyped                                  ;
+; LPM_PIPELINE           ; 0           ; Untyped                                  ;
+; MAXIMIZE_SPEED         ; 5           ; Untyped                                  ;
+; REGISTERED_AT_END      ; 0           ; Untyped                                  ;
+; OPTIMIZE_FOR_SPEED     ; 9           ; Untyped                                  ;
+; USE_CS_BUFFERS         ; 1           ; Untyped                                  ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                                  ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH                       ;
+; DEVICE_FAMILY          ; ACEX1K      ; Untyped                                  ;
+; USE_WYS                ; OFF         ; Untyped                                  ;
+; STYLE                  ; FAST        ; Untyped                                  ;
+; CBXI_PARAMETER         ; add_sub_sah ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE                           ;
++------------------------+-------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_add_sub:op_7 ;
++------------------------+-------------+----------------------------+
+; Parameter Name         ; Value       ; Type                       ;
++------------------------+-------------+----------------------------+
+; LPM_WIDTH              ; 8           ; Untyped                    ;
+; LPM_REPRESENTATION     ; UNSIGNED    ; Untyped                    ;
+; LPM_DIRECTION          ; ADD         ; Untyped                    ;
+; ONE_INPUT_IS_CONSTANT  ; YES         ; Untyped                    ;
+; LPM_PIPELINE           ; 0           ; Untyped                    ;
+; MAXIMIZE_SPEED         ; 5           ; Untyped                    ;
+; REGISTERED_AT_END      ; 0           ; Untyped                    ;
+; OPTIMIZE_FOR_SPEED     ; 9           ; Untyped                    ;
+; USE_CS_BUFFERS         ; 1           ; Untyped                    ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                    ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH         ;
+; DEVICE_FAMILY          ; ACEX1K      ; Untyped                    ;
+; USE_WYS                ; OFF         ; Untyped                    ;
+; STYLE                  ; FAST        ; Untyped                    ;
+; CBXI_PARAMETER         ; add_sub_uah ; Untyped                    ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                 ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY               ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE               ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE             ;
++------------------------+-------------+----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_add_sub:op_8 ;
++------------------------+-------------+----------------------------+
+; Parameter Name         ; Value       ; Type                       ;
++------------------------+-------------+----------------------------+
+; LPM_WIDTH              ; 8           ; Untyped                    ;
+; LPM_REPRESENTATION     ; UNSIGNED    ; Untyped                    ;
+; LPM_DIRECTION          ; ADD         ; Untyped                    ;
+; ONE_INPUT_IS_CONSTANT  ; YES         ; Untyped                    ;
+; LPM_PIPELINE           ; 0           ; Untyped                    ;
+; MAXIMIZE_SPEED         ; 5           ; Untyped                    ;
+; REGISTERED_AT_END      ; 0           ; Untyped                    ;
+; OPTIMIZE_FOR_SPEED     ; 9           ; Untyped                    ;
+; USE_CS_BUFFERS         ; 1           ; Untyped                    ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                    ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH         ;
+; DEVICE_FAMILY          ; ACEX1K      ; Untyped                    ;
+; USE_WYS                ; OFF         ; Untyped                    ;
+; STYLE                  ; FAST        ; Untyped                    ;
+; CBXI_PARAMETER         ; add_sub_uah ; Untyped                    ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                 ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY               ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE               ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE             ;
++------------------------+-------------+----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: ay:AY3|lpm_add_sub:op_1 ;
++------------------------+-------------+-----------------------------------+
+; Parameter Name         ; Value       ; Type                              ;
++------------------------+-------------+-----------------------------------+
+; LPM_WIDTH              ; 10          ; Untyped                           ;
+; LPM_REPRESENTATION     ; UNSIGNED    ; Untyped                           ;
+; LPM_DIRECTION          ; ADD         ; Untyped                           ;
+; ONE_INPUT_IS_CONSTANT  ; NO          ; Untyped                           ;
+; LPM_PIPELINE           ; 0           ; Untyped                           ;
+; MAXIMIZE_SPEED         ; 5           ; Untyped                           ;
+; REGISTERED_AT_END      ; 0           ; Untyped                           ;
+; OPTIMIZE_FOR_SPEED     ; 9           ; Untyped                           ;
+; USE_CS_BUFFERS         ; 1           ; Untyped                           ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                           ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH                ;
+; DEVICE_FAMILY          ; ACEX1K      ; Untyped                           ;
+; USE_WYS                ; OFF         ; Untyped                           ;
+; STYLE                  ; FAST        ; Untyped                           ;
+; CBXI_PARAMETER         ; add_sub_djh ; Untyped                           ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                        ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                      ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                      ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE                    ;
++------------------------+-------------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_add_sub:op_10 ;
++------------------------+-------------+-----------------------------+
+; Parameter Name         ; Value       ; Type                        ;
++------------------------+-------------+-----------------------------+
+; LPM_WIDTH              ; 12          ; Untyped                     ;
+; LPM_REPRESENTATION     ; UNSIGNED    ; Untyped                     ;
+; LPM_DIRECTION          ; ADD         ; Untyped                     ;
+; ONE_INPUT_IS_CONSTANT  ; NO          ; Untyped                     ;
+; LPM_PIPELINE           ; 0           ; Untyped                     ;
+; MAXIMIZE_SPEED         ; 5           ; Untyped                     ;
+; REGISTERED_AT_END      ; 0           ; Untyped                     ;
+; OPTIMIZE_FOR_SPEED     ; 9           ; Untyped                     ;
+; USE_CS_BUFFERS         ; 1           ; Untyped                     ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                     ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH          ;
+; DEVICE_FAMILY          ; ACEX1K      ; Untyped                     ;
+; USE_WYS                ; OFF         ; Untyped                     ;
+; STYLE                  ; FAST        ; Untyped                     ;
+; CBXI_PARAMETER         ; add_sub_l8h ; Untyped                     ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                  ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE              ;
++------------------------+-------------+-----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_add_sub:op_5 ;
++------------------------+-------------+----------------------------+
+; Parameter Name         ; Value       ; Type                       ;
++------------------------+-------------+----------------------------+
+; LPM_WIDTH              ; 5           ; Untyped                    ;
+; LPM_REPRESENTATION     ; UNSIGNED    ; Untyped                    ;
+; LPM_DIRECTION          ; ADD         ; Untyped                    ;
+; ONE_INPUT_IS_CONSTANT  ; YES         ; Untyped                    ;
+; LPM_PIPELINE           ; 0           ; Untyped                    ;
+; MAXIMIZE_SPEED         ; 5           ; Untyped                    ;
+; REGISTERED_AT_END      ; 0           ; Untyped                    ;
+; OPTIMIZE_FOR_SPEED     ; 9           ; Untyped                    ;
+; USE_CS_BUFFERS         ; 1           ; Untyped                    ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                    ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH         ;
+; DEVICE_FAMILY          ; ACEX1K      ; Untyped                    ;
+; USE_WYS                ; OFF         ; Untyped                    ;
+; STYLE                  ; FAST        ; Untyped                    ;
+; CBXI_PARAMETER         ; add_sub_rah ; Untyped                    ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                 ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY               ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE               ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE             ;
++------------------------+-------------+----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: acceler:ACC|lpm_add_sub:op_3 ;
++------------------------+-------------+----------------------------------------+
+; Parameter Name         ; Value       ; Type                                   ;
++------------------------+-------------+----------------------------------------+
+; LPM_WIDTH              ; 16          ; Untyped                                ;
+; LPM_REPRESENTATION     ; UNSIGNED    ; Untyped                                ;
+; LPM_DIRECTION          ; ADD         ; Untyped                                ;
+; ONE_INPUT_IS_CONSTANT  ; NO          ; Untyped                                ;
+; LPM_PIPELINE           ; 0           ; Untyped                                ;
+; MAXIMIZE_SPEED         ; 5           ; Untyped                                ;
+; REGISTERED_AT_END      ; 0           ; Untyped                                ;
+; OPTIMIZE_FOR_SPEED     ; 9           ; Untyped                                ;
+; USE_CS_BUFFERS         ; 1           ; Untyped                                ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                                ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH                     ;
+; DEVICE_FAMILY          ; ACEX1K      ; Untyped                                ;
+; USE_WYS                ; OFF         ; Untyped                                ;
+; STYLE                  ; FAST        ; Untyped                                ;
+; CBXI_PARAMETER         ; add_sub_p8h ; Untyped                                ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                             ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                           ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                           ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE                         ;
++------------------------+-------------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: mouse:MS|lpm_add_sub:op_2 ;
++------------------------+-------------+-------------------------------------+
+; Parameter Name         ; Value       ; Type                                ;
++------------------------+-------------+-------------------------------------+
+; LPM_WIDTH              ; 10          ; Untyped                             ;
+; LPM_REPRESENTATION     ; UNSIGNED    ; Untyped                             ;
+; LPM_DIRECTION          ; ADD         ; Untyped                             ;
+; ONE_INPUT_IS_CONSTANT  ; NO          ; Untyped                             ;
+; LPM_PIPELINE           ; 0           ; Untyped                             ;
+; MAXIMIZE_SPEED         ; 5           ; Untyped                             ;
+; REGISTERED_AT_END      ; 0           ; Untyped                             ;
+; OPTIMIZE_FOR_SPEED     ; 9           ; Untyped                             ;
+; USE_CS_BUFFERS         ; 1           ; Untyped                             ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                             ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH                  ;
+; DEVICE_FAMILY          ; ACEX1K      ; Untyped                             ;
+; USE_WYS                ; OFF         ; Untyped                             ;
+; STYLE                  ; FAST        ; Untyped                             ;
+; CBXI_PARAMETER         ; add_sub_j8h ; Untyped                             ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                          ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                        ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                        ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE                      ;
++------------------------+-------------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: mouse:MS|lpm_add_sub:op_3 ;
++------------------------+-------------+-------------------------------------+
+; Parameter Name         ; Value       ; Type                                ;
++------------------------+-------------+-------------------------------------+
+; LPM_WIDTH              ; 10          ; Untyped                             ;
+; LPM_REPRESENTATION     ; UNSIGNED    ; Untyped                             ;
+; LPM_DIRECTION          ; ADD         ; Untyped                             ;
+; ONE_INPUT_IS_CONSTANT  ; NO          ; Untyped                             ;
+; LPM_PIPELINE           ; 0           ; Untyped                             ;
+; MAXIMIZE_SPEED         ; 5           ; Untyped                             ;
+; REGISTERED_AT_END      ; 0           ; Untyped                             ;
+; OPTIMIZE_FOR_SPEED     ; 9           ; Untyped                             ;
+; USE_CS_BUFFERS         ; 1           ; Untyped                             ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                             ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH                  ;
+; DEVICE_FAMILY          ; ACEX1K      ; Untyped                             ;
+; USE_WYS                ; OFF         ; Untyped                             ;
+; STYLE                  ; FAST        ; Untyped                             ;
+; CBXI_PARAMETER         ; add_sub_j8h ; Untyped                             ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                          ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                        ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                        ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE                      ;
++------------------------+-------------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_add_sub:op_9 ;
++------------------------+-------------+----------------------------+
+; Parameter Name         ; Value       ; Type                       ;
++------------------------+-------------+----------------------------+
+; LPM_WIDTH              ; 8           ; Untyped                    ;
+; LPM_REPRESENTATION     ; UNSIGNED    ; Untyped                    ;
+; LPM_DIRECTION          ; ADD         ; Untyped                    ;
+; ONE_INPUT_IS_CONSTANT  ; YES         ; Untyped                    ;
+; LPM_PIPELINE           ; 0           ; Untyped                    ;
+; MAXIMIZE_SPEED         ; 5           ; Untyped                    ;
+; REGISTERED_AT_END      ; 0           ; Untyped                    ;
+; OPTIMIZE_FOR_SPEED     ; 9           ; Untyped                    ;
+; USE_CS_BUFFERS         ; 1           ; Untyped                    ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                    ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH         ;
+; DEVICE_FAMILY          ; ACEX1K      ; Untyped                    ;
+; USE_WYS                ; OFF         ; Untyped                    ;
+; STYLE                  ; FAST        ; Untyped                    ;
+; CBXI_PARAMETER         ; add_sub_uah ; Untyped                    ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                 ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY               ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE               ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE             ;
++------------------------+-------------+----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
+    Info: Processing started: Wed Jul 07 17:29:47 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SP2_ACEX -c SP2_ACEX
+Info: Found 1 design units, including 1 entities, in source file SP2_ACEX.TDF
+    Info: Found entity 1: SP2_ACEX
+Info: Found 1 design units, including 1 entities, in source file ACCELER.TDF
+    Info: Found entity 1: acceler
+Info: Found 1 design units, including 1 entities, in source file AY.TDF
+    Info: Found entity 1: ay
+Info: Found 1 design units, including 1 entities, in source file DCP.TDF
+    Info: Found entity 1: dcp
+Info: Found 1 design units, including 1 entities, in source file KBD.TDF
+    Info: Found entity 1: kbd
+Info: Found 1 design units, including 1 entities, in source file MOUSE.TDF
+    Info: Found entity 1: mouse
+Info: Found 1 design units, including 1 entities, in source file VIDEO2.TDF
+    Info: Found entity 1: video2
+Info: Elaborating entity "SP2_ACEX" for the top level hierarchy
+Warning: Variable or input pin "/HALT" is defined but never used
+Info: Elaborating entity "mouse" for hierarchy "mouse:MS"
+Info: Elaborating entity "kbd" for hierarchy "kbd:KEYS"
+Warning: Variable or input pin "/IOM" is defined but never used
+Warning: Variable or input pin "/M1" is defined but never used
+Info: Elaborating entity "lpm_ram_dq" for hierarchy "kbd:KEYS|lpm_ram_dq:$00021"
+Info: Elaborated megafunction instantiation "kbd:KEYS|lpm_ram_dq:$00021"
+Info: Instantiated megafunction "kbd:KEYS|lpm_ram_dq:$00021" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "8"
+    Info: Parameter "LPM_WIDTHAD" = "8"
+    Info: Parameter "LPM_FILE" = "KBD_INI2.MIF"
+    Info: Parameter "LPM_OUTDATA" = "UNREGISTERED"
+Info: Elaborating entity "altram" for hierarchy "kbd:KEYS|lpm_ram_dq:$00021|altram:sram"
+Info: Elaborated megafunction instantiation "kbd:KEYS|lpm_ram_dq:$00021|altram:sram", which is child of megafunction instantiation "kbd:KEYS|lpm_ram_dq:$00021"
+Info: Elaborating entity "video2" for hierarchy "video2:SVIDEO"
+Warning: Variable or input pin "START_UP" is defined but never used
+Warning: Variable or input pin "D" is defined but never used
+Info: Elaborating entity "lpm_ram_dp" for hierarchy "video2:SVIDEO|lpm_ram_dp:MS_DAT"
+Info: Elaborated megafunction instantiation "video2:SVIDEO|lpm_ram_dp:MS_DAT"
+Info: Instantiated megafunction "video2:SVIDEO|lpm_ram_dp:MS_DAT" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "16"
+    Info: Parameter "LPM_WIDTHAD" = "8"
+    Info: Parameter "LPM_FILE" = "MOUSE.MIF"
+Info: Elaborating entity "altdpram" for hierarchy "video2:SVIDEO|lpm_ram_dp:MS_DAT|altdpram:sram"
+Info: Elaborated megafunction instantiation "video2:SVIDEO|lpm_ram_dp:MS_DAT|altdpram:sram", which is child of megafunction instantiation "video2:SVIDEO|lpm_ram_dp:MS_DAT"
+Info: Elaborating entity "dcp" for hierarchy "dcp:DECODE"
+Info: Elaborating entity "lpm_ram_dp" for hierarchy "dcp:DECODE|lpm_ram_dp:MEM"
+Info: Elaborated megafunction instantiation "dcp:DECODE|lpm_ram_dp:MEM"
+Info: Instantiated megafunction "dcp:DECODE|lpm_ram_dp:MEM" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "16"
+    Info: Parameter "LPM_WIDTHAD" = "8"
+    Info: Parameter "LPM_FILE" = "DCP.MIF"
+Info: Elaborating entity "altdpram" for hierarchy "dcp:DECODE|lpm_ram_dp:MEM|altdpram:sram"
+Info: Elaborated megafunction instantiation "dcp:DECODE|lpm_ram_dp:MEM|altdpram:sram", which is child of megafunction instantiation "dcp:DECODE|lpm_ram_dp:MEM"
+Info: Elaborating entity "acceler" for hierarchy "acceler:ACC"
+Warning: Variable or input pin "RAS" is defined but never used
+Warning: Variable or input pin "MC_BEGIN" is defined but never used
+Warning: Variable or input pin "MC_WRITE" is defined but never used
+Info: Elaborating entity "lpm_ram_dp" for hierarchy "acceler:ACC|lpm_ram_dp:RAM"
+Info: Elaborated megafunction instantiation "acceler:ACC|lpm_ram_dp:RAM"
+Info: Instantiated megafunction "acceler:ACC|lpm_ram_dp:RAM" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "16"
+    Info: Parameter "LPM_WIDTHAD" = "8"
+Info: Elaborating entity "altdpram" for hierarchy "acceler:ACC|lpm_ram_dp:RAM|altdpram:sram"
+Info: Elaborated megafunction instantiation "acceler:ACC|lpm_ram_dp:RAM|altdpram:sram", which is child of megafunction instantiation "acceler:ACC|lpm_ram_dp:RAM"
+Info: Elaborating entity "ay" for hierarchy "ay:AY3"
+Info: Elaborating entity "lpm_ram_dq" for hierarchy "ay:AY3|lpm_ram_dq:$00004"
+Info: Elaborated megafunction instantiation "ay:AY3|lpm_ram_dq:$00004"
+Info: Instantiated megafunction "ay:AY3|lpm_ram_dq:$00004" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "8"
+    Info: Parameter "LPM_WIDTHAD" = "8"
+    Info: Parameter "LPM_FILE" = "AY.MIF"
+Info: Elaborating entity "altram" for hierarchy "ay:AY3|lpm_ram_dq:$00004|altram:sram"
+Info: Elaborated megafunction instantiation "ay:AY3|lpm_ram_dq:$00004|altram:sram", which is child of megafunction instantiation "ay:AY3|lpm_ram_dq:$00004"
+Info: Elaborating entity "lpm_add_sub" for hierarchy "ay:AY3|lpm_add_sub:$00043"
+Info: Elaborated megafunction instantiation "ay:AY3|lpm_add_sub:$00043"
+Info: Instantiated megafunction "ay:AY3|lpm_add_sub:$00043" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "11"
+    Info: Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+Info: Elaborating entity "addcore" for hierarchy "ay:AY3|lpm_add_sub:$00043|addcore:adder"
+Info: Elaborated megafunction instantiation "ay:AY3|lpm_add_sub:$00043|addcore:adder", which is child of megafunction instantiation "ay:AY3|lpm_add_sub:$00043"
+Info: Elaborating entity "a_csnbuffer" for hierarchy "ay:AY3|lpm_add_sub:$00043|addcore:adder|a_csnbuffer:oflow_node"
+Info: Elaborated megafunction instantiation "ay:AY3|lpm_add_sub:$00043|addcore:adder|a_csnbuffer:oflow_node", which is child of megafunction instantiation "ay:AY3|lpm_add_sub:$00043"
+Info: Elaborating entity "a_csnbuffer" for hierarchy "ay:AY3|lpm_add_sub:$00043|addcore:adder|a_csnbuffer:result_node"
+Info: Elaborated megafunction instantiation "ay:AY3|lpm_add_sub:$00043|addcore:adder|a_csnbuffer:result_node", which is child of megafunction instantiation "ay:AY3|lpm_add_sub:$00043"
+Info: Elaborating entity "altshift" for hierarchy "ay:AY3|lpm_add_sub:$00043|altshift:result_ext_latency_ffs"
+Info: Elaborated megafunction instantiation "ay:AY3|lpm_add_sub:$00043|altshift:result_ext_latency_ffs", which is child of megafunction instantiation "ay:AY3|lpm_add_sub:$00043"
+Info: Elaborating entity "altshift" for hierarchy "ay:AY3|lpm_add_sub:$00043|altshift:carry_ext_latency_ffs"
+Info: Elaborated megafunction instantiation "ay:AY3|lpm_add_sub:$00043|altshift:carry_ext_latency_ffs", which is child of megafunction instantiation "ay:AY3|lpm_add_sub:$00043"
+Info: Elaborating entity "lpm_ram_dp" for hierarchy "lpm_ram_dp:CBL"
+Info: Elaborated megafunction instantiation "lpm_ram_dp:CBL"
+Info: Instantiated megafunction "lpm_ram_dp:CBL" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "16"
+    Info: Parameter "LPM_WIDTHAD" = "8"
+Warning: Synthesized away the following node(s):
+    Warning: Synthesized away the following LCELL buffer node(s):
+        Warning (14320): Synthesized away node "video2:SVIDEO|$00001"
+        Warning (14320): Synthesized away node "video2:SVIDEO|$00002"
+Warning: Synthesized away the following node(s):
+    Warning: Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "lpm_ram_dp:CBL|altdpram:sram|q[0]"
+        Warning (14320): Synthesized away node "acceler:ACC|lpm_ram_dp:RAM|altdpram:sram|q[15]"
+        Warning (14320): Synthesized away node "acceler:ACC|lpm_ram_dp:RAM|altdpram:sram|q[14]"
+        Warning (14320): Synthesized away node "acceler:ACC|lpm_ram_dp:RAM|altdpram:sram|q[13]"
+        Warning (14320): Synthesized away node "acceler:ACC|lpm_ram_dp:RAM|altdpram:sram|q[12]"
+        Warning (14320): Synthesized away node "acceler:ACC|lpm_ram_dp:RAM|altdpram:sram|q[11]"
+        Warning (14320): Synthesized away node "acceler:ACC|lpm_ram_dp:RAM|altdpram:sram|q[10]"
+        Warning (14320): Synthesized away node "acceler:ACC|lpm_ram_dp:RAM|altdpram:sram|q[9]"
+        Warning (14320): Synthesized away node "acceler:ACC|lpm_ram_dp:RAM|altdpram:sram|q[8]"
+        Warning (14320): Synthesized away node "video2:SVIDEO|lpm_ram_dp:MS_DAT|altdpram:sram|q[15]"
+        Warning (14320): Synthesized away node "video2:SVIDEO|lpm_ram_dp:MS_DAT|altdpram:sram|q[14]"
+        Warning (14320): Synthesized away node "video2:SVIDEO|lpm_ram_dp:MS_DAT|altdpram:sram|q[13]"
+        Warning (14320): Synthesized away node "video2:SVIDEO|lpm_ram_dp:MS_DAT|altdpram:sram|q[12]"
+        Warning (14320): Synthesized away node "video2:SVIDEO|lpm_ram_dp:MS_DAT|altdpram:sram|q[11]"
+        Warning (14320): Synthesized away node "video2:SVIDEO|lpm_ram_dp:MS_DAT|altdpram:sram|q[10]"
+        Warning (14320): Synthesized away node "video2:SVIDEO|lpm_ram_dp:MS_DAT|altdpram:sram|q[9]"
+        Warning (14320): Synthesized away node "video2:SVIDEO|lpm_ram_dp:MS_DAT|altdpram:sram|q[8]"
+        Warning (14320): Synthesized away node "video2:SVIDEO|lpm_ram_dp:MS_DAT|altdpram:sram|q[7]"
+        Warning (14320): Synthesized away node "video2:SVIDEO|lpm_ram_dp:MS_DAT|altdpram:sram|q[6]"
+        Warning (14320): Synthesized away node "video2:SVIDEO|lpm_ram_dp:MS_DAT|altdpram:sram|q[5]"
+        Warning (14320): Synthesized away node "video2:SVIDEO|lpm_ram_dp:MS_DAT|altdpram:sram|q[4]"
+        Warning (14320): Synthesized away node "video2:SVIDEO|lpm_ram_dp:MS_DAT|altdpram:sram|q[3]"
+        Warning (14320): Synthesized away node "video2:SVIDEO|lpm_ram_dp:MS_DAT|altdpram:sram|q[2]"
+        Warning (14320): Synthesized away node "video2:SVIDEO|lpm_ram_dp:MS_DAT|altdpram:sram|q[1]"
+        Warning (14320): Synthesized away node "video2:SVIDEO|lpm_ram_dp:MS_DAT|altdpram:sram|q[0]"
+Info: Inferred 7 megafunctions from design logic
+    Info: Inferred lpm_counter megafunction (LPM_WIDTH=16) from the following logic: "acceler:ACC|AA[0]~16"
+    Info: Inferred lpm_counter megafunction (LPM_WIDTH=7) from the following logic: "video2:SVIDEO|CTF[0]~0"
+    Info: Inferred lpm_counter megafunction (LPM_WIDTH=8) from the following logic: "acceler:ACC|AGR[0]~9"
+    Info: Inferred lpm_counter megafunction (LPM_WIDTH=5) from the following logic: "CBL_CTX[0]~6"
+    Info: Inferred lpm_counter megafunction (LPM_WIDTH=8) from the following logic: "acceler:ACC|ACC_CNT[0]~8"
+    Info: Inferred lpm_counter megafunction (LPM_WIDTH=4) from the following logic: "mouse:MS|CT[0]~4"
+    Info: Inferred lpm_counter megafunction (LPM_WIDTH=6) from the following logic: "ay:AY3|AY_VAR~0"
+Info: Inferred 11 megafunctions from design logic
+    Info: Inferred adder/subtractor megafunction ("lpm_add_sub") from the following logic: "video2:SVIDEO|op_5"
+    Info: Inferred adder/subtractor megafunction ("lpm_add_sub") from the following logic: "video2:SVIDEO|op_4"
+    Info: Inferred adder/subtractor megafunction ("lpm_add_sub") from the following logic: "op_7"
+    Info: Inferred adder/subtractor megafunction ("lpm_add_sub") from the following logic: "op_8"
+    Info: Inferred adder/subtractor megafunction ("lpm_add_sub") from the following logic: "ay:AY3|op_1"
+    Info: Inferred adder/subtractor megafunction ("lpm_add_sub") from the following logic: "op_10"
+    Info: Inferred adder/subtractor megafunction ("lpm_add_sub") from the following logic: "op_5"
+    Info: Inferred adder/subtractor megafunction ("lpm_add_sub") from the following logic: "acceler:ACC|op_3"
+    Info: Inferred adder/subtractor megafunction ("lpm_add_sub") from the following logic: "mouse:MS|op_2"
+    Info: Inferred adder/subtractor megafunction ("lpm_add_sub") from the following logic: "mouse:MS|op_3"
+    Info: Inferred adder/subtractor megafunction ("lpm_add_sub") from the following logic: "op_9"
+Info: Elaborated megafunction instantiation "acceler:ACC|lpm_counter:AA_rtl_0"
+Info: Instantiated megafunction "acceler:ACC|lpm_counter:AA_rtl_0" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "16"
+    Info: Parameter "LPM_DIRECTION" = "UP"
+    Info: Parameter "LPM_TYPE" = "LPM_COUNTER"
+Info: Elaborated megafunction instantiation "acceler:ACC|lpm_counter:AA_rtl_0|alt_counter_f10ke:wysi_counter", which is child of megafunction instantiation "acceler:ACC|lpm_counter:AA_rtl_0"
+Info: Elaborated megafunction instantiation "video2:SVIDEO|lpm_counter:CTF_rtl_1"
+Info: Instantiated megafunction "video2:SVIDEO|lpm_counter:CTF_rtl_1" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "7"
+    Info: Parameter "LPM_DIRECTION" = "UP"
+    Info: Parameter "LPM_TYPE" = "LPM_COUNTER"
+Info: Elaborated megafunction instantiation "video2:SVIDEO|lpm_counter:CTF_rtl_1|alt_counter_f10ke:wysi_counter", which is child of megafunction instantiation "video2:SVIDEO|lpm_counter:CTF_rtl_1"
+Info: Elaborated megafunction instantiation "acceler:ACC|lpm_counter:AGR_rtl_2"
+Info: Instantiated megafunction "acceler:ACC|lpm_counter:AGR_rtl_2" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "8"
+    Info: Parameter "LPM_DIRECTION" = "UP"
+    Info: Parameter "LPM_TYPE" = "LPM_COUNTER"
+Info: Elaborated megafunction instantiation "acceler:ACC|lpm_counter:AGR_rtl_2|alt_counter_f10ke:wysi_counter", which is child of megafunction instantiation "acceler:ACC|lpm_counter:AGR_rtl_2"
+Info: Elaborated megafunction instantiation "lpm_counter:CBL_CTX_rtl_3"
+Info: Instantiated megafunction "lpm_counter:CBL_CTX_rtl_3" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "5"
+    Info: Parameter "LPM_DIRECTION" = "DOWN"
+    Info: Parameter "LPM_TYPE" = "LPM_COUNTER"
+Info: Elaborated megafunction instantiation "lpm_counter:CBL_CTX_rtl_3|alt_counter_f10ke:wysi_counter", which is child of megafunction instantiation "lpm_counter:CBL_CTX_rtl_3"
+Info: Elaborated megafunction instantiation "acceler:ACC|lpm_counter:ACC_CNT_rtl_4"
+Info: Instantiated megafunction "acceler:ACC|lpm_counter:ACC_CNT_rtl_4" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "8"
+    Info: Parameter "LPM_DIRECTION" = "DOWN"
+    Info: Parameter "LPM_TYPE" = "LPM_COUNTER"
+Info: Elaborated megafunction instantiation "acceler:ACC|lpm_counter:ACC_CNT_rtl_4|alt_counter_f10ke:wysi_counter", which is child of megafunction instantiation "acceler:ACC|lpm_counter:ACC_CNT_rtl_4"
+Info: Elaborated megafunction instantiation "mouse:MS|lpm_counter:CT_rtl_5"
+Info: Instantiated megafunction "mouse:MS|lpm_counter:CT_rtl_5" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "4"
+    Info: Parameter "LPM_DIRECTION" = "UP"
+    Info: Parameter "LPM_TYPE" = "LPM_COUNTER"
+Info: Elaborated megafunction instantiation "mouse:MS|lpm_counter:CT_rtl_5|alt_counter_f10ke:wysi_counter", which is child of megafunction instantiation "mouse:MS|lpm_counter:CT_rtl_5"
+Info: Elaborated megafunction instantiation "ay:AY3|lpm_counter:AY_VAR_rtl_6"
+Info: Instantiated megafunction "ay:AY3|lpm_counter:AY_VAR_rtl_6" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "6"
+    Info: Parameter "LPM_DIRECTION" = "UP"
+    Info: Parameter "LPM_TYPE" = "LPM_COUNTER"
+Info: Elaborated megafunction instantiation "ay:AY3|lpm_counter:AY_VAR_rtl_6|alt_counter_f10ke:wysi_counter", which is child of megafunction instantiation "ay:AY3|lpm_counter:AY_VAR_rtl_6"
+Info: Elaborated megafunction instantiation "video2:SVIDEO|lpm_add_sub:op_5"
+Info: Instantiated megafunction "video2:SVIDEO|lpm_add_sub:op_5" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "9"
+    Info: Parameter "LPM_DIRECTION" = "ADD"
+    Info: Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info: Parameter "ONE_INPUT_IS_CONSTANT" = "YES"
+Info: Elaborated megafunction instantiation "video2:SVIDEO|lpm_add_sub:op_5|addcore:adder", which is child of megafunction instantiation "video2:SVIDEO|lpm_add_sub:op_5"
+Info: Elaborated megafunction instantiation "video2:SVIDEO|lpm_add_sub:op_5|addcore:adder|a_csnbuffer:oflow_node", which is child of megafunction instantiation "video2:SVIDEO|lpm_add_sub:op_5"
+Info: Elaborated megafunction instantiation "video2:SVIDEO|lpm_add_sub:op_5|addcore:adder|a_csnbuffer:result_node", which is child of megafunction instantiation "video2:SVIDEO|lpm_add_sub:op_5"
+Info: Elaborated megafunction instantiation "video2:SVIDEO|lpm_add_sub:op_5|altshift:result_ext_latency_ffs", which is child of megafunction instantiation "video2:SVIDEO|lpm_add_sub:op_5"
+Info: Elaborated megafunction instantiation "video2:SVIDEO|lpm_add_sub:op_5|altshift:carry_ext_latency_ffs", which is child of megafunction instantiation "video2:SVIDEO|lpm_add_sub:op_5"
+Info: Elaborated megafunction instantiation "video2:SVIDEO|lpm_add_sub:op_4"
+Info: Instantiated megafunction "video2:SVIDEO|lpm_add_sub:op_4" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "6"
+    Info: Parameter "LPM_DIRECTION" = "ADD"
+    Info: Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info: Parameter "ONE_INPUT_IS_CONSTANT" = "YES"
+Info: Elaborated megafunction instantiation "video2:SVIDEO|lpm_add_sub:op_4|addcore:adder", which is child of megafunction instantiation "video2:SVIDEO|lpm_add_sub:op_4"
+Info: Elaborated megafunction instantiation "video2:SVIDEO|lpm_add_sub:op_4|addcore:adder|a_csnbuffer:oflow_node", which is child of megafunction instantiation "video2:SVIDEO|lpm_add_sub:op_4"
+Info: Elaborated megafunction instantiation "video2:SVIDEO|lpm_add_sub:op_4|addcore:adder|a_csnbuffer:result_node", which is child of megafunction instantiation "video2:SVIDEO|lpm_add_sub:op_4"
+Info: Elaborated megafunction instantiation "video2:SVIDEO|lpm_add_sub:op_4|altshift:result_ext_latency_ffs", which is child of megafunction instantiation "video2:SVIDEO|lpm_add_sub:op_4"
+Info: Elaborated megafunction instantiation "lpm_add_sub:op_7"
+Info: Instantiated megafunction "lpm_add_sub:op_7" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "8"
+    Info: Parameter "LPM_DIRECTION" = "ADD"
+    Info: Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info: Parameter "ONE_INPUT_IS_CONSTANT" = "YES"
+Info: Elaborated megafunction instantiation "lpm_add_sub:op_7|addcore:adder", which is child of megafunction instantiation "lpm_add_sub:op_7"
+Info: Elaborated megafunction instantiation "lpm_add_sub:op_7|addcore:adder|a_csnbuffer:oflow_node", which is child of megafunction instantiation "lpm_add_sub:op_7"
+Info: Elaborated megafunction instantiation "lpm_add_sub:op_7|addcore:adder|a_csnbuffer:result_node", which is child of megafunction instantiation "lpm_add_sub:op_7"
+Info: Elaborated megafunction instantiation "lpm_add_sub:op_7|altshift:result_ext_latency_ffs", which is child of megafunction instantiation "lpm_add_sub:op_7"
+Info: Elaborated megafunction instantiation "lpm_add_sub:op_8"
+Info: Instantiated megafunction "lpm_add_sub:op_8" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "8"
+    Info: Parameter "LPM_DIRECTION" = "ADD"
+    Info: Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info: Parameter "ONE_INPUT_IS_CONSTANT" = "YES"
+Info: Elaborated megafunction instantiation "ay:AY3|lpm_add_sub:op_1"
+Info: Instantiated megafunction "ay:AY3|lpm_add_sub:op_1" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "10"
+    Info: Parameter "LPM_DIRECTION" = "ADD"
+    Info: Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info: Parameter "ONE_INPUT_IS_CONSTANT" = "NO"
+Info: Elaborated megafunction instantiation "ay:AY3|lpm_add_sub:op_1|addcore:adder", which is child of megafunction instantiation "ay:AY3|lpm_add_sub:op_1"
+Info: Elaborated megafunction instantiation "ay:AY3|lpm_add_sub:op_1|addcore:adder|a_csnbuffer:oflow_node", which is child of megafunction instantiation "ay:AY3|lpm_add_sub:op_1"
+Info: Elaborated megafunction instantiation "ay:AY3|lpm_add_sub:op_1|addcore:adder|a_csnbuffer:result_node", which is child of megafunction instantiation "ay:AY3|lpm_add_sub:op_1"
+Info: Elaborated megafunction instantiation "ay:AY3|lpm_add_sub:op_1|altshift:result_ext_latency_ffs", which is child of megafunction instantiation "ay:AY3|lpm_add_sub:op_1"
+Info: Elaborated megafunction instantiation "lpm_add_sub:op_10"
+Info: Instantiated megafunction "lpm_add_sub:op_10" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "12"
+    Info: Parameter "LPM_DIRECTION" = "ADD"
+    Info: Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info: Parameter "ONE_INPUT_IS_CONSTANT" = "NO"
+Info: Elaborated megafunction instantiation "lpm_add_sub:op_10|addcore:adder", which is child of megafunction instantiation "lpm_add_sub:op_10"
+Info: Elaborated megafunction instantiation "lpm_add_sub:op_10|addcore:adder|a_csnbuffer:oflow_node", which is child of megafunction instantiation "lpm_add_sub:op_10"
+Info: Elaborated megafunction instantiation "lpm_add_sub:op_10|addcore:adder|a_csnbuffer:result_node", which is child of megafunction instantiation "lpm_add_sub:op_10"
+Info: Elaborated megafunction instantiation "lpm_add_sub:op_10|altshift:result_ext_latency_ffs", which is child of megafunction instantiation "lpm_add_sub:op_10"
+Info: Elaborated megafunction instantiation "lpm_add_sub:op_5"
+Info: Instantiated megafunction "lpm_add_sub:op_5" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "5"
+    Info: Parameter "LPM_DIRECTION" = "ADD"
+    Info: Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info: Parameter "ONE_INPUT_IS_CONSTANT" = "YES"
+Info: Elaborated megafunction instantiation "lpm_add_sub:op_5|addcore:adder", which is child of megafunction instantiation "lpm_add_sub:op_5"
+Info: Elaborated megafunction instantiation "lpm_add_sub:op_5|addcore:adder|a_csnbuffer:oflow_node", which is child of megafunction instantiation "lpm_add_sub:op_5"
+Info: Elaborated megafunction instantiation "lpm_add_sub:op_5|addcore:adder|a_csnbuffer:result_node", which is child of megafunction instantiation "lpm_add_sub:op_5"
+Info: Elaborated megafunction instantiation "lpm_add_sub:op_5|altshift:result_ext_latency_ffs", which is child of megafunction instantiation "lpm_add_sub:op_5"
+Info: Elaborated megafunction instantiation "acceler:ACC|lpm_add_sub:op_3"
+Info: Instantiated megafunction "acceler:ACC|lpm_add_sub:op_3" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "16"
+    Info: Parameter "LPM_DIRECTION" = "ADD"
+    Info: Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info: Parameter "ONE_INPUT_IS_CONSTANT" = "NO"
+Info: Elaborated megafunction instantiation "acceler:ACC|lpm_add_sub:op_3|addcore:adder", which is child of megafunction instantiation "acceler:ACC|lpm_add_sub:op_3"
+Info: Elaborated megafunction instantiation "acceler:ACC|lpm_add_sub:op_3|addcore:adder|a_csnbuffer:oflow_node", which is child of megafunction instantiation "acceler:ACC|lpm_add_sub:op_3"
+Info: Elaborated megafunction instantiation "acceler:ACC|lpm_add_sub:op_3|addcore:adder|a_csnbuffer:result_node", which is child of megafunction instantiation "acceler:ACC|lpm_add_sub:op_3"
+Info: Elaborated megafunction instantiation "acceler:ACC|lpm_add_sub:op_3|altshift:result_ext_latency_ffs", which is child of megafunction instantiation "acceler:ACC|lpm_add_sub:op_3"
+Info: Elaborated megafunction instantiation "mouse:MS|lpm_add_sub:op_2"
+Info: Instantiated megafunction "mouse:MS|lpm_add_sub:op_2" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "10"
+    Info: Parameter "LPM_DIRECTION" = "ADD"
+    Info: Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info: Parameter "ONE_INPUT_IS_CONSTANT" = "NO"
+Info: Elaborated megafunction instantiation "mouse:MS|lpm_add_sub:op_2|addcore:adder", which is child of megafunction instantiation "mouse:MS|lpm_add_sub:op_2"
+Warning: Hierarchy name "ay:AY3|lpm_ram_dq:90" does not exist.  It is associated with user assignments.
+Warning: Hierarchy name "ay:AY3|lpm_ram_dq:90|altram:sram" does not exist.  It is associated with user assignments.
+Warning: Hierarchy name "kbd:KEYS|lpm_ram_dq:59" does not exist.  It is associated with user assignments.
+Warning: Hierarchy name "kbd:KEYS|lpm_ram_dq:59|altram:sram" does not exist.  It is associated with user assignments.
+Info: Ignored 1 buffer(s)
+    Info: Ignored 1 SOFT buffer(s)
+Warning: Output pins are stuck at VCC or GND
+    Warning (13410): Pin "v_cs[0]" is stuck at GND
+    Warning (13410): Pin "v_cs[1]" is stuck at VCC
+    Warning (13410): Pin "ma[12]" is stuck at GND
+Info: Registers with preset signals will power-up high
+Info: 21 registers lost all their fanouts during netlist optimizations. The first 21 are displayed below.
+    Info: Register "CBD[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "video2:SVIDEO|MS_X[9]" lost all its fanouts during netlist optimizations.
+    Info: Register "video2:SVIDEO|MS_X[8]" lost all its fanouts during netlist optimizations.
+    Info: Register "video2:SVIDEO|MS_X[7]" lost all its fanouts during netlist optimizations.
+    Info: Register "video2:SVIDEO|MS_X[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "video2:SVIDEO|MS_X[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "video2:SVIDEO|MS_X[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "video2:SVIDEO|MS_X[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "video2:SVIDEO|MS_X[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "video2:SVIDEO|MS_X[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "video2:SVIDEO|MS_X[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "video2:SVIDEO|MS_Y[9]" lost all its fanouts during netlist optimizations.
+    Info: Register "video2:SVIDEO|MS_Y[8]" lost all its fanouts during netlist optimizations.
+    Info: Register "video2:SVIDEO|MS_Y[7]" lost all its fanouts during netlist optimizations.
+    Info: Register "video2:SVIDEO|MS_Y[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "video2:SVIDEO|MS_Y[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "video2:SVIDEO|MS_Y[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "video2:SVIDEO|MS_Y[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "video2:SVIDEO|MS_Y[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "video2:SVIDEO|MS_Y[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "video2:SVIDEO|MS_Y[0]" lost all its fanouts during netlist optimizations.
+Info: Found the following redundant logic cells in design
+    Info (17048): Logic cell "RASX_[0]"
+    Info (17048): Logic cell "RASX_[1]"
+    Info (17048): Logic cell "dcp:DECODE|X_ADR[11]"
+    Info (17048): Logic cell "CAS_A"
+    Info (17048): Logic cell "dcp:DECODE|GA[9]"
+    Info (17048): Logic cell "video2:SVIDEO|V_WEMMN"
+    Info (17048): Logic cell "video2:SVIDEO|V_WEMMM"
+    Info (17048): Logic cell "V_WRX[3]"
+    Info (17048): Logic cell "V_WRX[2]"
+    Info (17048): Logic cell "V_WRX[1]"
+    Info (17048): Logic cell "V_WRX[0]"
+    Info (17048): Logic cell "$00108"
+    Info (17048): Logic cell "wr_tm9"
+    Info (17048): Logic cell "TAPE_OUT"
+    Info (17048): Logic cell "video2:SVIDEO|LWR_MODE"
+    Info (17048): Logic cell "acceler:ACC|ACC_DIR[2]"
+    Info (17048): Logic cell "video2:SVIDEO|$00028"
+    Info (17048): Logic cell "T_RDXA"
+    Info (17048): Logic cell "video2:SVIDEO|V_WEMMO"
+    Info (17048): Logic cell "ay:AY3|$00011"
+    Info (17048): Logic cell "ay:AY3|$00010"
+Warning: Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "/HALT"
+Info: Implemented 1764 device resources after synthesis - the final resource count might be different
+    Info: Implemented 24 input pins
+    Info: Implemented 61 output pins
+    Info: Implemented 62 bidirectional pins
+    Info: Implemented 1562 logic cells
+    Info: Implemented 55 RAM segments
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 49 warnings
+    Info: Peak virtual memory: 280 megabytes
+    Info: Processing ended: Wed Jul 07 17:29:51 2021
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:04
+
+

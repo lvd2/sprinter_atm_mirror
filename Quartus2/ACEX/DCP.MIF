@@ -1,7 +1,7 @@
 DEPTH = 256;	% Memory depth and width are required	%
 WIDTH = 16;		% Enter a decimal number	%
 
-ADDRESS_RADIX = HEX;	% Address and value radixes are optional	%
+ADDRESS_RADIX = DEC;	% Address and value radixes are optional	%
 DATA_RADIX = HEX;		% Enter BIN, DEC, HEX, or OCT; unless 	%
 						% otherwise specified, radixes = HEX	%
 
@@ -9,9 +9,9 @@ DATA_RADIX = HEX;		% Enter BIN, DEC, HEX, or OCT; unless 	%
 
 CONTENT
 BEGIN
-	[0..FF]	: 1000;
+	[0..255]	: 1000;
 
-	0		: 1040	% DCP PAGE %;
+00	:	 1040;	% DCP PAGE %;
 
 %
 	MA[11..0]	bit0 - WG_A5
@@ -29,91 +29,162 @@ BEGIN
 				bit8 - HDD CS1/CS3 or CMOS data/adr
 				bit9,10,11 - HDD_A[2..0]
 %
-	10		:
-			7018 % RD WG93 1F,0F %
-			7019 % RD WG93 3F %
-			701A % RD WG93 5F %
-			701B % RD WG93 7F %
 
-			7017 % WR_PDOS FF %
-			701F % RD_KEYS/ WR_A20 %
+16	:			7018; % RD WG93 1F,0F %
+17	:			7019; % RD WG93 3F %
+18	:			701A; % RD WG93 5F %
+19	:			701B; % RD WG93 7F %
 
-			7023 % Set 720  %
-			7027 % Set 1440 %;
+20	:			7017; % WR_PDOS FF %
+21	:			701F; % RD_KEYS/ WR_A20 %
+
+22	:			7023; % Set 720  %
+23	:			7027; % Set 1440 %;
 
 --	18		:
 --			1000 % No_function %
 
 --	1B		: 1000;	% ISA_A20 WR %
 
-	1C		: 71D8 % CMOS_DAT_RD %;
-	1D		: 70D4 % CMOS_ADR_WR %;
-	1E		: 71D4 % CMOS_DAT_WR %;
+28	:			 71D8; % CMOS_DAT_RD %;
+29	:			 70D4; % CMOS_ADR_WR %;
+30	:	    	  71D4; % CMOS_DAT_WR %;
 
-	20		:
-			60A8 % HD_CS1 ports %
-			62A8
-			64A8
-			66A8
-			68A8
-			6AA8
-			6CA8
-			6EA8
+	
+32	:			60A8; % HD_CS1 ports %
+33	:			62A8;
+34	:			64A8;
+35	:			66A8;
+36	:			68A8;
+37	:			6AA8;
+38	:			6CA8;
+39	:			6EA8;
 
-			6DA8 % HD_CS3 3F6 port %
-			6FA8 % HD_CS3 3F7 port %
+40	:			6DA8; % HD_CS3 3F6 port %
+41	:			6FA8; % HD_CS3 3F7 port %
 
-			7060 % Set HDD1 %
-			7064 % Set HDD2 %
+42	:			7060; % Set HDD1 %
+43	:			7064; % Set HDD2 %
 
-			7120 % Set 320 Lines %
-			7124 % Set 312 Lines %
+44	:			7120; % Set 320 Lines %
+45	:			7124; % Set 312 Lines %
 
-			7160 % Soft Reset %
-			7164 % ??? %;
+46	:			7160; % Soft Reset %
+47	:			7164; % ??? %;
 
 
-	30		:
-			7000 % slot 1 ports %
-			7001 % slot 2 ports %
-			7002 % slot 1 mem   %
-			7003 % slot 2 mem   %
-			;
 
-	40		: 4000; % kb read %
+48	:			7000; % slot 1 ports %
+49	:			7001; % slot 2 ports %
+50	:			7002; % slot 1 mem   %
+51	:			7003; % slot 2 mem   %
+			
 
-	52		: 3000;	-- AY_D READ
+64	:  		 4000; % kb read %
 
-	58		: 5000;	-- KEMPSTON-Mouse
+82	:		 3000;	-- AY_D READ
 
-	[80..FF]:	C000;
+88	:		 5000;	-- KEMPSTON-Mouse
 
-	88		:	2000; -- COVOX
-	89		:	2000; -- COVOX-Mode
+[128..255]	:	C000;
 
-	8C		: 	3000;	-- AY_D READ
-	8D		:	2000;	-- AY_A WRITE
-	8E		:	2000;	-- AY_D WRITE
+136	:			2000; -- COVOX
+137	:			2000; -- COVOX-Mode
 
-	8F		:   2000;	-- port for ROM_WRITE
+140	:		 	3000;	-- AY_D READ
+141	:			2000;	-- AY_A WRITE
+142	:			2000;	-- AY_D WRITE
+
+143	:		    2000;	-- port for ROM_WRITE
 
 --	80		: 7F 7F 7F 7F 7F 7F 7F 7F % KBD_DAT %;
 --	90		: 7F % PORT FF %;
 
-	90		: 	3030 3031 2032 2033 2034 2035 2036 2037
-				2038 2039 203A 203B 203C 203D 203E 203F; % RAM PAGES %
+144	: 	3030;
+145	:	3031;
+146	:	2032;
+147	: 	2033;
+148	: 	2034;
+149	: 	2035;
+150	: 	2036; 
+151	:	2037;
+152	:	2038;
+153	: 	2039;
+154	:	203A;
+155	:	203B;
+156	:	203C;
+157	:	203D;
+158	:	203E; 
+160	:	203F; % RAM PAGES %
 
-	B0		: 	2020 2021 2022 2023 2024 2025 2026 2027
-				2028 2029 202A 202B 202C 202D 202E 202F; % RAM PAGES %
+176	:	2020;
+177	:	2021;
+178	:	2022;
+179	:	2023;
+180	:	2024;
+181	:	2025;
+182	:	2026; 
+183	:	2027;
+184	:	2028;
+185	:	2029;
+186	:	202A; 
+187	:	202B; 
+188	:	202C;
+189	:	202D;
+190	:	202E;
+191	:	202F; % RAM PAGES %
 
-	[C0..CF]: 	2000 % SYS PORTS COPYES %;
+[192..207]	: 	2000; % SYS PORTS COPYES %
 
-	D0		: 	2010 2011 2012 2013 2014 2015 2016 2017
-				2018 2019 201A 201B 201C 201D 201E 201F; % RAM PAGES %
-	E0		: 	2041 2041 2041 2041 2041 2041 2041 2041
-				2000 2005 2002 2041 20FF 2000 2000 2041; % ROM PAGES %
+208	:	2010;
+209	:	2011;
+210	:	2012;
+211	:	2013;
+212	:	2014;
+213	:	2015;
+214	:	2016;
+215	:	2017;
+216	:	2018;
+217	:	2019;
+218	:	201A;
+219	:	201B;
+220	:	201C;
+221	:	201D;
+222	:	201E;
+223	:	201F; % RAM PAGES %
+
+224	:	2041;
+225	:	2041;
+226	:	2041;
+227	:	2041;
+228	:	2041;
+229	:	2041; 
+230	:	2041; 
+231	:	2041;
+232	:	2000; 
+233	:	2005; 
+234	:	2002;
+235	:	2041; 
+236	:	20FF;
+237	:	2000;
+238	:	2000;
+239	:	2041; % ROM PAGES %
 --	E0		: 41 42 43 44 45 46 47 48 00 05 02 E0 F0 00 00 E8; % ROM PAGES %
-	F0		: 	2000 2001 2002 2003 2004 2005 2006 2007
-				2008 2009 200A 200B 200C 200D 200E 200F; % RAM PAGES %
+240	:	2000; 
+241	:	2001;
+242	:	2002;
+243	:	2003;
+244	:	2004;
+245	:	2005;
+246	:	2006;
+247	:	2007;
+248	:	2008; 
+249	:	2009;
+250	:	200A;
+251	:	200B;
+252	:	200C;
+253	:	200D;
+254	:	200E;
+255	:	200F; % RAM PAGES %
 
 END ;

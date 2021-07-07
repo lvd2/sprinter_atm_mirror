@@ -1,0 +1,109 @@
+MIF/HEX Update report for SP2_ACEX
+Wed Jul 07 16:37:44 2021
+Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. MIF/HEX Update Summary
+  3. MIF/HEX Update Processed Files
+  4. MIF/HEX Update Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------+
+; MIF/HEX Update Summary                                        ;
++-----------------------+---------------------------------------+
+; MIF/HEX Update Status ; Successful - Wed Jul 07 16:37:44 2021 ;
+; Revision Name         ; SP2_ACEX                              ;
+; Top-level Entity Name ; SP2_ACEX                              ;
+; Family                ; ACEX1K                                ;
+; Device                ; EP1K30QC208-3                         ;
++-----------------------+---------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; MIF/HEX Update Processed Files                                          ;
++-------------------------------------------------------------------------+
+; File Name                                                               ;
++-------------------------------------------------------------------------+
+; C:/Users/Administrator/Desktop/Sputnik2k/newhard/hard/ACEX/AY.MIF       ;
+; C:/Users/Administrator/Desktop/Sputnik2k/newhard/hard/ACEX/DCP.MIF      ;
+; C:/Users/Administrator/Desktop/Sputnik2k/newhard/hard/ACEX/KBD_INI2.MIF ;
++-------------------------------------------------------------------------+
+
+
++-------------------------+
+; MIF/HEX Update Messages ;
++-------------------------+
+Info: *******************************************************************
+Info: Running Quartus II MIF/HEX Update
+    Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
+    Info: Processing started: Wed Jul 07 16:37:43 2021
+Info: Command: quartus_cdb SP2_ACEX -c SP2_ACEX --update_mif
+Warning: Can't find Memory Initialization File none -- skipped updates for this file
+Warning: 163 out of 256 addresses are uninitialized. The Quartus II software will initialize them to "0". There are 4 warnings found, and 4 warnings are reported.
+    Warning: Addresses ranging from 17 to 29 are not initialized
+    Warning: Addresses ranging from 32 to 47 are not initialized
+    Warning: Addresses ranging from 64 to 127 are not initialized
+    Warning: Addresses ranging from 186 to 255 are not initialized
+Warning: 15 out of 256 addresses are reinitialized. The latest initialized data will replace the existing data. There are 15 warnings found, and 10 warnings are reported.
+    Warning: Memory Initialization File address 1 is reinitialized
+    Warning: Memory Initialization File address 2 is reinitialized
+    Warning: Memory Initialization File address 3 is reinitialized
+    Warning: Memory Initialization File address 4 is reinitialized
+    Warning: Memory Initialization File address 5 is reinitialized
+    Warning: Memory Initialization File address 6 is reinitialized
+    Warning: Memory Initialization File address 7 is reinitialized
+    Warning: Memory Initialization File address 8 is reinitialized
+    Warning: Memory Initialization File address 9 is reinitialized
+    Warning: Memory Initialization File address 10 is reinitialized
+Warning: 163 out of 256 addresses are reinitialized. The latest initialized data will replace the existing data. There are 163 warnings found, and 10 warnings are reported.
+    Warning: Memory Initialization File address 0 is reinitialized
+    Warning: Memory Initialization File address 16 is reinitialized
+    Warning: Memory Initialization File address 17 is reinitialized
+    Warning: Memory Initialization File address 18 is reinitialized
+    Warning: Memory Initialization File address 19 is reinitialized
+    Warning: Memory Initialization File address 20 is reinitialized
+    Warning: Memory Initialization File address 21 is reinitialized
+    Warning: Memory Initialization File address 22 is reinitialized
+    Warning: Memory Initialization File address 23 is reinitialized
+    Warning: Memory Initialization File address 28 is reinitialized
+Warning: 122 out of 256 addresses are uninitialized. The Quartus II software will initialize them to "0". There are 2 warnings found, and 2 warnings are reported.
+    Warning: Addresses ranging from 130 to 191 are not initialized
+    Warning: Addresses ranging from 196 to 255 are not initialized
+Warning: 2 out of 256 addresses are reinitialized. The latest initialized data will replace the existing data. There are 2 warnings found, and 2 warnings are reported.
+    Warning: Memory Initialization File address 12 is reinitialized
+    Warning: Memory Initialization File address 13 is reinitialized
+Info: Processed the following Memory Initialization File(s)
+    Info: Processed Memory Initialization File C:/Users/Administrator/Desktop/Sputnik2k/newhard/hard/ACEX/AY.MIF
+    Info: Processed Memory Initialization File C:/Users/Administrator/Desktop/Sputnik2k/newhard/hard/ACEX/DCP.MIF
+    Info: Processed Memory Initialization File C:/Users/Administrator/Desktop/Sputnik2k/newhard/hard/ACEX/KBD_INI2.MIF
+Info: Quartus II MIF/HEX Update was successful. 0 errors, 34 warnings
+    Info: Peak virtual memory: 284 megabytes
+    Info: Processing ended: Wed Jul 07 16:37:44 2021
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

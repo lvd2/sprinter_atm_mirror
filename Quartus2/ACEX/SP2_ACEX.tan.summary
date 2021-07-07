@@ -1,0 +1,256 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 19.100 ns
+From           : /m1
+To             : acceler:ACC|lpm_counter:ACC_CNT_rtl_4|alt_counter_f10ke:wysi_counter|counter_cell[7]
+From Clock     : --
+To Clock       : TG42
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 38.700 ns
+From           : dcp:DECODE|PN[2]
+To             : /wait
+From Clock     : /m1
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case tpd
+Slack          : N/A
+Required Time  : None
+Actual Time    : 32.200 ns
+From           : a[10]
+To             : d[0]
+From Clock     : --
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : 5.400 ns
+From           : d[4]
+To             : dcp:DECODE|CNF[4]
+From Clock     : --
+To Clock       : /m1
+Failed Paths   : 0
+
+Type           : Clock Setup: 'TG42'
+Slack          : -1.595 ns
+Required Time  : 42.00 MHz ( period = 23.809 ns )
+Actual Time    : 37.04 MHz ( period = 27.000 ns )
+From           : ISA_PORT[6]
+To             : $00150
+From Clock     : TG42
+To Clock       : TG42
+Failed Paths   : 7
+
+Type           : Clock Setup: '/m1'
+Slack          : 1.600 ns
+Required Time  : 100.00 MHz ( period = 10.000 ns )
+Actual Time    : 119.05 MHz ( period = 8.400 ns )
+From           : dcp:DECODE|PN[4]
+To             : dos
+From Clock     : /m1
+To Clock       : /m1
+Failed Paths   : 0
+
+Type           : Clock Setup: '/mr'
+Slack          : 4.200 ns
+Required Time  : 100.00 MHz ( period = 10.000 ns )
+Actual Time    : 172.41 MHz ( period = 5.800 ns )
+From           : acceler:ACC|PRF_CMD
+To             : acceler:ACC|FN_ACC[1]
+From Clock     : /mr
+To Clock       : /mr
+Failed Paths   : 0
+
+Type           : Clock Setup: '/wr'
+Slack          : 7.600 ns
+Required Time  : 100.00 MHz ( period = 10.000 ns )
+Actual Time    : Restricted to 200.00 MHz ( period = 5.000 ns )
+From           : dcp:DECODE|AROM16
+To             : dcp:DECODE|AROM16
+From Clock     : /wr
+To Clock       : /wr
+Failed Paths   : 0
+
+Type           : Clock Setup: '/io'
+Slack          : 7.600 ns
+Required Time  : 100.00 MHz ( period = 10.000 ns )
+Actual Time    : Restricted to 200.00 MHz ( period = 5.000 ns )
+From           : dcp:DECODE|AROM16
+To             : dcp:DECODE|AROM16
+From Clock     : /io
+To Clock       : /io
+Failed Paths   : 0
+
+Type           : Clock Hold: 'TG42'
+Slack          : -5.800 ns
+Required Time  : 42.00 MHz ( period = 23.809 ns )
+Actual Time    : N/A
+From           : acceler:ACC|MDO[2]
+To             : CBD[2]
+From Clock     : TG42
+To Clock       : TG42
+Failed Paths   : 59
+
+Type           : Clock Hold: '/wr'
+Slack          : 0.300 ns
+Required Time  : 100.00 MHz ( period = 10.000 ns )
+Actual Time    : N/A
+From           : dcp:DECODE|CNF[7]
+To             : dcp:DECODE|CNF[7]
+From Clock     : /wr
+To Clock       : /wr
+Failed Paths   : 0
+
+Type           : Clock Hold: '/io'
+Slack          : 0.300 ns
+Required Time  : 100.00 MHz ( period = 10.000 ns )
+Actual Time    : N/A
+From           : dcp:DECODE|CNF[7]
+To             : dcp:DECODE|CNF[7]
+From Clock     : /io
+To Clock       : /io
+Failed Paths   : 0
+
+Type           : Clock Hold: '/m1'
+Slack          : 0.300 ns
+Required Time  : 100.00 MHz ( period = 10.000 ns )
+Actual Time    : N/A
+From           : dcp:DECODE|CNF[7]
+To             : dcp:DECODE|CNF[7]
+From Clock     : /m1
+To Clock       : /m1
+Failed Paths   : 0
+
+Type           : Clock Hold: '/mr'
+Slack          : 0.500 ns
+Required Time  : 100.00 MHz ( period = 10.000 ns )
+Actual Time    : N/A
+From           : dos
+To             : dos
+From Clock     : /mr
+To Clock       : /mr
+Failed Paths   : 0
+
+Type           : Recovery: 'TG42'
+Slack          : 2.004 ns
+Required Time  : 16.504 ns
+Actual Time    : 14.500 ns
+From           : dcp:DECODE|$00030
+To             : dcp:DECODE|HDD_FLIP
+From Clock     : TG42
+To Clock       : TG42
+Failed Paths   : 0
+
+Type           : Recovery: '/mr'
+Slack          : 5.500 ns
+Required Time  : 16.800 ns
+Actual Time    : 11.300 ns
+From           : CS_ROMT
+To             : CS_ROMT
+From Clock     : /mr
+To Clock       : /mr
+Failed Paths   : 0
+
+Type           : Recovery: '/wr'
+Slack          : 3.100 ns
+Required Time  : 15.500 ns
+Actual Time    : 12.400 ns
+From           : dcp:DECODE|CNF[5]
+To             : dcp:DECODE|PN[3]
+From Clock     : /wr
+To Clock       : /wr
+Failed Paths   : 0
+
+Type           : Recovery: '/io'
+Slack          : 3.100 ns
+Required Time  : 15.700 ns
+Actual Time    : 12.600 ns
+From           : dcp:DECODE|CNF[5]
+To             : dcp:DECODE|PN[3]
+From Clock     : /io
+To Clock       : /io
+Failed Paths   : 0
+
+Type           : Recovery: '/m1'
+Slack          : 3.100 ns
+Required Time  : 21.600 ns
+Actual Time    : 18.500 ns
+From           : dcp:DECODE|CNF[5]
+To             : dcp:DECODE|PN[3]
+From Clock     : /m1
+To Clock       : /m1
+Failed Paths   : 0
+
+Type           : Removal: 'TG42'
+Slack          : -2.800 ns
+Required Time  : 8.900 ns
+Actual Time    : 6.100 ns
+From           : kbd:KEYS|$00012
+To             : kbd:KEYS|KB_RESET
+From Clock     : TG42
+To Clock       : TG42
+Failed Paths   : 8
+
+Type           : Removal: '/mr'
+Slack          : 2.600 ns
+Required Time  : 8.700 ns
+Actual Time    : 11.300 ns
+From           : CS_ROMT
+To             : CS_ROMT
+From Clock     : /mr
+To Clock       : /mr
+Failed Paths   : 0
+
+Type           : Removal: '/wr'
+Slack          : 2.400 ns
+Required Time  : 8.100 ns
+Actual Time    : 10.500 ns
+From           : dcp:DECODE|CNF[7]
+To             : dcp:DECODE|PN[7]
+From Clock     : /wr
+To Clock       : /wr
+Failed Paths   : 0
+
+Type           : Removal: '/io'
+Slack          : 2.400 ns
+Required Time  : 8.300 ns
+Actual Time    : 10.700 ns
+From           : dcp:DECODE|CNF[7]
+To             : dcp:DECODE|PN[7]
+From Clock     : /io
+To Clock       : /io
+Failed Paths   : 0
+
+Type           : Removal: '/m1'
+Slack          : 2.400 ns
+Required Time  : 14.200 ns
+Actual Time    : 16.600 ns
+From           : dcp:DECODE|CNF[7]
+To             : dcp:DECODE|PN[7]
+From Clock     : /m1
+To Clock       : /m1
+Failed Paths   : 0
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 74
+
+--------------------------------------------------------------------------------------
+
