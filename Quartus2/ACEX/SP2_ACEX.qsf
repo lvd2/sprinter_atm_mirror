@@ -961,3 +961,8 @@ set_global_assignment -name AHDL_FILE VIDEO2.TDF
 set_global_assignment -name FLOW_ENABLE_RTL_VIEWER ON
 set_global_assignment -name FLOW_ENABLE_IO_ASSIGNMENT_ANALYSIS OFF
 set_global_assignment -name ENABLE_RECOVERY_REMOVAL_ANALYSIS ON
+
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim (Verilog)"
+set_global_assignment -name EDA_MAP_ILLEGAL_CHARACTERS ON -section_id eda_simulation
+set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
