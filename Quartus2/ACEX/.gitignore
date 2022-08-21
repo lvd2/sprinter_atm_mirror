@@ -1,0 +1,6 @@
+*.qws
+*.rpt
+*.summary
+*.done
+db/*
+

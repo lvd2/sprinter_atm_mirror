@@ -41,7 +41,7 @@ set_global_assignment -name DEVICE "EP1K30QC208-3"
 set_global_assignment -name TOP_LEVEL_ENTITY SP2_ACEX
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "9.0 SP2"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "09:38:15  JUNE 28, 2021"
-set_global_assignment -name LAST_QUARTUS_VERSION "9.0 SP2"
+set_global_assignment -name LAST_QUARTUS_VERSION 9.0
 set_location_assignment EAB_D -to "acceler:ACC|lpm_ram_dp:RAM|altdpram:sram|segment0_0"
 set_location_assignment EAB_D -to "acceler:ACC|lpm_ram_dp:RAM|altdpram:sram|segment0_1"
 set_location_assignment EAB_D -to "acceler:ACC|lpm_ram_dp:RAM|altdpram:sram|segment0_2"
