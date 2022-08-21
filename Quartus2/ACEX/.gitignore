@@ -1,6 +1,11 @@
+*.pin
+*.sof
+*.pof
 *.qws
+*.ttf
 *.rpt
 *.summary
 *.done
 db/*
+incremental_db/*
 
