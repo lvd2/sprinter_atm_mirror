@@ -10,16 +10,16 @@ PARAMETERS
         );
 
 INCLUDE "lpm_ram_dp";
-INCLUDE "kbd";
+INCLUDE "KBD";
 --INCLUDE "video";
-INCLUDE "video2";
+INCLUDE "VIDEO0";
 
-INCLUDE "dcp";
+INCLUDE "DCP";
 --INCLUDE       "dcp2";
 
-INCLUDE "acceler";
-INCLUDE "ay";
-INCLUDE "mouse";
+INCLUDE "ACCELER";
+INCLUDE "AY";
+INCLUDE "MOUSE";
 
 SUBDESIGN SP2_ACEX
         (

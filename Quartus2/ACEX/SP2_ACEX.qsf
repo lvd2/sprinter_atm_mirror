@@ -790,7 +790,6 @@ set_global_assignment -name CUT_OFF_READ_DURING_WRITE_PATHS OFF
 set_global_assignment -name NUMBER_OF_SOURCES_PER_DESTINATION_TO_REPORT 10
 set_global_assignment -name EXCLUDE_TPD_PATHS_LESS_THAN "0 ns"
 set_global_assignment -name AUTO_LCELL_INSERTION ON -entity sp2_acex
-set_global_assignment -name MISC_FILE "C:/Users/Administrator/Desktop/Sputnik2k/newhard/hard/ACEX/SP2_ACEX.dpf"
 set_global_assignment -name BLOCK_DESIGN_NAMING QUARTUSII
 set_location_assignment PIN_47 -to a[15]
 set_location_assignment PIN_46 -to a[14]
@@ -962,4 +961,3 @@ set_global_assignment -name AHDL_FILE VIDEO2.TDF
 set_global_assignment -name FLOW_ENABLE_RTL_VIEWER ON
 set_global_assignment -name FLOW_ENABLE_IO_ASSIGNMENT_ANALYSIS OFF
 set_global_assignment -name ENABLE_RECOVERY_REMOVAL_ANALYSIS ON
-set_global_assignment -name VECTOR_WAVEFORM_FILE SP2_ACEX.vwf
