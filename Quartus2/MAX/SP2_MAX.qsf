@@ -56,14 +56,16 @@ set_global_assignment -name AHDL_FILE SP2_MAX.TDF
 set_global_assignment -name MISC_FILE /home/lvd/d/sprinter_atm/Quartus2/MAX/SP2_MAX.dpf
 
 
+set_location_assignment PIN_65 -to GND65
+set_location_assignment PIN_33 -to GND33
 set_location_assignment PIN_54 -to /CONF_X 
 set_location_assignment PIN_58 -to 10K_D0 
 set_location_assignment PIN_32 -to CLKZZ 
 set_location_assignment PIN_56 -to 10K_CLK 
-set_location_assignment PIN_83 -to XHD2_CS2 
-set_location_assignment PIN_81 -to XHD2_CS1 
-set_location_assignment PIN_80 -to XHD1_CS2 
-set_location_assignment PIN_79 -to XHD1_CS1 
+set_location_assignment PIN_83 -to XHD2_CS[2]
+set_location_assignment PIN_81 -to XHD2_CS[1]
+set_location_assignment PIN_80 -to XHD1_CS[2]
+set_location_assignment PIN_79 -to XHD1_CS[1]
 set_location_assignment PIN_75 -to XHD_WR 
 set_location_assignment PIN_71 -to XHD_RES 
 set_location_assignment PIN_76 -to XHD_RD 
@@ -91,9 +93,9 @@ set_location_assignment PIN_13 -to CLK_WG
 set_location_assignment PIN_84 -to BEEP 
 set_location_assignment PIN_35 -to AUD 
 set_location_assignment PIN_88 -to XHR_RDY 
-set_location_assignment PIN_23 -to XA2 
-set_location_assignment PIN_21 -to XA1 
-set_location_assignment PIN_17 -to XA0 
+set_location_assignment PIN_23 -to XA[2]
+set_location_assignment PIN_21 -to XA[1]
+set_location_assignment PIN_17 -to XA[0]
 set_location_assignment PIN_37 -to XACS 
 set_location_assignment PIN_10 -to WSTB 
 set_location_assignment PIN_57 -to WR_CNF 
@@ -108,13 +110,13 @@ set_location_assignment PIN_69 -to SINC_IN
 set_location_assignment PIN_25 -to RSTB 
 set_location_assignment PIN_92 -to RDAT 
 set_location_assignment PIN_90 -to PW_GOOD 
-set_location_assignment PIN_40 -to HDD_C3 
-set_location_assignment PIN_41 -to HDD_C2 
-set_location_assignment PIN_42 -to HDD_C1 
-set_location_assignment PIN_47 -to HDD_C0 
-set_location_assignment PIN_46 -to FDD_C2 
-set_location_assignment PIN_45 -to FDD_C1 
-set_location_assignment PIN_44 -to FDD_C0 
+set_location_assignment PIN_40 -to HDD_C[3]
+set_location_assignment PIN_41 -to HDD_C[2]
+set_location_assignment PIN_42 -to HDD_C[1]
+set_location_assignment PIN_47 -to HDD_C[0]
+set_location_assignment PIN_46 -to FDD_C[2]
+set_location_assignment PIN_45 -to FDD_C[1]
+set_location_assignment PIN_44 -to FDD_C[0] 
 set_location_assignment PIN_89 -to EPM_RES 
 set_location_assignment PIN_60 -to D0 
 
