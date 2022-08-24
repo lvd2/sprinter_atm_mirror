@@ -768,11 +768,11 @@ set_global_assignment -name RESERVE_DATA7_THROUGH_DATA1_AFTER_CONFIGURATION "USE
 set_global_assignment -name USER_START_UP_CLOCK OFF
 set_global_assignment -name SECURITY_BIT OFF
 set_global_assignment -name FLEX6K_OPTIMIZATION_TECHNIQUE AREA
-set_global_assignment -name FLEX10K_OPTIMIZATION_TECHNIQUE SPEED
+set_global_assignment -name FLEX10K_OPTIMIZATION_TECHNIQUE AREA
 set_global_assignment -name AUTO_IMPLEMENT_IN_ROM OFF
 set_global_assignment -name AUTO_OPEN_DRAIN_PINS ON
 set_global_assignment -name STATE_MACHINE_PROCESSING AUTO
-set_global_assignment -name AUTO_PACKED_REGISTERS OFF
+set_global_assignment -name AUTO_PACKED_REGISTERS "MINIMIZE AREA"
 set_global_assignment -name AUTO_FAST_INPUT_REGISTERS OFF
 set_global_assignment -name AUTO_FAST_OUTPUT_REGISTERS OFF
 set_global_assignment -name AUTO_GLOBAL_OE ON
@@ -966,3 +966,10 @@ set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim (Verilog)"
 set_global_assignment -name EDA_MAP_ILLEGAL_CHARACTERS ON -section_id eda_simulation
 set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
+set_global_assignment -name OPTIMIZE_HOLD_TIMING OFF
+set_global_assignment -name FITTER_EFFORT "STANDARD FIT"
+set_global_assignment -name ROUTER_TIMING_OPTIMIZATION_LEVEL MAXIMUM
+set_global_assignment -name FINAL_PLACEMENT_OPTIMIZATION ALWAYS
+set_global_assignment -name FITTER_AGGRESSIVE_ROUTABILITY_OPTIMIZATION ALWAYS
+set_global_assignment -name ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS OFF
+set_global_assignment -name REMOVE_REDUNDANT_LOGIC_CELLS ON
